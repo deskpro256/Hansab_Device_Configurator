@@ -29,42 +29,52 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Slave0");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Slave1");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Slave2");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Slave3");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Slave4");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Slave5");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Slave6");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Slave7");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Slave8");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Slave9");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Slave10");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Slave11");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Slave12");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Slave13");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Slave14");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Slave15");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Interface", new System.Windows.Forms.TreeNode[] {
-            treeNode18,
-            treeNode19,
-            treeNode20,
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24,
-            treeNode25,
-            treeNode26,
-            treeNode27,
-            treeNode28,
-            treeNode29,
-            treeNode30,
-            treeNode31,
-            treeNode32,
-            treeNode33});
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Slave0");
+            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Slave1");
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Slave2");
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Slave3");
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Slave4");
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Slave5");
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Slave6");
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Slave7");
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Slave8");
+            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Slave9");
+            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("Slave10");
+            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Slave11");
+            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Slave12");
+            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("Slave13");
+            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Slave14");
+            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Slave15");
+            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("Interface", new System.Windows.Forms.TreeNode[] {
+            treeNode69,
+            treeNode70,
+            treeNode71,
+            treeNode72,
+            treeNode73,
+            treeNode74,
+            treeNode75,
+            treeNode76,
+            treeNode77,
+            treeNode78,
+            treeNode79,
+            treeNode80,
+            treeNode81,
+            treeNode82,
+            treeNode83,
+            treeNode84});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.Tab_control = new System.Windows.Forms.TabControl();
             this.Main_tab = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Floor4SendCount = new System.Windows.Forms.NumericUpDown();
+            this.Floor3SendCount = new System.Windows.Forms.NumericUpDown();
+            this.Floor2SendCount = new System.Windows.Forms.NumericUpDown();
+            this.Floor1SendCount = new System.Windows.Forms.NumericUpDown();
+            this.FloorCountSendButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ConfigDisableButton = new System.Windows.Forms.Button();
             this.ConfigEnableButton = new System.Windows.Forms.Button();
@@ -127,18 +137,13 @@
             this.Floor2Label = new System.Windows.Forms.Label();
             this.Floor3Label = new System.Windows.Forms.Label();
             this.RequestCount_button = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDown2 = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDown3 = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDown4 = new System.Windows.Forms.DomainUpDown();
-            this.button1 = new System.Windows.Forms.Button();
             this.Tab_control.SuspendLayout();
             this.Main_tab.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Floor4SendCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Floor3SendCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Floor2SendCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Floor1SendCount)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SerialPortBox.SuspendLayout();
             this.config_tab.SuspendLayout();
@@ -149,7 +154,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.hansab_logo)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.FloorBox.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tab_control
@@ -185,6 +189,102 @@
             this.Main_tab.TabIndex = 4;
             this.Main_tab.Text = "Main";
             this.Main_tab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.Floor4SendCount);
+            this.groupBox3.Controls.Add(this.Floor3SendCount);
+            this.groupBox3.Controls.Add(this.Floor2SendCount);
+            this.groupBox3.Controls.Add(this.Floor1SendCount);
+            this.groupBox3.Controls.Add(this.FloorCountSendButton);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Location = new System.Drawing.Point(27, 364);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(201, 126);
+            this.groupBox3.TabIndex = 24;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Send count to display";
+            // 
+            // Floor4SendCount
+            // 
+            this.Floor4SendCount.Location = new System.Drawing.Point(56, 98);
+            this.Floor4SendCount.Name = "Floor4SendCount";
+            this.Floor4SendCount.Size = new System.Drawing.Size(68, 20);
+            this.Floor4SendCount.TabIndex = 28;
+            this.Floor4SendCount.ValueChanged += new System.EventHandler(this.Floor4SendCount_ValueChanged);
+            // 
+            // Floor3SendCount
+            // 
+            this.Floor3SendCount.Location = new System.Drawing.Point(56, 72);
+            this.Floor3SendCount.Name = "Floor3SendCount";
+            this.Floor3SendCount.Size = new System.Drawing.Size(68, 20);
+            this.Floor3SendCount.TabIndex = 27;
+            this.Floor3SendCount.ValueChanged += new System.EventHandler(this.Floor3SendCount_ValueChanged);
+            // 
+            // Floor2SendCount
+            // 
+            this.Floor2SendCount.Location = new System.Drawing.Point(56, 46);
+            this.Floor2SendCount.Name = "Floor2SendCount";
+            this.Floor2SendCount.Size = new System.Drawing.Size(68, 20);
+            this.Floor2SendCount.TabIndex = 26;
+            this.Floor2SendCount.ValueChanged += new System.EventHandler(this.Floor2SendCount_ValueChanged);
+            // 
+            // Floor1SendCount
+            // 
+            this.Floor1SendCount.Location = new System.Drawing.Point(56, 20);
+            this.Floor1SendCount.Name = "Floor1SendCount";
+            this.Floor1SendCount.Size = new System.Drawing.Size(68, 20);
+            this.Floor1SendCount.TabIndex = 25;
+            this.Floor1SendCount.ValueChanged += new System.EventHandler(this.Floor1SendCount_ValueChanged);
+            // 
+            // FloorCountSendButton
+            // 
+            this.FloorCountSendButton.Location = new System.Drawing.Point(136, 57);
+            this.FloorCountSendButton.Name = "FloorCountSendButton";
+            this.FloorCountSendButton.Size = new System.Drawing.Size(52, 23);
+            this.FloorCountSendButton.TabIndex = 8;
+            this.FloorCountSendButton.Text = "SEND!";
+            this.FloorCountSendButton.UseVisualStyleBackColor = true;
+            this.FloorCountSendButton.Click += new System.EventHandler(this.FloorCountSendButton_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 100);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Floor 4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Floor 3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Floor 2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Floor 1";
             // 
             // groupBox2
             // 
@@ -295,42 +395,42 @@
             this.treeView1.HideSelection = false;
             this.treeView1.Location = new System.Drawing.Point(286, 61);
             this.treeView1.Name = "treeView1";
-            treeNode18.Name = "Slave0";
-            treeNode18.Text = "Slave0";
-            treeNode19.Name = "Slave1";
-            treeNode19.Text = "Slave1";
-            treeNode20.Name = "Slave2";
-            treeNode20.Text = "Slave2";
-            treeNode21.Name = "Slave3";
-            treeNode21.Text = "Slave3";
-            treeNode22.Name = "Slave4";
-            treeNode22.Text = "Slave4";
-            treeNode23.Name = "Slave5";
-            treeNode23.Text = "Slave5";
-            treeNode24.Name = "Slave6";
-            treeNode24.Text = "Slave6";
-            treeNode25.Name = "Slave7";
-            treeNode25.Text = "Slave7";
-            treeNode26.Name = "Slave8";
-            treeNode26.Text = "Slave8";
-            treeNode27.Name = "Slave9";
-            treeNode27.Text = "Slave9";
-            treeNode28.Name = "Slave10";
-            treeNode28.Text = "Slave10";
-            treeNode29.Name = "Slave11";
-            treeNode29.Text = "Slave11";
-            treeNode30.Name = "Slave12";
-            treeNode30.Text = "Slave12";
-            treeNode31.Name = "Slave13";
-            treeNode31.Text = "Slave13";
-            treeNode32.Name = "Slave14";
-            treeNode32.Text = "Slave14";
-            treeNode33.Name = "Slave15";
-            treeNode33.Text = "Slave15";
-            treeNode34.Name = "Interface";
-            treeNode34.Text = "Interface";
+            treeNode69.Name = "Slave0";
+            treeNode69.Text = "Slave0";
+            treeNode70.Name = "Slave1";
+            treeNode70.Text = "Slave1";
+            treeNode71.Name = "Slave2";
+            treeNode71.Text = "Slave2";
+            treeNode72.Name = "Slave3";
+            treeNode72.Text = "Slave3";
+            treeNode73.Name = "Slave4";
+            treeNode73.Text = "Slave4";
+            treeNode74.Name = "Slave5";
+            treeNode74.Text = "Slave5";
+            treeNode75.Name = "Slave6";
+            treeNode75.Text = "Slave6";
+            treeNode76.Name = "Slave7";
+            treeNode76.Text = "Slave7";
+            treeNode77.Name = "Slave8";
+            treeNode77.Text = "Slave8";
+            treeNode78.Name = "Slave9";
+            treeNode78.Text = "Slave9";
+            treeNode79.Name = "Slave10";
+            treeNode79.Text = "Slave10";
+            treeNode80.Name = "Slave11";
+            treeNode80.Text = "Slave11";
+            treeNode81.Name = "Slave12";
+            treeNode81.Text = "Slave12";
+            treeNode82.Name = "Slave13";
+            treeNode82.Text = "Slave13";
+            treeNode83.Name = "Slave14";
+            treeNode83.Text = "Slave14";
+            treeNode84.Name = "Slave15";
+            treeNode84.Text = "Slave15";
+            treeNode85.Name = "Interface";
+            treeNode85.Text = "Interface";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode34});
+            treeNode85});
             this.treeView1.Size = new System.Drawing.Size(163, 285);
             this.treeView1.TabIndex = 19;
             // 
@@ -844,97 +944,6 @@
             this.RequestCount_button.UseVisualStyleBackColor = true;
             this.RequestCount_button.Click += new System.EventHandler(this.RequestCount_button_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.domainUpDown4);
-            this.groupBox3.Controls.Add(this.domainUpDown3);
-            this.groupBox3.Controls.Add(this.domainUpDown2);
-            this.groupBox3.Controls.Add(this.domainUpDown1);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(27, 364);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(201, 126);
-            this.groupBox3.TabIndex = 24;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Send count to display";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Floor 1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Floor 2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Floor 3";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 100);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Floor 4";
-            // 
-            // domainUpDown1
-            // 
-            this.domainUpDown1.Location = new System.Drawing.Point(63, 20);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(66, 20);
-            this.domainUpDown1.TabIndex = 4;
-            // 
-            // domainUpDown2
-            // 
-            this.domainUpDown2.Location = new System.Drawing.Point(63, 46);
-            this.domainUpDown2.Name = "domainUpDown2";
-            this.domainUpDown2.Size = new System.Drawing.Size(66, 20);
-            this.domainUpDown2.TabIndex = 5;
-            // 
-            // domainUpDown3
-            // 
-            this.domainUpDown3.Location = new System.Drawing.Point(63, 72);
-            this.domainUpDown3.Name = "domainUpDown3";
-            this.domainUpDown3.Size = new System.Drawing.Size(66, 20);
-            this.domainUpDown3.TabIndex = 6;
-            // 
-            // domainUpDown4
-            // 
-            this.domainUpDown4.Location = new System.Drawing.Point(63, 98);
-            this.domainUpDown4.Name = "domainUpDown4";
-            this.domainUpDown4.Size = new System.Drawing.Size(66, 20);
-            this.domainUpDown4.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(143, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(52, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "SEND!";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -958,6 +967,12 @@
             this.Tab_control.ResumeLayout(false);
             this.Main_tab.ResumeLayout(false);
             this.Main_tab.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Floor4SendCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Floor3SendCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Floor2SendCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Floor1SendCount)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.SerialPortBox.ResumeLayout(false);
@@ -975,8 +990,6 @@
             this.groupBox1.PerformLayout();
             this.FloorBox.ResumeLayout(false);
             this.FloorBox.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1049,14 +1062,14 @@
         private System.Windows.Forms.Label Floor4Label;
         private System.Windows.Forms.Label FloorLabel4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DomainUpDown domainUpDown4;
-        private System.Windows.Forms.DomainUpDown domainUpDown3;
-        private System.Windows.Forms.DomainUpDown domainUpDown2;
-        private System.Windows.Forms.DomainUpDown domainUpDown1;
+        private System.Windows.Forms.Button FloorCountSendButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown Floor1SendCount;
+        private System.Windows.Forms.NumericUpDown Floor4SendCount;
+        private System.Windows.Forms.NumericUpDown Floor3SendCount;
+        private System.Windows.Forms.NumericUpDown Floor2SendCount;
     }
 }

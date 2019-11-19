@@ -23,6 +23,9 @@ namespace Hansab_slave_configurator
         public bool isConnected = SimpleIOClass.IsConnected();         //Connection status of MCP2200 
         public byte[] msg = new byte[8];
 
+        public int[] floorNums = new int[4];
+        public byte[] floorNaddresses = {0xF1, 0xF2, 0xF3, 0xF4 };
+
         // RS485 stuff start:
         public byte IntDev = 0x1D; //Interface device ID
         public byte myID = 0x1C;    //PC soft ID
@@ -400,5 +403,35 @@ namespace Hansab_slave_configurator
         }
 
 
+        private void Floor1SendCount_ValueChanged(object sender, EventArgs e)
+        {
+            floorNums[0] = System.Convert.ToInt32(Floor1SendCount.Value);
+        }
+
+        private void Floor2SendCount_ValueChanged(object sender, EventArgs e)
+        {
+            floorNums[1] = System.Convert.ToInt32(Floor2SendCount.Value);
+        }
+
+        private void Floor3SendCount_ValueChanged(object sender, EventArgs e)
+        {
+            floorNums[2] = System.Convert.ToInt32(Floor3SendCount.Value);
+        }
+
+        private void Floor4SendCount_ValueChanged(object sender, EventArgs e)
+        {
+            floorNums[3] = System.Convert.ToInt32(Floor4SendCount.Value);
+        }
+        private void FloorCountSendButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= 3; i++)
+            {
+                byte huns = System.Convert.ToByte((floorNums[i] / 100)) ;
+                byte tens = System.Convert.ToByte((floorNums[i] % 100) / 10);
+                byte ones = System.Convert.ToByte((floorNums[i] % 10));
+                byte floorAddress = floorNaddresses[i];
+                RS485Send(floorAddress, messageType[0], CMDLUT[2], huns, tens, ones);
+            }
+        }
     }
 }
