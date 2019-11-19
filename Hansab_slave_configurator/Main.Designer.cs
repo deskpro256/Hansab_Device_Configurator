@@ -29,39 +29,39 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Slave0");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Slave1");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Slave2");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Slave3");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Slave4");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Slave5");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Slave6");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Slave7");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Slave8");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Slave9");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Slave10");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Slave11");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Slave12");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Slave13");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Slave14");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Slave15");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Interface", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Slave0");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Slave1");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Slave2");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Slave3");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Slave4");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Slave5");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Slave6");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Slave7");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Slave8");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Slave9");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Slave10");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Slave11");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Slave12");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Slave13");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Slave14");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Slave15");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Interface", new System.Windows.Forms.TreeNode[] {
+            treeNode18,
+            treeNode19,
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23,
+            treeNode24,
+            treeNode25,
+            treeNode26,
+            treeNode27,
+            treeNode28,
+            treeNode29,
+            treeNode30,
+            treeNode31,
+            treeNode32,
+            treeNode33});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.Tab_control = new System.Windows.Forms.TabControl();
             this.Main_tab = new System.Windows.Forms.TabPage();
@@ -295,42 +295,42 @@
             this.treeView1.HideSelection = false;
             this.treeView1.Location = new System.Drawing.Point(286, 61);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Slave0";
-            treeNode1.Text = "Slave0";
-            treeNode2.Name = "Slave1";
-            treeNode2.Text = "Slave1";
-            treeNode3.Name = "Slave2";
-            treeNode3.Text = "Slave2";
-            treeNode4.Name = "Slave3";
-            treeNode4.Text = "Slave3";
-            treeNode5.Name = "Slave4";
-            treeNode5.Text = "Slave4";
-            treeNode6.Name = "Slave5";
-            treeNode6.Text = "Slave5";
-            treeNode7.Name = "Slave6";
-            treeNode7.Text = "Slave6";
-            treeNode8.Name = "Slave7";
-            treeNode8.Text = "Slave7";
-            treeNode9.Name = "Slave8";
-            treeNode9.Text = "Slave8";
-            treeNode10.Name = "Slave9";
-            treeNode10.Text = "Slave9";
-            treeNode11.Name = "Slave10";
-            treeNode11.Text = "Slave10";
-            treeNode12.Name = "Slave11";
-            treeNode12.Text = "Slave11";
-            treeNode13.Name = "Slave12";
-            treeNode13.Text = "Slave12";
-            treeNode14.Name = "Slave13";
-            treeNode14.Text = "Slave13";
-            treeNode15.Name = "Slave14";
-            treeNode15.Text = "Slave14";
-            treeNode16.Name = "Slave15";
-            treeNode16.Text = "Slave15";
-            treeNode17.Name = "Interface";
-            treeNode17.Text = "Interface";
+            treeNode18.Name = "Slave0";
+            treeNode18.Text = "Slave0";
+            treeNode19.Name = "Slave1";
+            treeNode19.Text = "Slave1";
+            treeNode20.Name = "Slave2";
+            treeNode20.Text = "Slave2";
+            treeNode21.Name = "Slave3";
+            treeNode21.Text = "Slave3";
+            treeNode22.Name = "Slave4";
+            treeNode22.Text = "Slave4";
+            treeNode23.Name = "Slave5";
+            treeNode23.Text = "Slave5";
+            treeNode24.Name = "Slave6";
+            treeNode24.Text = "Slave6";
+            treeNode25.Name = "Slave7";
+            treeNode25.Text = "Slave7";
+            treeNode26.Name = "Slave8";
+            treeNode26.Text = "Slave8";
+            treeNode27.Name = "Slave9";
+            treeNode27.Text = "Slave9";
+            treeNode28.Name = "Slave10";
+            treeNode28.Text = "Slave10";
+            treeNode29.Name = "Slave11";
+            treeNode29.Text = "Slave11";
+            treeNode30.Name = "Slave12";
+            treeNode30.Text = "Slave12";
+            treeNode31.Name = "Slave13";
+            treeNode31.Text = "Slave13";
+            treeNode32.Name = "Slave14";
+            treeNode32.Text = "Slave14";
+            treeNode33.Name = "Slave15";
+            treeNode33.Text = "Slave15";
+            treeNode34.Name = "Interface";
+            treeNode34.Text = "Interface";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode17});
+            treeNode34});
             this.treeView1.Size = new System.Drawing.Size(163, 285);
             this.treeView1.TabIndex = 19;
             // 
@@ -904,7 +904,6 @@
             this.domainUpDown1.Name = "domainUpDown1";
             this.domainUpDown1.Size = new System.Drawing.Size(66, 20);
             this.domainUpDown1.TabIndex = 4;
-            this.domainUpDown1.Text = "domainUpDown1";
             // 
             // domainUpDown2
             // 
@@ -912,7 +911,6 @@
             this.domainUpDown2.Name = "domainUpDown2";
             this.domainUpDown2.Size = new System.Drawing.Size(66, 20);
             this.domainUpDown2.TabIndex = 5;
-            this.domainUpDown2.Text = "domainUpDown2";
             // 
             // domainUpDown3
             // 
@@ -920,7 +918,6 @@
             this.domainUpDown3.Name = "domainUpDown3";
             this.domainUpDown3.Size = new System.Drawing.Size(66, 20);
             this.domainUpDown3.TabIndex = 6;
-            this.domainUpDown3.Text = "domainUpDown3";
             // 
             // domainUpDown4
             // 
@@ -928,11 +925,10 @@
             this.domainUpDown4.Name = "domainUpDown4";
             this.domainUpDown4.Size = new System.Drawing.Size(66, 20);
             this.domainUpDown4.TabIndex = 7;
-            this.domainUpDown4.Text = "domainUpDown4";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(141, 17);
+            this.button1.Location = new System.Drawing.Point(143, 48);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(52, 23);
             this.button1.TabIndex = 8;
