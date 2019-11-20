@@ -137,6 +137,7 @@ namespace Hansab_slave_configurator
                 COM_ports_box.Text = "";
                 ConfigDisableButton.Enabled = false;
                 ConfigEnableButton.Enabled = false;
+                FloorCountSendButton.Enabled = false;
                 serialPort1.Close();
             }
         }
@@ -289,6 +290,7 @@ namespace Hansab_slave_configurator
             RequestCount_button.Enabled = true;
             GetErrors_button.Enabled = true;
             Ping_button.Enabled = true;
+            FloorCountSendButton.Enabled = true;
         }
 
         private void ConfigDisableButton_Click(object sender, EventArgs e)
@@ -300,6 +302,7 @@ namespace Hansab_slave_configurator
             RequestCount_button.Enabled = false;
             GetErrors_button.Enabled = false;
             Ping_button.Enabled = false;
+            FloorCountSendButton.Enabled = false;
         }
 
         private void Serial_timer_Tick(object sender, EventArgs e)
@@ -426,9 +429,9 @@ namespace Hansab_slave_configurator
         {
             for (int i = 0; i <= 3; i++)
             {
-                byte huns = System.Convert.ToByte((floorNums[i] / 100)) ;
-                byte tens = System.Convert.ToByte((floorNums[i] % 100) / 10);
-                byte ones = System.Convert.ToByte((floorNums[i] % 10));
+                byte huns = System.Convert.ToByte((floorNums[i] / 100)+0x30) ;
+                byte tens = System.Convert.ToByte((floorNums[i] % 100) / 10 + 0x30);
+                byte ones = System.Convert.ToByte((floorNums[i] % 10) + 0x30);
                 byte floorAddress = floorNaddresses[i];
                 RS485Send(floorAddress, messageType[0], CMDLUT[2], huns, tens, ones);
             }
