@@ -148,7 +148,6 @@ namespace Hansab_slave_configurator
             COM_ports_box.Items.Clear();
             serialPort1.PortName = "COM99";
             getPortNames();
-
         }
 
         private void COM_ports_box_SelectedIndexChanged(object sender, EventArgs e)
@@ -244,8 +243,8 @@ namespace Hansab_slave_configurator
             this.Close();
             var newwindow = new Login_form();
             newwindow.Show();
-
         }
+
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
@@ -271,6 +270,11 @@ namespace Hansab_slave_configurator
                 Apply_button.Enabled = false;
                 COM_ports_box.Text = "";
                 Ping_button.Enabled = false;
+                ConfigDisableButton.Enabled = false;
+                ConfigEnableButton.Enabled = false;
+                FloorCountSendButton.Enabled = false;
+                RequestCount_button.Enabled = false;
+                Restart_button.Enabled = false;
             }
         }
         public void MCP2200Load()
@@ -362,7 +366,6 @@ namespace Hansab_slave_configurator
                 SimpleIOClass.ClearPin(3);
                 serialPort1.Close();
             }
-            Application.Exit();
         }
 
         private void RequestCount_button_Click(object sender, EventArgs e)
@@ -436,5 +439,6 @@ namespace Hansab_slave_configurator
                 RS485Send(floorAddress, messageType[0], CMDLUT[2], huns, tens, ones);
             }
         }
+
     }
 }
