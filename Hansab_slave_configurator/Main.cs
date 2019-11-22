@@ -24,7 +24,7 @@ namespace Hansab_slave_configurator
         public byte[] msg = new byte[8];
 
         public int[] floorNums = new int[4];
-        public byte[] floorNaddresses = {0xF1, 0xF2, 0xF3, 0xF4 };
+        public byte[] floorNaddresses = { 0xF1, 0xF2, 0xF3, 0xF4 };
 
         // RS485 stuff start:
         public byte IntDev = 0x1D; //Interface device ID
@@ -107,6 +107,7 @@ namespace Hansab_slave_configurator
                 ConfigDisableButton.Enabled = false;
                 ConfigEnableButton.Enabled = true;
                 Apply_button.Enabled = false;
+                Refresh_button.Enabled = false;
             }
             else
             {
@@ -138,6 +139,7 @@ namespace Hansab_slave_configurator
                 ConfigDisableButton.Enabled = false;
                 ConfigEnableButton.Enabled = false;
                 FloorCountSendButton.Enabled = false;
+                Refresh_button.Enabled = true;
                 serialPort1.Close();
             }
         }
@@ -152,8 +154,11 @@ namespace Hansab_slave_configurator
 
         private void COM_ports_box_SelectedIndexChanged(object sender, EventArgs e)
         {
-            serialPort1.PortName = COM_ports_box.Text;
-            Apply_button.Enabled = true;
+            if (serialPort1.IsOpen == false)
+            {
+                serialPort1.PortName = COM_ports_box.Text;
+                Apply_button.Enabled = true;
+            }
         }
 
         public void SetSerialSettings()
@@ -221,10 +226,10 @@ namespace Hansab_slave_configurator
         private void RestartSystem()
         {
 
-            //RS485Send(Convert.ToByte(ID), messageType[0], CMDLUT[5], 0x50, 0x4E, 0x47);  // restart CMD
             SimpleIOClass.SetPin(2); //enable sending
             System.Threading.Thread.Sleep(10);
-            serialPort1.Write("Restarting!");
+            //RS485Send(Convert.ToByte(ID), messageType[0], CMDLUT[9], 0x52, 0x53, 0x54);  // restart CMD
+            //serialPort1.Write("Restarting!");
             System.Threading.Thread.Sleep(10);
             SimpleIOClass.ClearPin(2); //disable sending
 
@@ -432,7 +437,7 @@ namespace Hansab_slave_configurator
         {
             for (int i = 0; i <= 3; i++)
             {
-                byte huns = System.Convert.ToByte((floorNums[i] / 100)+0x30) ;
+                byte huns = System.Convert.ToByte((floorNums[i] / 100) + 0x30);
                 byte tens = System.Convert.ToByte((floorNums[i] % 100) / 10 + 0x30);
                 byte ones = System.Convert.ToByte((floorNums[i] % 10) + 0x30);
                 byte floorAddress = floorNaddresses[i];
