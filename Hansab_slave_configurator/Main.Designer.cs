@@ -29,39 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Slave0");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Slave1");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Slave2");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Slave3");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Slave4");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Slave5");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Slave6");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Slave7");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Slave8");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Slave9");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Slave10");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Slave11");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Slave12");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Slave13");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Slave14");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Slave15");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Interface", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.Tab_control = new System.Windows.Forms.TabControl();
             this.Main_tab = new System.Windows.Forms.TabPage();
@@ -75,7 +42,7 @@
             this.progressLED2 = new System.Windows.Forms.ProgressBar();
             this.Ping_button = new System.Windows.Forms.Button();
             this.PingProgressBar = new System.Windows.Forms.ProgressBar();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.ConnectedDeviceList = new System.Windows.Forms.TreeView();
             this.progressLED = new System.Windows.Forms.ProgressBar();
             this.SerialPortBox = new System.Windows.Forms.GroupBox();
             this.Refresh_button = new System.Windows.Forms.Button();
@@ -167,7 +134,7 @@
             this.Main_tab.Controls.Add(this.progressLED2);
             this.Main_tab.Controls.Add(this.Ping_button);
             this.Main_tab.Controls.Add(this.PingProgressBar);
-            this.Main_tab.Controls.Add(this.treeView1);
+            this.Main_tab.Controls.Add(this.ConnectedDeviceList);
             this.Main_tab.Controls.Add(this.progressLED);
             this.Main_tab.Controls.Add(this.SerialPortBox);
             this.Main_tab.Controls.Add(this.Plugged_label);
@@ -282,50 +249,14 @@
             this.PingProgressBar.Size = new System.Drawing.Size(75, 20);
             this.PingProgressBar.TabIndex = 20;
             // 
-            // treeView1
+            // ConnectedDeviceList
             // 
-            this.treeView1.CheckBoxes = true;
-            this.treeView1.HideSelection = false;
-            this.treeView1.Location = new System.Drawing.Point(286, 61);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Slave0";
-            treeNode1.Text = "Slave0";
-            treeNode2.Name = "Slave1";
-            treeNode2.Text = "Slave1";
-            treeNode3.Name = "Slave2";
-            treeNode3.Text = "Slave2";
-            treeNode4.Name = "Slave3";
-            treeNode4.Text = "Slave3";
-            treeNode5.Name = "Slave4";
-            treeNode5.Text = "Slave4";
-            treeNode6.Name = "Slave5";
-            treeNode6.Text = "Slave5";
-            treeNode7.Name = "Slave6";
-            treeNode7.Text = "Slave6";
-            treeNode8.Name = "Slave7";
-            treeNode8.Text = "Slave7";
-            treeNode9.Name = "Slave8";
-            treeNode9.Text = "Slave8";
-            treeNode10.Name = "Slave9";
-            treeNode10.Text = "Slave9";
-            treeNode11.Name = "Slave10";
-            treeNode11.Text = "Slave10";
-            treeNode12.Name = "Slave11";
-            treeNode12.Text = "Slave11";
-            treeNode13.Name = "Slave12";
-            treeNode13.Text = "Slave12";
-            treeNode14.Name = "Slave13";
-            treeNode14.Text = "Slave13";
-            treeNode15.Name = "Slave14";
-            treeNode15.Text = "Slave14";
-            treeNode16.Name = "Slave15";
-            treeNode16.Text = "Slave15";
-            treeNode17.Name = "Interface";
-            treeNode17.Text = "Interface";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode17});
-            this.treeView1.Size = new System.Drawing.Size(163, 285);
-            this.treeView1.TabIndex = 19;
+            this.ConnectedDeviceList.CheckBoxes = true;
+            this.ConnectedDeviceList.HideSelection = false;
+            this.ConnectedDeviceList.Location = new System.Drawing.Point(286, 61);
+            this.ConnectedDeviceList.Name = "ConnectedDeviceList";
+            this.ConnectedDeviceList.Size = new System.Drawing.Size(163, 285);
+            this.ConnectedDeviceList.TabIndex = 19;
             // 
             // progressLED
             // 
@@ -951,7 +882,7 @@
         private System.Windows.Forms.Button ConfigEnableButton;
         private System.Windows.Forms.Button ConfigDisableButton;
         private System.Windows.Forms.Timer Serial_timer;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView ConnectedDeviceList;
         private System.Windows.Forms.Button Ping_button;
         private System.Windows.Forms.Label ConDiscon_label;
         private System.Windows.Forms.ProgressBar progressLED2;

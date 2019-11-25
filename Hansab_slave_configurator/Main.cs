@@ -15,18 +15,21 @@ namespace Hansab_slave_configurator
         public Boolean _continue = false;
         public bool TimerPause = false;
         public string message;
-        public string pingRead;
         public string serialPorts;
         public string textFromFile;
         public const uint mcp2200_VID = 0x04D8;  //VID for MCP2200
         public const uint mcp2200_PID = 0x00DF;  //PID for MCP2200
         public bool isConnected = SimpleIOClass.IsConnected();         //Connection status of MCP2200 
+
+        // RS485 stuff start:
         public byte[] msg = new byte[8];
+        byte LookForSTX = 0x00;
+        public byte[] RS485ReadBytes = new byte[8];
+        bool replied = false;
 
         public int[] floorNums = new int[4];
         public byte[] floorNaddresses = { 0xF1, 0xF2, 0xF3, 0xF4 };
 
-        // RS485 stuff start:
         public byte IntDev = 0x1D; //Interface device ID
         public byte myID = 0x1C;    //PC soft ID
         public byte STX = 0x5B;
@@ -67,7 +70,7 @@ namespace Hansab_slave_configurator
             PingProgressBar.Visible = false;
             Ping_button.Enabled = false;
             serialPort1.PortName = "COM99";
-            treeView1.ExpandAll();
+            ConnectedDeviceList.ExpandAll();
             ConfigDisableButton.Enabled = false;
             ConfigEnableButton.Enabled = false;
             RequestCount_button.Enabled = false;
@@ -120,6 +123,7 @@ namespace Hansab_slave_configurator
             if (serialPort1.IsOpen == true)
             {
                 SimpleIOClass.ClearPin(3);
+                ConnectedDeviceList.Nodes.Clear();
                 ConfigDisableButton.Enabled = false;
                 ConfigEnableButton.Enabled = true;
                 Restart_button.Enabled = false;
@@ -262,6 +266,7 @@ namespace Hansab_slave_configurator
             }
             else
             {
+                ConnectedDeviceList.Nodes.Clear();
                 progressLED.Value = 0;
                 Plugged_label.Text = "Not plugged in!";
                 serialPort1.Close();
@@ -325,30 +330,54 @@ namespace Hansab_slave_configurator
             }
         }
 
-        private void Ping_button_Click(object sender, EventArgs e)
+        public void PingDevices()
         {
             PingProgressBar.Visible = true;
-            for (int id = 0; id <= 16; id++) //change to id <= 16;
+            Ping_button.Enabled = false;
+
+            ConnectedDeviceList.Nodes.Clear();
+            ConnectedDeviceList.Nodes.Add("Interface");
+            ConnectedDeviceList.Nodes[0].Checked = true;
+
+            for (int id = 0; id <= 15; id++)
             {
-                Ping_button.Enabled = false;
-                PingProgressBar.Value = id * (100 / 16);
+
+                PingProgressBar.Value = id * (100 / 15);
                 Ping(id);
                 System.Threading.Thread.Sleep(10);
                 // get reply, then continue to next id
-                pingRead = serialPort1.ReadExisting();
-                if (pingRead.Length > 0)
+                if (serialPort1.BytesToRead > 0)
                 {
-                    if (pingRead.Contains("\u0002"))
-                    {
+                    LookForSTX = 0x00;
+                    LookForSTX = Convert.ToByte(serialPort1.ReadByte());
+                }
+                else
+                {
+                    continue;
+                }
 
-                    }
-                    Serialport_text_box.AppendText(pingRead + "\n\r");
-                    serialPort1.DiscardInBuffer();
+
+                if (LookForSTX == STX)
+                {
+                    RS485Receive();
+                }
+
+                if (replied == true)
+                {
+                    ConnectedDeviceList.Nodes.Add("Slave" + id);
+                    ConnectedDeviceList.Nodes[0].Checked = true;
+                    replied = false;
                 }
             }
             PingProgressBar.Value = 0;
             PingProgressBar.Visible = false;
             Ping_button.Enabled = true;
+
+        }
+
+        private void Ping_button_Click(object sender, EventArgs e)
+        {
+            PingDevices();
         }
         public void Ping(int ID)
         {
@@ -375,8 +404,58 @@ namespace Hansab_slave_configurator
 
         private void RequestCount_button_Click(object sender, EventArgs e)
         {
-            //RS485Send(0x69, messageType[0], CMDLUT[6], 0x4E, 0x55, 0x4D); //NUM as data
-            RS485Send(IntDev, messageType[0], 0x09, 0x4E, 0x55, 0x4D); //NUM as data
+            //floorNaddresses[0-3]
+            for (int i = 0; i <= 3; i++)
+            {
+                RS485Send(IntDev, Convert.ToByte(i), CMDLUT[6], 0x4E, 0x55, 0x4D); //NUM as data
+                System.Threading.Thread.Sleep(10);
+                // get reply, then continue to next id
+                if (serialPort1.BytesToRead > 0)
+                {
+                    LookForSTX = 0x00;
+                    LookForSTX = Convert.ToByte(serialPort1.ReadByte());
+                }
+                else
+                {
+                    continue;
+                }
+
+                if (LookForSTX == STX)
+                {
+                    RS485Receive();
+                }
+
+                if (replied == true)
+                {
+                    int h = RS485ReadBytes[4] - 48;
+                    int t = RS485ReadBytes[5] - 48;
+                    int o = RS485ReadBytes[6] - 48;
+                    int floorGetCount = (h * 100) + (t * 10) + o;
+
+                    if (i == 0)
+                    {
+                        Floor1SendCount.Value = floorGetCount;
+                        continue;
+                    }
+                    else if (i == 1)
+                    {
+                        Floor2SendCount.Value = floorGetCount;
+                        continue;
+                    }
+                    else if (i == 2)
+                    {
+                        Floor3SendCount.Value = floorGetCount;
+                        continue;
+                    }
+                    else if (i == 3)
+                    {
+                        Floor4SendCount.Value = floorGetCount;
+                        continue;
+                    }
+
+                    replied = false;
+                }
+            }
         }
 
         public void RS485Send(byte receiverID, byte msgType, byte command, byte data1, byte data2, byte data3)
@@ -399,8 +478,19 @@ namespace Hansab_slave_configurator
         }
         public void RS485Receive()
         {
-            message = serialPort1.ReadExisting();
-            Serialport_text_box.AppendText(message + "\n\r");
+            if (LookForSTX == STX)
+            {
+                LookForSTX = 0x00;
+                serialPort1.Read(RS485ReadBytes, 0, 8);
+                Serialport_text_box.AppendText(RS485ReadBytes.ToString() + "\n\r");
+                replied = true;
+            }
+            else
+            {
+                replied = false;
+            }
+
+
         }
         private void GetErrors_button_Click(object sender, EventArgs e)
         {
