@@ -229,15 +229,24 @@ namespace Hansab_slave_configurator
 
         private void RestartSystem()
         {
-
-            SimpleIOClass.SetPin(2); //enable sending
-            System.Threading.Thread.Sleep(10);
-            //RS485Send(Convert.ToByte(ID), messageType[0], CMDLUT[9], 0x52, 0x53, 0x54);  // restart CMD
-            //serialPort1.Write("Restarting!");
-            System.Threading.Thread.Sleep(10);
-            SimpleIOClass.ClearPin(2); //disable sending
-
             MessageBox.Show("Restarting the system!");
+
+            SimpleIOClass.ClearPin(3);
+            ConfigDisableButton.Enabled = false;
+            ConfigEnableButton.Enabled = true;
+            Restart_button.Enabled = false;
+            RequestCount_button.Enabled = false;
+            GetErrors_button.Enabled = false;
+            Ping_button.Enabled = false;
+            FloorCountSendButton.Enabled = false;
+
+            for (int i = 0; i <= 15; i++)
+            {
+                RS485Send(Convert.ToByte(i), messageType[0], CMDLUT[8], 0x52, 0x53, 0x54);  // restart CMD for slaves
+            }
+
+            RS485Send(0x1D, messageType[0], CMDLUT[8], 0x52, 0x53, 0x54);  // restart CMD for interface device
+
         }
 
         private void NewUserButton_Click(object sender, EventArgs e)
@@ -344,7 +353,7 @@ namespace Hansab_slave_configurator
 
                 PingProgressBar.Value = id * (100 / 15);
                 Ping(id);
-                System.Threading.Thread.Sleep(10);
+                System.Threading.Thread.Sleep(50);
                 // get reply, then continue to next id
                 if (serialPort1.BytesToRead > 0)
                 {
@@ -364,9 +373,17 @@ namespace Hansab_slave_configurator
 
                 if (replied == true)
                 {
-                    ConnectedDeviceList.Nodes.Add("Slave" + id);
-                    ConnectedDeviceList.Nodes[0].Checked = true;
-                    replied = false;
+                    if (RS485ReadBytes[1] == Convert.ToByte(id))
+                    {
+                        ConnectedDeviceList.Nodes.Add("Slave" + id);
+                        ConnectedDeviceList.Nodes[0].Checked = true;
+                        replied = false;
+                    }
+                    else
+                    {
+                        replied = false;
+                    }
+
                 }
             }
             PingProgressBar.Value = 0;
@@ -390,7 +407,6 @@ namespace Hansab_slave_configurator
         private void ClearButton_Click(object sender, EventArgs e)
         {
             Serialport_text_box.Clear();
-            //Serialport_text_box.Text = "";
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -407,7 +423,7 @@ namespace Hansab_slave_configurator
             //floorNaddresses[0-3]
             for (int i = 0; i <= 3; i++)
             {
-                RS485Send(IntDev, Convert.ToByte(i), CMDLUT[6], 0x4E, 0x55, 0x4D); //NUM as data
+                RS485Send(IntDev, floorNaddresses[i], CMDLUT[6], 0x4E, 0x55, 0x4D); //NUM as data
                 System.Threading.Thread.Sleep(10);
                 // get reply, then continue to next id
                 if (serialPort1.BytesToRead > 0)
@@ -427,30 +443,51 @@ namespace Hansab_slave_configurator
 
                 if (replied == true)
                 {
-                    int h = RS485ReadBytes[4] - 48;
-                    int t = RS485ReadBytes[5] - 48;
-                    int o = RS485ReadBytes[6] - 48;
-                    int floorGetCount = (h * 100) + (t * 10) + o;
-
-                    if (i == 0)
+                    byte _floor = RS485ReadBytes[2];
+                    int hundreds = RS485ReadBytes[4] - 48;
+                    int tens = RS485ReadBytes[5] - 48;
+                    int ones = RS485ReadBytes[6] - 48;
+                    int floorGetCount = (hundreds * 100) + (tens * 10) + ones;
+                    //if (i == 0)   //_floor == 0xF1 241
+                    if (_floor == 0xF1)   //_floor == 0xF1 241
                     {
-                        Floor1SendCount.Value = floorGetCount;
-                        continue;
+                        try
+                        {
+                            Floor1SendCount.Value = floorGetCount;
+                            continue;
+                            //Floor1SendCount.Value = 1;
+                        }
+                        catch (ArgumentOutOfRangeException) { }
                     }
-                    else if (i == 1)
+                    else if (_floor == 0xF2)   //_floor == 0xF2 242
                     {
-                        Floor2SendCount.Value = floorGetCount;
-                        continue;
+                        try
+                        {
+                            Floor2SendCount.Value = floorGetCount;
+                            continue;
+                            //Floor2SendCount.Value = 2;
+                        }
+                        catch (ArgumentOutOfRangeException) { }
                     }
-                    else if (i == 2)
+                    else if (_floor == 0xF3)   //_floor == 0xF3 243
                     {
-                        Floor3SendCount.Value = floorGetCount;
-                        continue;
+                        try
+                        {
+                            Floor3SendCount.Value = floorGetCount;
+                            continue;
+                            //Floor3SendCount.Value = 3;
+                        }
+                        catch (ArgumentOutOfRangeException) { }
                     }
-                    else if (i == 3)
+                    else if (_floor == 0xF4)   //_floor == 0xF4 244
                     {
-                        Floor4SendCount.Value = floorGetCount;
-                        continue;
+                        try
+                        {
+                            Floor4SendCount.Value = floorGetCount;
+                            continue;
+                            //Floor4SendCount.Value = 4;
+                        }
+                        catch (ArgumentOutOfRangeException) { }
                     }
 
                     replied = false;
@@ -481,7 +518,7 @@ namespace Hansab_slave_configurator
             if (LookForSTX == STX)
             {
                 LookForSTX = 0x00;
-                serialPort1.Read(RS485ReadBytes, 0, 8);
+                serialPort1.Read(RS485ReadBytes, 0, 7);
                 Serialport_text_box.AppendText(RS485ReadBytes.ToString() + "\n\r");
                 replied = true;
             }
