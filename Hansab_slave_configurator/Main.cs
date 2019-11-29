@@ -22,7 +22,7 @@ namespace Hansab_slave_configurator
         public bool isConnected = SimpleIOClass.IsConnected();         //Connection status of MCP2200 
 
         // RS485 stuff start:
-        public byte[] msg = new byte[8];
+        public byte[] msg = new byte[9];
         byte LookForSTX = 0x00;
         public byte[] RS485ReadBytes = new byte[8];
         bool replied = false;
@@ -33,18 +33,17 @@ namespace Hansab_slave_configurator
         public byte IntDev = 0x1D; //Interface device ID
         public byte myID = 0x1C;    //PC soft ID
         public byte STX = 0x5B;
+        public byte ETX = 0x5D;
         public byte[] CMDLUT = new byte[11] { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B };
         public byte[] messageType = new byte[3] { 0x05, 0x06, 0x21 }; //ENQ ACK NAK
         public bool ConfigEnabled = true;
-        public bool ConfigPrevious = false;
-        public bool ConfigCurrent = false;
 
         // RS485 stuff end
         public Main(string type, string username)
         {
             InitializeComponent();
             UsernameLabel.Text = username;
-            getPortNames();
+            GetPortNames();
             if (type == "admin")
             {
                 UserType.Text = "Admin";
@@ -153,7 +152,7 @@ namespace Hansab_slave_configurator
             COM_ports_box.Text = "";
             COM_ports_box.Items.Clear();
             serialPort1.PortName = "COM99";
-            getPortNames();
+            GetPortNames();
         }
 
         private void COM_ports_box_SelectedIndexChanged(object sender, EventArgs e)
@@ -181,7 +180,7 @@ namespace Hansab_slave_configurator
             }
         }
 
-        private void getPortNames()
+        private void GetPortNames()
         {
             serialPorts = "";
             foreach (string s in SerialPort.GetPortNames())
@@ -194,20 +193,20 @@ namespace Hansab_slave_configurator
             }
         }
 
-        private void load_button_Click(object sender, EventArgs e)
+        private void Load_button_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
+            OpenFileDialog1.ShowDialog();
         }
 
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             //textFromFile;
-            StreamReader streamReader = new StreamReader(openFileDialog1.FileName);
+            StreamReader streamReader = new StreamReader(OpenFileDialog1.FileName);
             textFromFile = streamReader.ReadToEnd();
             Current_cfg_box.Text = textFromFile;
         }
 
-        private void newConfig_button_Click(object sender, EventArgs e)
+        private void NewConfig_button_Click(object sender, EventArgs e)
         {
             var newwindow = new NewConfig();
             newwindow.Show();
@@ -261,6 +260,7 @@ namespace Hansab_slave_configurator
             this.Close();
             var newwindow = new Login_form();
             newwindow.Show();
+
         }
 
 
@@ -448,44 +448,40 @@ namespace Hansab_slave_configurator
                     int tens = RS485ReadBytes[5] - 48;
                     int ones = RS485ReadBytes[6] - 48;
                     int floorGetCount = (hundreds * 100) + (tens * 10) + ones;
-                    //if (i == 0)   //_floor == 0xF1 241
-                    if (_floor == 0xF1)   //_floor == 0xF1 241
+                    if (i == 0)   //_floor == 0xF1 241
+                    //if (_floor == 0xF1)   //_floor == 0xF1 241
                     {
                         try
                         {
                             Floor1SendCount.Value = floorGetCount;
                             continue;
-                            //Floor1SendCount.Value = 1;
                         }
                         catch (ArgumentOutOfRangeException) { }
                     }
-                    else if (_floor == 0xF2)   //_floor == 0xF2 242
+                    else if (i == 1)   //_floor == 0xF2 242
                     {
                         try
                         {
                             Floor2SendCount.Value = floorGetCount;
                             continue;
-                            //Floor2SendCount.Value = 2;
                         }
                         catch (ArgumentOutOfRangeException) { }
                     }
-                    else if (_floor == 0xF3)   //_floor == 0xF3 243
+                    else if (i == 2)   //_floor == 0xF3 243
                     {
                         try
                         {
                             Floor3SendCount.Value = floorGetCount;
                             continue;
-                            //Floor3SendCount.Value = 3;
                         }
                         catch (ArgumentOutOfRangeException) { }
                     }
-                    else if (_floor == 0xF4)   //_floor == 0xF4 244
+                    else if (i == 3)   //_floor == 0xF4 244
                     {
                         try
                         {
                             Floor4SendCount.Value = floorGetCount;
                             continue;
-                            //Floor4SendCount.Value = 4;
                         }
                         catch (ArgumentOutOfRangeException) { }
                     }
@@ -505,10 +501,11 @@ namespace Hansab_slave_configurator
             msg[5] = data1;
             msg[6] = data2;
             msg[7] = data3;
+            msg[8] = ETX;
 
             SimpleIOClass.SetPin(2); //enable sending
             System.Threading.Thread.Sleep(10);
-            serialPort1.Write(msg, 0, 8);
+            serialPort1.Write(msg, 0, 9);
             System.Threading.Thread.Sleep(10);
             Serialport_text_box.AppendText(Encoding.ASCII.GetString(msg));
             SimpleIOClass.ClearPin(2); //disable sending
@@ -518,7 +515,7 @@ namespace Hansab_slave_configurator
             if (LookForSTX == STX)
             {
                 LookForSTX = 0x00;
-                serialPort1.Read(RS485ReadBytes, 0, 7);
+                serialPort1.Read(RS485ReadBytes, 0, 8);
                 Serialport_text_box.AppendText(RS485ReadBytes.ToString() + "\n\r");
                 replied = true;
             }
@@ -526,8 +523,6 @@ namespace Hansab_slave_configurator
             {
                 replied = false;
             }
-
-
         }
         private void GetErrors_button_Click(object sender, EventArgs e)
         {
@@ -536,7 +531,7 @@ namespace Hansab_slave_configurator
             message = serialPort1.ReadExisting();
             current_errors.Clear();
             current_errors.Text = message;
-            serialPort1.DiscardInBuffer();
+            //serialPort1.DiscardInBuffer();
             GetErrors_button.Enabled = true;
         }
 

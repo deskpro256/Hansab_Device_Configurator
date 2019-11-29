@@ -39,9 +39,7 @@
             this.SlaveCount = new System.Windows.Forms.NumericUpDown();
             this.SlaveCountLabel1 = new System.Windows.Forms.Label();
             this.SlaveSettingsBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label4 = new System.Windows.Forms.Label();
             this.SlaveMaxCountLabel1 = new System.Windows.Forms.Label();
             this.FloorLabel1 = new System.Windows.Forms.Label();
             this.SlaveFloor1 = new System.Windows.Forms.ComboBox();
@@ -55,7 +53,6 @@
             this.ConfigTextBox = new System.Windows.Forms.RichTextBox();
             this.CheckButton = new System.Windows.Forms.Button();
             this.Setup_groupbox = new System.Windows.Forms.GroupBox();
-            this.SendButton = new System.Windows.Forms.Button();
             this.SlaveCountAccept = new System.Windows.Forms.Button();
             this.FloorGroupBox = new System.Windows.Forms.GroupBox();
             this.F4_Occupied_label = new System.Windows.Forms.Label();
@@ -74,9 +71,7 @@
             this.FloorMax2 = new System.Windows.Forms.NumericUpDown();
             this.Floor1Label = new System.Windows.Forms.Label();
             this.SlaveSettingsBox2 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.label14 = new System.Windows.Forms.Label();
             this.SlaveMaxCountLabel2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.SlaveFloor2 = new System.Windows.Forms.ComboBox();
@@ -86,9 +81,7 @@
             this.SlaveIDBox2 = new System.Windows.Forms.ComboBox();
             this.SlaveTypeBox2 = new System.Windows.Forms.ComboBox();
             this.SlaveSettingsBox3 = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.progressBar3 = new System.Windows.Forms.ProgressBar();
-            this.label24 = new System.Windows.Forms.Label();
             this.SlaveMaxCountLabel3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.SlaveFloor3 = new System.Windows.Forms.ComboBox();
@@ -218,8 +211,6 @@
             this.SlaveIDBox15 = new System.Windows.Forms.ComboBox();
             this.SlaveTypeBox15 = new System.Windows.Forms.ComboBox();
             this.SlaveSettingsBox0 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.OccupiedSpacesLabel0 = new System.Windows.Forms.Label();
             this.progressBar0 = new System.Windows.Forms.ProgressBar();
             this.SlaveMaxCountLabel0 = new System.Windows.Forms.Label();
             this.label74 = new System.Windows.Forms.Label();
@@ -305,7 +296,7 @@
             // floorCountLabel
             // 
             this.floorCountLabel.AutoSize = true;
-            this.floorCountLabel.Location = new System.Drawing.Point(15, 99);
+            this.floorCountLabel.Location = new System.Drawing.Point(15, 107);
             this.floorCountLabel.Name = "floorCountLabel";
             this.floorCountLabel.Size = new System.Drawing.Size(93, 13);
             this.floorCountLabel.TabIndex = 2;
@@ -314,7 +305,7 @@
             // ID_label
             // 
             this.ID_label.AutoSize = true;
-            this.ID_label.Location = new System.Drawing.Point(15, 22);
+            this.ID_label.Location = new System.Drawing.Point(15, 30);
             this.ID_label.Name = "ID_label";
             this.ID_label.Size = new System.Drawing.Size(21, 13);
             this.ID_label.TabIndex = 3;
@@ -340,7 +331,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox1.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox1.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox1.Name = "SlaveIDBox1";
             this.SlaveIDBox1.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox1.TabIndex = 5;
@@ -393,9 +384,7 @@
             // 
             // SlaveSettingsBox1
             // 
-            this.SlaveSettingsBox1.Controls.Add(this.label3);
             this.SlaveSettingsBox1.Controls.Add(this.progressBar1);
-            this.SlaveSettingsBox1.Controls.Add(this.label4);
             this.SlaveSettingsBox1.Controls.Add(this.SlaveMaxCountLabel1);
             this.SlaveSettingsBox1.Controls.Add(this.FloorLabel1);
             this.SlaveSettingsBox1.Controls.Add(this.SlaveFloor1);
@@ -411,15 +400,6 @@
             this.SlaveSettingsBox1.TabStop = false;
             this.SlaveSettingsBox1.Text = "Slave 1 settings";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(105, 117);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(13, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "0";
-            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(122, 10);
@@ -429,19 +409,10 @@
             this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 16;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 117);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Occupied spaces:";
-            // 
             // SlaveMaxCountLabel1
             // 
             this.SlaveMaxCountLabel1.AutoSize = true;
-            this.SlaveMaxCountLabel1.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel1.Location = new System.Drawing.Point(105, 107);
             this.SlaveMaxCountLabel1.Name = "SlaveMaxCountLabel1";
             this.SlaveMaxCountLabel1.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel1.TabIndex = 14;
@@ -450,7 +421,7 @@
             // FloorLabel1
             // 
             this.FloorLabel1.AutoSize = true;
-            this.FloorLabel1.Location = new System.Drawing.Point(15, 76);
+            this.FloorLabel1.Location = new System.Drawing.Point(15, 84);
             this.FloorLabel1.Name = "FloorLabel1";
             this.FloorLabel1.Size = new System.Drawing.Size(33, 13);
             this.FloorLabel1.TabIndex = 13;
@@ -459,7 +430,7 @@
             // SlaveFloor1
             // 
             this.SlaveFloor1.FormattingEnabled = true;
-            this.SlaveFloor1.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor1.Location = new System.Drawing.Point(55, 81);
             this.SlaveFloor1.Name = "SlaveFloor1";
             this.SlaveFloor1.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor1.TabIndex = 12;
@@ -468,7 +439,7 @@
             // Type_label
             // 
             this.Type_label.AutoSize = true;
-            this.Type_label.Location = new System.Drawing.Point(15, 49);
+            this.Type_label.Location = new System.Drawing.Point(15, 57);
             this.Type_label.Name = "Type_label";
             this.Type_label.Size = new System.Drawing.Size(34, 13);
             this.Type_label.TabIndex = 8;
@@ -483,7 +454,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox1.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox1.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox1.Name = "SlaveTypeBox1";
             this.SlaveTypeBox1.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox1.TabIndex = 6;
@@ -491,7 +462,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(162, 401);
+            this.SaveButton.Location = new System.Drawing.Point(220, 401);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(60, 24);
             this.SaveButton.TabIndex = 7;
@@ -523,7 +494,7 @@
             // 
             // ApplyConfigSettingsButton
             // 
-            this.ApplyConfigSettingsButton.Location = new System.Drawing.Point(96, 401);
+            this.ApplyConfigSettingsButton.Location = new System.Drawing.Point(129, 401);
             this.ApplyConfigSettingsButton.Name = "ApplyConfigSettingsButton";
             this.ApplyConfigSettingsButton.Size = new System.Drawing.Size(60, 24);
             this.ApplyConfigSettingsButton.TabIndex = 10;
@@ -542,7 +513,7 @@
             // 
             // CheckButton
             // 
-            this.CheckButton.Location = new System.Drawing.Point(30, 401);
+            this.CheckButton.Location = new System.Drawing.Point(28, 401);
             this.CheckButton.Name = "CheckButton";
             this.CheckButton.Size = new System.Drawing.Size(60, 24);
             this.CheckButton.TabIndex = 12;
@@ -552,7 +523,6 @@
             // 
             // Setup_groupbox
             // 
-            this.Setup_groupbox.Controls.Add(this.SendButton);
             this.Setup_groupbox.Controls.Add(this.SlaveCountAccept);
             this.Setup_groupbox.Controls.Add(this.FloorGroupBox);
             this.Setup_groupbox.Controls.Add(this.SaveButton);
@@ -569,15 +539,6 @@
             this.Setup_groupbox.TabIndex = 13;
             this.Setup_groupbox.TabStop = false;
             this.Setup_groupbox.Text = "Setup";
-            // 
-            // SendButton
-            // 
-            this.SendButton.Location = new System.Drawing.Point(228, 401);
-            this.SendButton.Name = "SendButton";
-            this.SendButton.Size = new System.Drawing.Size(60, 24);
-            this.SendButton.TabIndex = 14;
-            this.SendButton.Text = "Send";
-            this.SendButton.UseVisualStyleBackColor = true;
             // 
             // SlaveCountAccept
             // 
@@ -779,9 +740,7 @@
             // 
             // SlaveSettingsBox2
             // 
-            this.SlaveSettingsBox2.Controls.Add(this.label9);
             this.SlaveSettingsBox2.Controls.Add(this.progressBar2);
-            this.SlaveSettingsBox2.Controls.Add(this.label14);
             this.SlaveSettingsBox2.Controls.Add(this.SlaveMaxCountLabel2);
             this.SlaveSettingsBox2.Controls.Add(this.label5);
             this.SlaveSettingsBox2.Controls.Add(this.SlaveFloor2);
@@ -797,15 +756,6 @@
             this.SlaveSettingsBox2.TabStop = false;
             this.SlaveSettingsBox2.Text = "Slave 2 settings";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(105, 117);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(13, 13);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "0";
-            // 
             // progressBar2
             // 
             this.progressBar2.Location = new System.Drawing.Point(122, 10);
@@ -815,19 +765,10 @@
             this.progressBar2.Step = 1;
             this.progressBar2.TabIndex = 17;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(15, 117);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(93, 13);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "Occupied spaces:";
-            // 
             // SlaveMaxCountLabel2
             // 
             this.SlaveMaxCountLabel2.AutoSize = true;
-            this.SlaveMaxCountLabel2.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel2.Location = new System.Drawing.Point(105, 110);
             this.SlaveMaxCountLabel2.Name = "SlaveMaxCountLabel2";
             this.SlaveMaxCountLabel2.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel2.TabIndex = 14;
@@ -836,7 +777,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 76);
+            this.label5.Location = new System.Drawing.Point(15, 87);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 13;
@@ -851,7 +792,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveFloor2.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor2.Location = new System.Drawing.Point(55, 84);
             this.SlaveFloor2.Name = "SlaveFloor2";
             this.SlaveFloor2.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor2.TabIndex = 12;
@@ -860,7 +801,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 22);
+            this.label6.Location = new System.Drawing.Point(15, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(21, 13);
             this.label6.TabIndex = 3;
@@ -869,7 +810,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 99);
+            this.label7.Location = new System.Drawing.Point(15, 110);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 13);
             this.label7.TabIndex = 2;
@@ -878,7 +819,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 49);
+            this.label8.Location = new System.Drawing.Point(15, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 8;
@@ -904,7 +845,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox2.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox2.Location = new System.Drawing.Point(55, 30);
             this.SlaveIDBox2.Name = "SlaveIDBox2";
             this.SlaveIDBox2.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox2.TabIndex = 5;
@@ -919,7 +860,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox2.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox2.Location = new System.Drawing.Point(55, 57);
             this.SlaveTypeBox2.Name = "SlaveTypeBox2";
             this.SlaveTypeBox2.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox2.TabIndex = 6;
@@ -927,9 +868,7 @@
             // 
             // SlaveSettingsBox3
             // 
-            this.SlaveSettingsBox3.Controls.Add(this.label19);
             this.SlaveSettingsBox3.Controls.Add(this.progressBar3);
-            this.SlaveSettingsBox3.Controls.Add(this.label24);
             this.SlaveSettingsBox3.Controls.Add(this.SlaveMaxCountLabel3);
             this.SlaveSettingsBox3.Controls.Add(this.label10);
             this.SlaveSettingsBox3.Controls.Add(this.SlaveFloor3);
@@ -945,15 +884,6 @@
             this.SlaveSettingsBox3.TabStop = false;
             this.SlaveSettingsBox3.Text = "Slave 3 settings";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(105, 117);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(13, 13);
-            this.label19.TabIndex = 19;
-            this.label19.Text = "0";
-            // 
             // progressBar3
             // 
             this.progressBar3.Location = new System.Drawing.Point(122, 10);
@@ -963,19 +893,10 @@
             this.progressBar3.Step = 1;
             this.progressBar3.TabIndex = 17;
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(15, 117);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(93, 13);
-            this.label24.TabIndex = 18;
-            this.label24.Text = "Occupied spaces:";
-            // 
             // SlaveMaxCountLabel3
             // 
             this.SlaveMaxCountLabel3.AutoSize = true;
-            this.SlaveMaxCountLabel3.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel3.Location = new System.Drawing.Point(105, 112);
             this.SlaveMaxCountLabel3.Name = "SlaveMaxCountLabel3";
             this.SlaveMaxCountLabel3.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel3.TabIndex = 14;
@@ -984,7 +905,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 76);
+            this.label10.Location = new System.Drawing.Point(15, 89);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 13);
             this.label10.TabIndex = 13;
@@ -999,7 +920,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveFloor3.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor3.Location = new System.Drawing.Point(55, 86);
             this.SlaveFloor3.Name = "SlaveFloor3";
             this.SlaveFloor3.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor3.TabIndex = 12;
@@ -1008,7 +929,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 22);
+            this.label11.Location = new System.Drawing.Point(15, 35);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(21, 13);
             this.label11.TabIndex = 3;
@@ -1017,7 +938,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(15, 99);
+            this.label12.Location = new System.Drawing.Point(15, 112);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(93, 13);
             this.label12.TabIndex = 2;
@@ -1026,7 +947,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(15, 49);
+            this.label13.Location = new System.Drawing.Point(15, 62);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 13);
             this.label13.TabIndex = 8;
@@ -1052,7 +973,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox3.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox3.Location = new System.Drawing.Point(55, 32);
             this.SlaveIDBox3.Name = "SlaveIDBox3";
             this.SlaveIDBox3.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox3.TabIndex = 5;
@@ -1067,7 +988,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox3.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox3.Location = new System.Drawing.Point(55, 59);
             this.SlaveTypeBox3.Name = "SlaveTypeBox3";
             this.SlaveTypeBox3.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox3.TabIndex = 6;
@@ -1103,7 +1024,7 @@
             // SlaveMaxCountLabel4
             // 
             this.SlaveMaxCountLabel4.AutoSize = true;
-            this.SlaveMaxCountLabel4.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel4.Location = new System.Drawing.Point(105, 107);
             this.SlaveMaxCountLabel4.Name = "SlaveMaxCountLabel4";
             this.SlaveMaxCountLabel4.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel4.TabIndex = 14;
@@ -1112,7 +1033,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(15, 76);
+            this.label15.Location = new System.Drawing.Point(15, 84);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(33, 13);
             this.label15.TabIndex = 13;
@@ -1121,7 +1042,7 @@
             // SlaveFloor4
             // 
             this.SlaveFloor4.FormattingEnabled = true;
-            this.SlaveFloor4.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor4.Location = new System.Drawing.Point(55, 81);
             this.SlaveFloor4.Name = "SlaveFloor4";
             this.SlaveFloor4.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor4.TabIndex = 12;
@@ -1130,7 +1051,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(15, 22);
+            this.label16.Location = new System.Drawing.Point(15, 30);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(21, 13);
             this.label16.TabIndex = 3;
@@ -1139,7 +1060,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(15, 99);
+            this.label17.Location = new System.Drawing.Point(15, 107);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(93, 13);
             this.label17.TabIndex = 2;
@@ -1148,7 +1069,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(15, 49);
+            this.label18.Location = new System.Drawing.Point(15, 57);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(34, 13);
             this.label18.TabIndex = 8;
@@ -1174,7 +1095,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox4.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox4.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox4.Name = "SlaveIDBox4";
             this.SlaveIDBox4.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox4.TabIndex = 5;
@@ -1189,7 +1110,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox4.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox4.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox4.Name = "SlaveTypeBox4";
             this.SlaveTypeBox4.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox4.TabIndex = 6;
@@ -1225,7 +1146,7 @@
             // SlaveMaxCountLabel5
             // 
             this.SlaveMaxCountLabel5.AutoSize = true;
-            this.SlaveMaxCountLabel5.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel5.Location = new System.Drawing.Point(105, 107);
             this.SlaveMaxCountLabel5.Name = "SlaveMaxCountLabel5";
             this.SlaveMaxCountLabel5.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel5.TabIndex = 14;
@@ -1234,7 +1155,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(15, 76);
+            this.label20.Location = new System.Drawing.Point(15, 84);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(33, 13);
             this.label20.TabIndex = 13;
@@ -1243,7 +1164,7 @@
             // SlaveFloor5
             // 
             this.SlaveFloor5.FormattingEnabled = true;
-            this.SlaveFloor5.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor5.Location = new System.Drawing.Point(55, 81);
             this.SlaveFloor5.Name = "SlaveFloor5";
             this.SlaveFloor5.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor5.TabIndex = 12;
@@ -1252,7 +1173,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(15, 22);
+            this.label21.Location = new System.Drawing.Point(15, 30);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(21, 13);
             this.label21.TabIndex = 3;
@@ -1261,7 +1182,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(15, 99);
+            this.label22.Location = new System.Drawing.Point(15, 107);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(93, 13);
             this.label22.TabIndex = 2;
@@ -1270,7 +1191,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(15, 49);
+            this.label23.Location = new System.Drawing.Point(15, 57);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(34, 13);
             this.label23.TabIndex = 8;
@@ -1296,7 +1217,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox5.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox5.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox5.Name = "SlaveIDBox5";
             this.SlaveIDBox5.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox5.TabIndex = 5;
@@ -1311,7 +1232,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox5.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox5.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox5.Name = "SlaveTypeBox5";
             this.SlaveTypeBox5.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox5.TabIndex = 6;
@@ -1347,7 +1268,7 @@
             // SlaveMaxCountLabel6
             // 
             this.SlaveMaxCountLabel6.AutoSize = true;
-            this.SlaveMaxCountLabel6.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel6.Location = new System.Drawing.Point(105, 110);
             this.SlaveMaxCountLabel6.Name = "SlaveMaxCountLabel6";
             this.SlaveMaxCountLabel6.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel6.TabIndex = 14;
@@ -1356,7 +1277,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(15, 76);
+            this.label25.Location = new System.Drawing.Point(15, 87);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(33, 13);
             this.label25.TabIndex = 13;
@@ -1371,7 +1292,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveFloor6.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor6.Location = new System.Drawing.Point(55, 84);
             this.SlaveFloor6.Name = "SlaveFloor6";
             this.SlaveFloor6.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor6.TabIndex = 12;
@@ -1380,7 +1301,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(15, 22);
+            this.label26.Location = new System.Drawing.Point(15, 33);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(21, 13);
             this.label26.TabIndex = 3;
@@ -1389,7 +1310,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(15, 99);
+            this.label27.Location = new System.Drawing.Point(15, 110);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(93, 13);
             this.label27.TabIndex = 2;
@@ -1398,7 +1319,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(15, 49);
+            this.label28.Location = new System.Drawing.Point(15, 60);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(34, 13);
             this.label28.TabIndex = 8;
@@ -1424,7 +1345,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox6.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox6.Location = new System.Drawing.Point(55, 30);
             this.SlaveIDBox6.Name = "SlaveIDBox6";
             this.SlaveIDBox6.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox6.TabIndex = 5;
@@ -1439,7 +1360,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox6.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox6.Location = new System.Drawing.Point(55, 57);
             this.SlaveTypeBox6.Name = "SlaveTypeBox6";
             this.SlaveTypeBox6.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox6.TabIndex = 6;
@@ -1475,7 +1396,7 @@
             // SlaveMaxCountLabel7
             // 
             this.SlaveMaxCountLabel7.AutoSize = true;
-            this.SlaveMaxCountLabel7.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel7.Location = new System.Drawing.Point(105, 112);
             this.SlaveMaxCountLabel7.Name = "SlaveMaxCountLabel7";
             this.SlaveMaxCountLabel7.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel7.TabIndex = 14;
@@ -1484,7 +1405,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(15, 76);
+            this.label30.Location = new System.Drawing.Point(15, 89);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(33, 13);
             this.label30.TabIndex = 13;
@@ -1493,7 +1414,7 @@
             // SlaveFloor7
             // 
             this.SlaveFloor7.FormattingEnabled = true;
-            this.SlaveFloor7.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor7.Location = new System.Drawing.Point(55, 86);
             this.SlaveFloor7.Name = "SlaveFloor7";
             this.SlaveFloor7.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor7.TabIndex = 12;
@@ -1502,7 +1423,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(15, 22);
+            this.label31.Location = new System.Drawing.Point(15, 35);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(21, 13);
             this.label31.TabIndex = 3;
@@ -1511,7 +1432,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(15, 99);
+            this.label32.Location = new System.Drawing.Point(15, 112);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(93, 13);
             this.label32.TabIndex = 2;
@@ -1520,7 +1441,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(15, 49);
+            this.label33.Location = new System.Drawing.Point(15, 62);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(34, 13);
             this.label33.TabIndex = 8;
@@ -1546,7 +1467,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox7.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox7.Location = new System.Drawing.Point(55, 32);
             this.SlaveIDBox7.Name = "SlaveIDBox7";
             this.SlaveIDBox7.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox7.TabIndex = 5;
@@ -1561,7 +1482,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox7.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox7.Location = new System.Drawing.Point(55, 59);
             this.SlaveTypeBox7.Name = "SlaveTypeBox7";
             this.SlaveTypeBox7.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox7.TabIndex = 6;
@@ -1597,7 +1518,7 @@
             // SlaveMaxCountLabel8
             // 
             this.SlaveMaxCountLabel8.AutoSize = true;
-            this.SlaveMaxCountLabel8.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel8.Location = new System.Drawing.Point(105, 107);
             this.SlaveMaxCountLabel8.Name = "SlaveMaxCountLabel8";
             this.SlaveMaxCountLabel8.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel8.TabIndex = 14;
@@ -1606,7 +1527,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(15, 76);
+            this.label35.Location = new System.Drawing.Point(15, 84);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(33, 13);
             this.label35.TabIndex = 13;
@@ -1615,7 +1536,7 @@
             // SlaveFloor8
             // 
             this.SlaveFloor8.FormattingEnabled = true;
-            this.SlaveFloor8.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor8.Location = new System.Drawing.Point(55, 81);
             this.SlaveFloor8.Name = "SlaveFloor8";
             this.SlaveFloor8.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor8.TabIndex = 12;
@@ -1624,7 +1545,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(15, 22);
+            this.label36.Location = new System.Drawing.Point(15, 30);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(21, 13);
             this.label36.TabIndex = 3;
@@ -1633,7 +1554,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(15, 99);
+            this.label37.Location = new System.Drawing.Point(15, 107);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(93, 13);
             this.label37.TabIndex = 2;
@@ -1642,7 +1563,7 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(15, 49);
+            this.label38.Location = new System.Drawing.Point(15, 57);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(34, 13);
             this.label38.TabIndex = 8;
@@ -1668,7 +1589,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox8.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox8.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox8.Name = "SlaveIDBox8";
             this.SlaveIDBox8.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox8.TabIndex = 5;
@@ -1683,7 +1604,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox8.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox8.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox8.Name = "SlaveTypeBox8";
             this.SlaveTypeBox8.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox8.TabIndex = 6;
@@ -1719,7 +1640,7 @@
             // SlaveMaxCountLabel9
             // 
             this.SlaveMaxCountLabel9.AutoSize = true;
-            this.SlaveMaxCountLabel9.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel9.Location = new System.Drawing.Point(105, 107);
             this.SlaveMaxCountLabel9.Name = "SlaveMaxCountLabel9";
             this.SlaveMaxCountLabel9.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel9.TabIndex = 14;
@@ -1728,7 +1649,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(15, 76);
+            this.label40.Location = new System.Drawing.Point(15, 84);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(33, 13);
             this.label40.TabIndex = 13;
@@ -1737,7 +1658,7 @@
             // SlaveFloor9
             // 
             this.SlaveFloor9.FormattingEnabled = true;
-            this.SlaveFloor9.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor9.Location = new System.Drawing.Point(55, 81);
             this.SlaveFloor9.Name = "SlaveFloor9";
             this.SlaveFloor9.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor9.TabIndex = 12;
@@ -1746,7 +1667,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(15, 22);
+            this.label41.Location = new System.Drawing.Point(15, 30);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(21, 13);
             this.label41.TabIndex = 3;
@@ -1755,7 +1676,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(15, 99);
+            this.label42.Location = new System.Drawing.Point(15, 107);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(93, 13);
             this.label42.TabIndex = 2;
@@ -1764,7 +1685,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(15, 49);
+            this.label43.Location = new System.Drawing.Point(15, 57);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(34, 13);
             this.label43.TabIndex = 8;
@@ -1790,7 +1711,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox9.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox9.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox9.Name = "SlaveIDBox9";
             this.SlaveIDBox9.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox9.TabIndex = 5;
@@ -1805,7 +1726,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox9.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox9.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox9.Name = "SlaveTypeBox9";
             this.SlaveTypeBox9.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox9.TabIndex = 6;
@@ -1841,7 +1762,7 @@
             // SlaveMaxCountLabel10
             // 
             this.SlaveMaxCountLabel10.AutoSize = true;
-            this.SlaveMaxCountLabel10.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel10.Location = new System.Drawing.Point(105, 110);
             this.SlaveMaxCountLabel10.Name = "SlaveMaxCountLabel10";
             this.SlaveMaxCountLabel10.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel10.TabIndex = 14;
@@ -1850,7 +1771,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(15, 76);
+            this.label45.Location = new System.Drawing.Point(15, 87);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(33, 13);
             this.label45.TabIndex = 13;
@@ -1859,7 +1780,7 @@
             // SlaveFloor10
             // 
             this.SlaveFloor10.FormattingEnabled = true;
-            this.SlaveFloor10.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor10.Location = new System.Drawing.Point(55, 84);
             this.SlaveFloor10.Name = "SlaveFloor10";
             this.SlaveFloor10.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor10.TabIndex = 12;
@@ -1868,7 +1789,7 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(15, 22);
+            this.label46.Location = new System.Drawing.Point(15, 33);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(21, 13);
             this.label46.TabIndex = 3;
@@ -1877,7 +1798,7 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(15, 99);
+            this.label47.Location = new System.Drawing.Point(15, 110);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(93, 13);
             this.label47.TabIndex = 2;
@@ -1886,7 +1807,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(15, 49);
+            this.label48.Location = new System.Drawing.Point(15, 60);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(34, 13);
             this.label48.TabIndex = 8;
@@ -1912,7 +1833,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox10.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox10.Location = new System.Drawing.Point(55, 30);
             this.SlaveIDBox10.Name = "SlaveIDBox10";
             this.SlaveIDBox10.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox10.TabIndex = 5;
@@ -1927,7 +1848,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox10.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox10.Location = new System.Drawing.Point(55, 57);
             this.SlaveTypeBox10.Name = "SlaveTypeBox10";
             this.SlaveTypeBox10.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox10.TabIndex = 6;
@@ -1963,7 +1884,7 @@
             // SlaveMaxCountLabel11
             // 
             this.SlaveMaxCountLabel11.AutoSize = true;
-            this.SlaveMaxCountLabel11.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel11.Location = new System.Drawing.Point(105, 112);
             this.SlaveMaxCountLabel11.Name = "SlaveMaxCountLabel11";
             this.SlaveMaxCountLabel11.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel11.TabIndex = 14;
@@ -1972,7 +1893,7 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(15, 76);
+            this.label50.Location = new System.Drawing.Point(15, 89);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(33, 13);
             this.label50.TabIndex = 13;
@@ -1981,7 +1902,7 @@
             // SlaveFloor11
             // 
             this.SlaveFloor11.FormattingEnabled = true;
-            this.SlaveFloor11.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor11.Location = new System.Drawing.Point(55, 86);
             this.SlaveFloor11.Name = "SlaveFloor11";
             this.SlaveFloor11.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor11.TabIndex = 12;
@@ -1990,7 +1911,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(15, 22);
+            this.label51.Location = new System.Drawing.Point(15, 35);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(21, 13);
             this.label51.TabIndex = 3;
@@ -1999,7 +1920,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(15, 99);
+            this.label52.Location = new System.Drawing.Point(15, 112);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(93, 13);
             this.label52.TabIndex = 2;
@@ -2008,7 +1929,7 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(15, 49);
+            this.label53.Location = new System.Drawing.Point(15, 62);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(34, 13);
             this.label53.TabIndex = 8;
@@ -2034,7 +1955,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox11.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox11.Location = new System.Drawing.Point(55, 32);
             this.SlaveIDBox11.Name = "SlaveIDBox11";
             this.SlaveIDBox11.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox11.TabIndex = 5;
@@ -2049,7 +1970,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox11.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox11.Location = new System.Drawing.Point(55, 59);
             this.SlaveTypeBox11.Name = "SlaveTypeBox11";
             this.SlaveTypeBox11.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox11.TabIndex = 6;
@@ -2085,7 +2006,7 @@
             // SlaveMaxCountLabel12
             // 
             this.SlaveMaxCountLabel12.AutoSize = true;
-            this.SlaveMaxCountLabel12.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel12.Location = new System.Drawing.Point(105, 107);
             this.SlaveMaxCountLabel12.Name = "SlaveMaxCountLabel12";
             this.SlaveMaxCountLabel12.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel12.TabIndex = 14;
@@ -2094,7 +2015,7 @@
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(15, 76);
+            this.label55.Location = new System.Drawing.Point(15, 84);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(33, 13);
             this.label55.TabIndex = 13;
@@ -2103,7 +2024,7 @@
             // SlaveFloor12
             // 
             this.SlaveFloor12.FormattingEnabled = true;
-            this.SlaveFloor12.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor12.Location = new System.Drawing.Point(55, 81);
             this.SlaveFloor12.Name = "SlaveFloor12";
             this.SlaveFloor12.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor12.TabIndex = 12;
@@ -2112,7 +2033,7 @@
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(15, 22);
+            this.label56.Location = new System.Drawing.Point(15, 30);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(21, 13);
             this.label56.TabIndex = 3;
@@ -2121,7 +2042,7 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(15, 99);
+            this.label57.Location = new System.Drawing.Point(15, 107);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(93, 13);
             this.label57.TabIndex = 2;
@@ -2130,7 +2051,7 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(15, 49);
+            this.label58.Location = new System.Drawing.Point(15, 57);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(34, 13);
             this.label58.TabIndex = 8;
@@ -2156,7 +2077,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox12.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox12.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox12.Name = "SlaveIDBox12";
             this.SlaveIDBox12.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox12.TabIndex = 5;
@@ -2171,7 +2092,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox12.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox12.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox12.Name = "SlaveTypeBox12";
             this.SlaveTypeBox12.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox12.TabIndex = 6;
@@ -2207,7 +2128,7 @@
             // SlaveMaxCountLabel13
             // 
             this.SlaveMaxCountLabel13.AutoSize = true;
-            this.SlaveMaxCountLabel13.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel13.Location = new System.Drawing.Point(105, 107);
             this.SlaveMaxCountLabel13.Name = "SlaveMaxCountLabel13";
             this.SlaveMaxCountLabel13.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel13.TabIndex = 14;
@@ -2216,7 +2137,7 @@
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(15, 76);
+            this.label60.Location = new System.Drawing.Point(15, 84);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(33, 13);
             this.label60.TabIndex = 13;
@@ -2225,7 +2146,7 @@
             // SlaveFloor13
             // 
             this.SlaveFloor13.FormattingEnabled = true;
-            this.SlaveFloor13.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor13.Location = new System.Drawing.Point(55, 81);
             this.SlaveFloor13.Name = "SlaveFloor13";
             this.SlaveFloor13.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor13.TabIndex = 12;
@@ -2234,7 +2155,7 @@
             // label61
             // 
             this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(15, 22);
+            this.label61.Location = new System.Drawing.Point(15, 30);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(21, 13);
             this.label61.TabIndex = 3;
@@ -2243,7 +2164,7 @@
             // label62
             // 
             this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(15, 99);
+            this.label62.Location = new System.Drawing.Point(15, 107);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(93, 13);
             this.label62.TabIndex = 2;
@@ -2252,7 +2173,7 @@
             // label63
             // 
             this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(15, 49);
+            this.label63.Location = new System.Drawing.Point(15, 57);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(34, 13);
             this.label63.TabIndex = 8;
@@ -2278,7 +2199,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox13.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox13.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox13.Name = "SlaveIDBox13";
             this.SlaveIDBox13.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox13.TabIndex = 5;
@@ -2293,7 +2214,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox13.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox13.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox13.Name = "SlaveTypeBox13";
             this.SlaveTypeBox13.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox13.TabIndex = 6;
@@ -2329,7 +2250,7 @@
             // SlaveMaxCountLabel14
             // 
             this.SlaveMaxCountLabel14.AutoSize = true;
-            this.SlaveMaxCountLabel14.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel14.Location = new System.Drawing.Point(105, 110);
             this.SlaveMaxCountLabel14.Name = "SlaveMaxCountLabel14";
             this.SlaveMaxCountLabel14.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel14.TabIndex = 14;
@@ -2338,7 +2259,7 @@
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(15, 76);
+            this.label65.Location = new System.Drawing.Point(15, 87);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(33, 13);
             this.label65.TabIndex = 13;
@@ -2347,7 +2268,7 @@
             // SlaveFloor14
             // 
             this.SlaveFloor14.FormattingEnabled = true;
-            this.SlaveFloor14.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor14.Location = new System.Drawing.Point(55, 84);
             this.SlaveFloor14.Name = "SlaveFloor14";
             this.SlaveFloor14.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor14.TabIndex = 12;
@@ -2356,7 +2277,7 @@
             // label66
             // 
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(15, 22);
+            this.label66.Location = new System.Drawing.Point(15, 33);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(21, 13);
             this.label66.TabIndex = 3;
@@ -2365,7 +2286,7 @@
             // label67
             // 
             this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(15, 99);
+            this.label67.Location = new System.Drawing.Point(15, 110);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(93, 13);
             this.label67.TabIndex = 2;
@@ -2374,7 +2295,7 @@
             // label68
             // 
             this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(15, 49);
+            this.label68.Location = new System.Drawing.Point(15, 60);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(34, 13);
             this.label68.TabIndex = 8;
@@ -2400,7 +2321,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox14.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox14.Location = new System.Drawing.Point(55, 30);
             this.SlaveIDBox14.Name = "SlaveIDBox14";
             this.SlaveIDBox14.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox14.TabIndex = 5;
@@ -2415,7 +2336,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox14.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox14.Location = new System.Drawing.Point(55, 57);
             this.SlaveTypeBox14.Name = "SlaveTypeBox14";
             this.SlaveTypeBox14.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox14.TabIndex = 6;
@@ -2451,7 +2372,7 @@
             // SlaveMaxCountLabel15
             // 
             this.SlaveMaxCountLabel15.AutoSize = true;
-            this.SlaveMaxCountLabel15.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel15.Location = new System.Drawing.Point(105, 112);
             this.SlaveMaxCountLabel15.Name = "SlaveMaxCountLabel15";
             this.SlaveMaxCountLabel15.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel15.TabIndex = 14;
@@ -2460,7 +2381,7 @@
             // label70
             // 
             this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(15, 76);
+            this.label70.Location = new System.Drawing.Point(15, 89);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(33, 13);
             this.label70.TabIndex = 13;
@@ -2469,7 +2390,7 @@
             // SlaveFloor15
             // 
             this.SlaveFloor15.FormattingEnabled = true;
-            this.SlaveFloor15.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor15.Location = new System.Drawing.Point(55, 86);
             this.SlaveFloor15.Name = "SlaveFloor15";
             this.SlaveFloor15.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor15.TabIndex = 12;
@@ -2478,7 +2399,7 @@
             // label71
             // 
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(15, 22);
+            this.label71.Location = new System.Drawing.Point(15, 35);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(21, 13);
             this.label71.TabIndex = 3;
@@ -2487,7 +2408,7 @@
             // label72
             // 
             this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(15, 99);
+            this.label72.Location = new System.Drawing.Point(15, 112);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(93, 13);
             this.label72.TabIndex = 2;
@@ -2496,7 +2417,7 @@
             // label73
             // 
             this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(15, 49);
+            this.label73.Location = new System.Drawing.Point(15, 62);
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(34, 13);
             this.label73.TabIndex = 8;
@@ -2522,7 +2443,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox15.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox15.Location = new System.Drawing.Point(55, 32);
             this.SlaveIDBox15.Name = "SlaveIDBox15";
             this.SlaveIDBox15.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox15.TabIndex = 5;
@@ -2537,7 +2458,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox15.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox15.Location = new System.Drawing.Point(55, 59);
             this.SlaveTypeBox15.Name = "SlaveTypeBox15";
             this.SlaveTypeBox15.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox15.TabIndex = 6;
@@ -2545,8 +2466,6 @@
             // 
             // SlaveSettingsBox0
             // 
-            this.SlaveSettingsBox0.Controls.Add(this.label2);
-            this.SlaveSettingsBox0.Controls.Add(this.OccupiedSpacesLabel0);
             this.SlaveSettingsBox0.Controls.Add(this.progressBar0);
             this.SlaveSettingsBox0.Controls.Add(this.SlaveMaxCountLabel0);
             this.SlaveSettingsBox0.Controls.Add(this.label74);
@@ -2563,24 +2482,6 @@
             this.SlaveSettingsBox0.TabStop = false;
             this.SlaveSettingsBox0.Text = "Slave 0 settings";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(105, 117);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "0";
-            // 
-            // OccupiedSpacesLabel0
-            // 
-            this.OccupiedSpacesLabel0.AutoSize = true;
-            this.OccupiedSpacesLabel0.Location = new System.Drawing.Point(15, 117);
-            this.OccupiedSpacesLabel0.Name = "OccupiedSpacesLabel0";
-            this.OccupiedSpacesLabel0.Size = new System.Drawing.Size(93, 13);
-            this.OccupiedSpacesLabel0.TabIndex = 16;
-            this.OccupiedSpacesLabel0.Text = "Occupied spaces:";
-            // 
             // progressBar0
             // 
             this.progressBar0.Location = new System.Drawing.Point(122, 10);
@@ -2593,7 +2494,7 @@
             // SlaveMaxCountLabel0
             // 
             this.SlaveMaxCountLabel0.AutoSize = true;
-            this.SlaveMaxCountLabel0.Location = new System.Drawing.Point(105, 99);
+            this.SlaveMaxCountLabel0.Location = new System.Drawing.Point(105, 107);
             this.SlaveMaxCountLabel0.Name = "SlaveMaxCountLabel0";
             this.SlaveMaxCountLabel0.Size = new System.Drawing.Size(13, 13);
             this.SlaveMaxCountLabel0.TabIndex = 14;
@@ -2602,7 +2503,7 @@
             // label74
             // 
             this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(15, 76);
+            this.label74.Location = new System.Drawing.Point(15, 84);
             this.label74.Name = "label74";
             this.label74.Size = new System.Drawing.Size(33, 13);
             this.label74.TabIndex = 13;
@@ -2611,7 +2512,7 @@
             // SlaveFloor0
             // 
             this.SlaveFloor0.FormattingEnabled = true;
-            this.SlaveFloor0.Location = new System.Drawing.Point(55, 73);
+            this.SlaveFloor0.Location = new System.Drawing.Point(55, 81);
             this.SlaveFloor0.Name = "SlaveFloor0";
             this.SlaveFloor0.Size = new System.Drawing.Size(45, 21);
             this.SlaveFloor0.TabIndex = 12;
@@ -2620,7 +2521,7 @@
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(15, 22);
+            this.label75.Location = new System.Drawing.Point(15, 30);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(21, 13);
             this.label75.TabIndex = 3;
@@ -2629,7 +2530,7 @@
             // label76
             // 
             this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(15, 99);
+            this.label76.Location = new System.Drawing.Point(15, 107);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(93, 13);
             this.label76.TabIndex = 2;
@@ -2638,7 +2539,7 @@
             // label77
             // 
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(15, 49);
+            this.label77.Location = new System.Drawing.Point(15, 57);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(34, 13);
             this.label77.TabIndex = 8;
@@ -2664,7 +2565,7 @@
             "13",
             "14",
             "15"});
-            this.SlaveIDBox0.Location = new System.Drawing.Point(55, 19);
+            this.SlaveIDBox0.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox0.Name = "SlaveIDBox0";
             this.SlaveIDBox0.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox0.TabIndex = 5;
@@ -2679,7 +2580,7 @@
             "3",
             "4",
             "5"});
-            this.SlaveTypeBox0.Location = new System.Drawing.Point(55, 46);
+            this.SlaveTypeBox0.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox0.Name = "SlaveTypeBox0";
             this.SlaveTypeBox0.Size = new System.Drawing.Size(45, 21);
             this.SlaveTypeBox0.TabIndex = 6;
@@ -2932,7 +2833,6 @@
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.ComboBox SlaveIDBox0;
         private System.Windows.Forms.ComboBox SlaveTypeBox0;
-        private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.ProgressBar progressBar3;
@@ -2958,13 +2858,5 @@
         private System.Windows.Forms.NumericUpDown F2_occupied_box;
         private System.Windows.Forms.Label F1_Occupied_label;
         private System.Windows.Forms.NumericUpDown F1_occupied_box;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label OccupiedSpacesLabel0;
     }
 }

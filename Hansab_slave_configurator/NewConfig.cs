@@ -17,7 +17,8 @@ namespace Hansab_slave_configurator
     {
         public String configStart = "Configuration of : \n";
         public String textToFile = "";
-        public String Configuration = "";  //configBytes
+        public byte[][] SlaveConfiguration = new byte[16][];    //SlaveConfigBytes
+        public byte[] MasterConfiguration = new byte[21];       //MasterConfigBytes
         //public String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         public String fileName;
         bool CorrectConfig = false;
@@ -63,6 +64,7 @@ namespace Hansab_slave_configurator
         public bool[] SlaveSettings14 = new bool[3] { false, false, false };
         public bool[] SlaveSettings15 = new bool[3] { false, false, false };
 
+
         public NewConfig()
         {
             InitializeComponent();
@@ -71,7 +73,6 @@ namespace Hansab_slave_configurator
         {
             ApplyConfigSettingsButton.Enabled = false;
             SaveButton.Enabled = false;
-            SendButton.Enabled = false;
             this.Width = 350;
             FloorGroupBox.Height = 50;
 
@@ -92,6 +93,8 @@ namespace Hansab_slave_configurator
             SlaveSettingsBox14.Hide();
             SlaveSettingsBox15.Hide();
         }
+
+
 
         //==============================[CHECK_FUNC]=============================================
 
@@ -120,7 +123,6 @@ namespace Hansab_slave_configurator
             StreamWriter text = new StreamWriter(fileName);
             text.Write(ConfigTextBox.Text);
             text.Close();
-            SendButton.Enabled = true;
 
             //saveFileDialog1.ShowDialog();
         }
@@ -1077,14 +1079,16 @@ namespace Hansab_slave_configurator
         {
             for (int i = 0; i <= slaveCount; i++)
             {
-                Configuration += 1 ;
-
+                SlaveConfiguration[i][i] = 0x00;
+                //MasterConfiguration;
             }
 
         }
 
+        private void SendButton_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 
 }
@@ -1098,11 +1102,40 @@ public class Slave
     public int Floor { get; set; }
     public int Count { get; set; }
 
-    public Slave(int id = 0, int type = 0, int floor = 1, int count = 0)
+    public byte ByteType { get; }
+    public byte ByteFloor { get; }
+    public byte ByteCount1 { get; }
+    public byte ByteCount2 { get; }
+    public byte ByteCount3 { get; }
+
+    public Slave(int id = 0, int type = 0, int floor = 0, int count = 0)
     {
         ID = id;
         Type = type;
         Floor = floor;
         Count = count;
+
+        ByteType = Convert.ToByte(Type);
+
+        if (Floor == 1)
+        {
+            ByteFloor = 0xF1;
+        }
+        else if (Floor == 2)
+        {
+            ByteFloor = 0xF2;
+        }
+        else if (Floor == 3)
+        {
+            ByteFloor = 0xF3;
+        }
+        else if (Floor == 4)
+        {
+            ByteFloor = 0xF4;
+        }
+        
+        ByteCount1 = Convert.ToByte(Count / 100);
+        ByteCount2 = Convert.ToByte((Count % 100) / 10);
+        ByteCount3 = Convert.ToByte(Count % 10);
     }
 }

@@ -57,8 +57,8 @@
             this.Current_cfg_label = new System.Windows.Forms.Label();
             this.Current_cfg_box = new System.Windows.Forms.RichTextBox();
             this.Load_new_config_box = new System.Windows.Forms.GroupBox();
-            this.newConfig_button = new System.Windows.Forms.Button();
-            this.load_button = new System.Windows.Forms.Button();
+            this.NewConfig_button = new System.Windows.Forms.Button();
+            this.Load_button = new System.Windows.Forms.Button();
             this.serial_tab = new System.Windows.Forms.TabPage();
             this.ClearButton = new System.Windows.Forms.Button();
             this.Serial_data_label = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@
             this.UserType = new System.Windows.Forms.Label();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.hansab_logo = new System.Windows.Forms.PictureBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.OpenFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label4 = new System.Windows.Forms.Label();
             this.NewUserButton = new System.Windows.Forms.Button();
             this.NewUserText = new System.Windows.Forms.Label();
@@ -392,8 +392,8 @@
             // 
             // Load_new_config_box
             // 
-            this.Load_new_config_box.Controls.Add(this.newConfig_button);
-            this.Load_new_config_box.Controls.Add(this.load_button);
+            this.Load_new_config_box.Controls.Add(this.NewConfig_button);
+            this.Load_new_config_box.Controls.Add(this.Load_button);
             this.Load_new_config_box.Location = new System.Drawing.Point(17, 12);
             this.Load_new_config_box.Name = "Load_new_config_box";
             this.Load_new_config_box.Size = new System.Drawing.Size(169, 59);
@@ -401,25 +401,25 @@
             this.Load_new_config_box.TabStop = false;
             this.Load_new_config_box.Text = "Load/New Configuration file";
             // 
-            // newConfig_button
+            // NewConfig_button
             // 
-            this.newConfig_button.Location = new System.Drawing.Point(87, 24);
-            this.newConfig_button.Name = "newConfig_button";
-            this.newConfig_button.Size = new System.Drawing.Size(75, 23);
-            this.newConfig_button.TabIndex = 2;
-            this.newConfig_button.Text = "New";
-            this.newConfig_button.UseVisualStyleBackColor = true;
-            this.newConfig_button.Click += new System.EventHandler(this.newConfig_button_Click);
+            this.NewConfig_button.Location = new System.Drawing.Point(87, 24);
+            this.NewConfig_button.Name = "NewConfig_button";
+            this.NewConfig_button.Size = new System.Drawing.Size(75, 23);
+            this.NewConfig_button.TabIndex = 2;
+            this.NewConfig_button.Text = "New";
+            this.NewConfig_button.UseVisualStyleBackColor = true;
+            this.NewConfig_button.Click += new System.EventHandler(this.NewConfig_button_Click);
             // 
-            // load_button
+            // Load_button
             // 
-            this.load_button.Location = new System.Drawing.Point(6, 24);
-            this.load_button.Name = "load_button";
-            this.load_button.Size = new System.Drawing.Size(75, 23);
-            this.load_button.TabIndex = 0;
-            this.load_button.Text = "Load";
-            this.load_button.UseVisualStyleBackColor = true;
-            this.load_button.Click += new System.EventHandler(this.load_button_Click);
+            this.Load_button.Location = new System.Drawing.Point(6, 24);
+            this.Load_button.Name = "Load_button";
+            this.Load_button.Size = new System.Drawing.Size(75, 23);
+            this.Load_button.TabIndex = 0;
+            this.Load_button.Text = "Load";
+            this.Load_button.UseVisualStyleBackColor = true;
+            this.Load_button.Click += new System.EventHandler(this.Load_button_Click);
             // 
             // serial_tab
             // 
@@ -537,7 +537,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Enabled = false;
-            this.richTextBox1.Location = new System.Drawing.Point(6, 20);
+            this.richTextBox1.Location = new System.Drawing.Point(6, 5);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(468, 485);
             this.richTextBox1.TabIndex = 0;
@@ -684,12 +684,12 @@
             this.hansab_logo.TabIndex = 2;
             this.hansab_logo.TabStop = false;
             // 
-            // openFileDialog1
+            // OpenFileDialog1
             // 
-            this.openFileDialog1.FileName = "Configuration_file.txt";
-            this.openFileDialog1.Filter = "\"Text files (*.txt)|*.txt|All files (*.*)|*.*\"";
-            this.openFileDialog1.Title = "\"Open text file\"";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            this.OpenFileDialog1.FileName = "Configuration_file.txt";
+            this.OpenFileDialog1.Filter = "\"Text files (*.txt)|*.txt|All files (*.*)|*.*\"";
+            this.OpenFileDialog1.Title = "\"Open text file\"";
+            this.OpenFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
             // 
             // label4
             // 
@@ -854,12 +854,12 @@
         private System.Windows.Forms.Label Serial_data_label;
         private System.Windows.Forms.TabPage Main_tab;
         private System.Windows.Forms.GroupBox Load_new_config_box;
-        private System.Windows.Forms.Button load_button;
+        private System.Windows.Forms.Button Load_button;
         private System.Windows.Forms.PictureBox hansab_logo;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog OpenFileDialog1;
         private System.Windows.Forms.Label Current_cfg_label;
         private System.Windows.Forms.RichTextBox Current_cfg_box;
-        private System.Windows.Forms.Button newConfig_button;
+        private System.Windows.Forms.Button NewConfig_button;
         private System.Windows.Forms.Label Plugged_label;
         private System.Windows.Forms.Label SystemStatus_label;
         private System.Windows.Forms.Button Restart_button;
