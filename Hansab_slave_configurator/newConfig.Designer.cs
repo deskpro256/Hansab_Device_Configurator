@@ -489,8 +489,8 @@
             // saveFileDialog1
             // 
             this.saveFileDialog1.CreatePrompt = true;
-            this.saveFileDialog1.DefaultExt = "txt";
-            this.saveFileDialog1.Filter = "\"Text files (*.txt)|*.txt|All files (*.*)|*.*\"";
+            this.saveFileDialog1.DefaultExt = "dat";
+            this.saveFileDialog1.Filter = "\"Data files (*.dat)|*.dat|All files (*.*)|*.*\"";
             // 
             // ApplyConfigSettingsButton
             // 
@@ -2614,6 +2614,7 @@
             this.Name = "NewConfig";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Configuration Generator";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NewConfig_FormClosed);
             this.Load += new System.EventHandler(this.NewConfig_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FloorCountNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FloorMax1)).EndInit();

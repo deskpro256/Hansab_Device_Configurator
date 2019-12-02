@@ -95,6 +95,7 @@
             this.Serial_timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RequestCount_button = new System.Windows.Forms.Button();
+            this.SendConfigButton = new System.Windows.Forms.Button();
             this.Tab_control.SuspendLayout();
             this.Main_tab.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -388,15 +389,16 @@
             this.Current_cfg_box.ReadOnly = true;
             this.Current_cfg_box.Size = new System.Drawing.Size(444, 376);
             this.Current_cfg_box.TabIndex = 3;
-            this.Current_cfg_box.Text = "";
+            this.Current_cfg_box.Text = "Load a configuration file to view it here";
             // 
             // Load_new_config_box
             // 
+            this.Load_new_config_box.Controls.Add(this.SendConfigButton);
             this.Load_new_config_box.Controls.Add(this.NewConfig_button);
             this.Load_new_config_box.Controls.Add(this.Load_button);
             this.Load_new_config_box.Location = new System.Drawing.Point(17, 12);
             this.Load_new_config_box.Name = "Load_new_config_box";
-            this.Load_new_config_box.Size = new System.Drawing.Size(169, 59);
+            this.Load_new_config_box.Size = new System.Drawing.Size(253, 60);
             this.Load_new_config_box.TabIndex = 2;
             this.Load_new_config_box.TabStop = false;
             this.Load_new_config_box.Text = "Load/New Configuration file";
@@ -787,6 +789,16 @@
             this.RequestCount_button.UseVisualStyleBackColor = true;
             this.RequestCount_button.Click += new System.EventHandler(this.RequestCount_button_Click);
             // 
+            // SendConfigButton
+            // 
+            this.SendConfigButton.Location = new System.Drawing.Point(168, 24);
+            this.SendConfigButton.Name = "SendConfigButton";
+            this.SendConfigButton.Size = new System.Drawing.Size(75, 23);
+            this.SendConfigButton.TabIndex = 3;
+            this.SendConfigButton.Text = "Send";
+            this.SendConfigButton.UseVisualStyleBackColor = true;
+            this.SendConfigButton.Click += new System.EventHandler(this.SendConfigButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -903,5 +915,6 @@
         private System.Windows.Forms.NumericUpDown Floor4SendCount;
         private System.Windows.Forms.NumericUpDown Floor3SendCount;
         private System.Windows.Forms.NumericUpDown Floor2SendCount;
+        private System.Windows.Forms.Button SendConfigButton;
     }
 }

@@ -13,10 +13,7 @@ namespace Hansab_slave_configurator
 {
     public partial class Login_form : Form
     {
-        public string admin = "admin";
-        public string admin_password = "Hansab123";
-        public string guest = "guest";
-        public string guest_password = "Hansab123";
+        public bool LoggedIn = false;
         public string typeAdmin = "admin";
         public string typeGuest = "guest";
         public string usertype;
@@ -44,36 +41,34 @@ namespace Hansab_slave_configurator
 
         private void login_button_Click(object sender, EventArgs e)
         {
-            //ValidateLogin();
+            ValidateLogin();
             //check for user admin/guest
             //if admin go to admin page
             //else if guest user go to simplified page
 
-            if ((username == admin) && (password == admin_password))
-            {
-                this.Hide();
-                var newwindow = new Main(typeAdmin, username);
-                newwindow.Show();
-            }
+        }
+        private void GuestLogin()
+        {
+            this.Hide();
+            var newwindow = new Main(typeGuest, username);
+            newwindow.Show();
 
-            else if ((username == guest) && (password == guest_password))
-            {
-                this.Hide();
-                var newwindow = new Main(typeGuest, username);
-                newwindow.Show();
-            }
 
-            else if ( (username != admin) || (username != guest) || (password != guest_password) || (password != admin_password) )
-            {
-                Incorrect_label.Visible = true;
-            }            
+        }
+        private void AdminLogin()
+        {
+            this.Hide();
+            var newwindow = new Main(typeAdmin, username);
+            newwindow.Show();
+
+
         }
 
         private void ForgotButton_Click(object sender, EventArgs e)
         {
             forgotLimiter++;
             if (forgotLimiter == 1)
-            {                
+            {
                 var newwindow = new ForgotPass();
                 newwindow.Show();
             }
@@ -81,12 +76,44 @@ namespace Hansab_slave_configurator
 
         private void ValidateLogin()
         {
-            //textFromFile;
-            StreamReader readLogins = File.OpenText("lud.lfs");
-            textFromFile = readLogins.ReadToEnd();
-            readLogins.Close();
-            //MessageBox.Show(textFromFile);
-            //Current_cfg_box.Text = textFromFile;
+
+            using (StreamReader readLogins = File.OpenText("lud.lfs"))
+            {
+                while (readLogins.Peek() > -1 || LoggedIn != true)
+                {
+                    try
+                    {
+                        textFromFile = readLogins.ReadLine();
+                        if (textFromFile.Contains(typeAdmin) && textFromFile.Contains(username) && textFromFile.Contains(password))
+                        {
+                            LoggedIn = true;
+                            readLogins.Close();
+                            AdminLogin();
+                            break;
+                        }
+                        else if (textFromFile.Contains(typeGuest) && textFromFile.Contains(username) && textFromFile.Contains(password))
+                        {
+                            LoggedIn = true;
+                            readLogins.Close();
+                            GuestLogin();
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Incorrect username or password!", "Warning!", MessageBoxButtons.OK);
+                            LoggedIn = false;
+                            Incorrect_label.Visible = true;
+                        }
+
+                    }
+                    catch (Exception)
+                    {
+                        break;
+                    }
+
+                }
+                readLogins.Close();
+            }
         }
 
         private void Login_form_FormClosed(object sender, FormClosedEventArgs e)

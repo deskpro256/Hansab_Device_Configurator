@@ -11,6 +11,8 @@ namespace Hansab_slave_configurator
 {
     public partial class Main : Form
     {
+        public static int NewConfigLimiter = 0;
+        public static int NewUserLimiter = 0;
         public Boolean apply = false;
         public Boolean _continue = false;
         public bool TimerPause = false;
@@ -74,6 +76,7 @@ namespace Hansab_slave_configurator
             ConfigEnableButton.Enabled = false;
             RequestCount_button.Enabled = false;
             GetErrors_button.Enabled = false;
+            SendConfigButton.Enabled = false;
         }
 
         private void Apply_button_Click(object sender, EventArgs e)
@@ -204,12 +207,17 @@ namespace Hansab_slave_configurator
             StreamReader streamReader = new StreamReader(OpenFileDialog1.FileName);
             textFromFile = streamReader.ReadToEnd();
             Current_cfg_box.Text = textFromFile;
+            SendConfigButton.Enabled = true;
         }
 
         private void NewConfig_button_Click(object sender, EventArgs e)
         {
-            var newwindow = new NewConfig();
-            newwindow.Show();
+            NewConfigLimiter++;
+            if (NewConfigLimiter == 1)
+            {
+                var newwindow = new NewConfig();
+                newwindow.Show();
+            }
         }
 
         private void Restart_button_Click(object sender, EventArgs e)
@@ -250,8 +258,12 @@ namespace Hansab_slave_configurator
 
         private void NewUserButton_Click(object sender, EventArgs e)
         {
-            var newwindow = new NewUser();
-            newwindow.Show();
+            NewUserLimiter++;
+            if (NewUserLimiter == 1)
+            {
+                var newwindow = new NewUser();
+                newwindow.Show();
+            }
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
@@ -567,5 +579,9 @@ namespace Hansab_slave_configurator
             }
         }
 
+        private void SendConfigButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sending the configuration data!", "Attention!", MessageBoxButtons.OK);
+        }
     }
 }

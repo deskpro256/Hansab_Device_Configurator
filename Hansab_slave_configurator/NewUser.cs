@@ -38,12 +38,12 @@ namespace Hansab_slave_configurator
             readFile.Close();
 
             StreamWriter newUser = File.CreateText("lud.lfs");
-            textToFile = usertype + ',' + username + ',' + password + "\n";
+            textToFile = usertype + ' ' + username + ' ' + password + "\n";
             textToFile = tempText + textToFile;
 
             newUser.Write(textToFile);
             newUser.Close();
-            switch (MessageBox.Show("New user created", "User created", MessageBoxButtons.OK))
+            switch (MessageBox.Show("New user '" + username +"' created!", "Success!", MessageBoxButtons.OK))
             {
                 case DialogResult.OK: this.Close(); break;
             }
@@ -88,6 +88,11 @@ namespace Hansab_slave_configurator
                 dontMatchlabel.Visible = false;
                 CreateButton.Enabled = true;
             }
+        }
+
+        private void NewUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Main.NewUserLimiter = 0;
         }
     }
 }

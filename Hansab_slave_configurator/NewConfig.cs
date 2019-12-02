@@ -15,12 +15,39 @@ namespace Hansab_slave_configurator
 
     public partial class NewConfig : Form
     {
+        public static byte IntDev = 0x1D; //Interface device ID
+        public static byte myID = 0x1C;    //PC soft ID
+        public static byte STX = 0x5B;
+        public static byte ETX = 0x5D;
+        public static byte[] CMDLUT = new byte[11] { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B };
+
+        public String FileName = "Config.dat";
         public String configStart = "Configuration of : \n";
         public String textToFile = "";
-        public byte[][] SlaveConfiguration = new byte[16][];    //SlaveConfigBytes
-        public byte[] MasterConfiguration = new byte[21];       //MasterConfigBytes
+        //SlaveConfigBytes
+        public byte[,] SlaveConfiguration = new byte[16, 10]
+        {
+            {STX,0x00,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x01,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x02,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x03,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x04,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x05,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x06,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x07,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x08,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x09,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x0A,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x0B,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x0C,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x0D,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x0E,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
+            {STX,0x0F,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX}
+        };
+        //MasterConfigBytes
+        public byte[] MasterConfiguration = new byte[18]
+            {STX,IntDev,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,ETX};
         //public String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        public String fileName;
         bool CorrectConfig = false;
 
         public int FloorNumericValue = 1;
@@ -30,22 +57,23 @@ namespace Hansab_slave_configurator
         public int Floor3Count = 0;
         public int Floor4Count = 0;
 
-        public Slave Slave0 = new Slave();
-        public Slave Slave1 = new Slave();
-        public Slave Slave2 = new Slave();
-        public Slave Slave3 = new Slave();
-        public Slave Slave4 = new Slave();
-        public Slave Slave5 = new Slave();
-        public Slave Slave6 = new Slave();
-        public Slave Slave7 = new Slave();
-        public Slave Slave8 = new Slave();
-        public Slave Slave9 = new Slave();
-        public Slave Slave10 = new Slave();
-        public Slave Slave11 = new Slave();
-        public Slave Slave12 = new Slave();
-        public Slave Slave13 = new Slave();
-        public Slave Slave14 = new Slave();
-        public Slave Slave15 = new Slave();
+        public static Slave Slave0 = new Slave();
+        public static Slave Slave1 = new Slave();
+        public static Slave Slave2 = new Slave();
+        public static Slave Slave3 = new Slave();
+        public static Slave Slave4 = new Slave();
+        public static Slave Slave5 = new Slave();
+        public static Slave Slave6 = new Slave();
+        public static Slave Slave7 = new Slave();
+        public static Slave Slave8 = new Slave();
+        public static Slave Slave9 = new Slave();
+        public static Slave Slave10 = new Slave();
+        public static Slave Slave11 = new Slave();
+        public static Slave Slave12 = new Slave();
+        public static Slave Slave13 = new Slave();
+        public static Slave Slave14 = new Slave();
+        public static Slave Slave15 = new Slave();
+
 
         public bool[] SlaveSettings0 = new bool[3] { false, false, false };
         public bool[] SlaveSettings1 = new bool[3] { false, false, false };
@@ -106,25 +134,41 @@ namespace Hansab_slave_configurator
         //==============================[APPLY_FUNC]=============================================
         private void ApplyConfigSettingsButton_Click(object sender, EventArgs e)
         {
+            ConfigTextBox.Text = "";
             ConfigTextBox.AppendText(configStart);
             ConfigTextBox.AppendText(LotNameLocationBox.Text + "\n");
-            ConfigTextBox.AppendText(textToFile);
+            for (int i = 0; i <= 15; i++)
+            {
+                for (int j = 0; j <= 9; j++)
+                {
+                    ConfigTextBox.AppendText(Convert.ToInt32(SlaveConfiguration[i, j]).ToString());
+                }
+            }
             SaveButton.Enabled = true;
 
             CreateConfigurationBytes(UsedSlaveCount);
-
 
         }
 
         //==============================[SAVE_FUNC]=============================================
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            fileName = "NewConfig.txt";
-            StreamWriter text = new StreamWriter(fileName);
-            text.Write(ConfigTextBox.Text);
-            text.Close();
+            using (BinaryWriter binaryWriter = new BinaryWriter(File.Open(FileName, FileMode.Create)))
+            {
+                // i rows  //  j cols
+                for (int i = 0; i <= 15; i++)
+                {
+                    for (int j = 0; j <= 9; j++)
+                    {
+                        binaryWriter.Write(SlaveConfiguration[i, j]);
+                    }
+                }
+
+                binaryWriter.Close();
+            }
 
             //saveFileDialog1.ShowDialog();
+            MessageBox.Show("File saved in Hansab_slave_configurator/bin/x86/Debug/Config.dat!", "File saved!", MessageBoxButtons.OK);
         }
 
         private void SlaveCount_ValueChanged(object sender, EventArgs e)
@@ -1077,17 +1121,59 @@ namespace Hansab_slave_configurator
 
         void CreateConfigurationBytes(int slaveCount)
         {
-            for (int i = 0; i <= slaveCount; i++)
+            int huns = 0;
+            int tens = 0;
+            int ones = 0;
+            var SlaveList = new List<Slave> { Slave0, Slave1, Slave2, Slave3,
+                                              Slave4, Slave5, Slave6, Slave7,
+                                              Slave8, Slave9, Slave10, Slave11,
+                                              Slave12, Slave13, Slave14, Slave15};
+
+            MasterConfiguration[4] = Convert.ToByte(UsedSlaveCount); // SLAVECNT
+
+            huns = (Floor1Count / 100);
+            tens = (Floor1Count % 100) / 10;
+            ones = (Floor1Count % 10);
+            MasterConfiguration[5] = Convert.ToByte(huns); // COUNT1
+            MasterConfiguration[6] = Convert.ToByte(tens); // COUNT2
+            MasterConfiguration[7] = Convert.ToByte(ones); // COUNT3
+
+            huns = (Floor2Count / 100);
+            tens = (Floor2Count % 100) / 10;
+            ones = (Floor2Count % 10);
+            MasterConfiguration[8] = Convert.ToByte(huns); // COUNT1
+            MasterConfiguration[9] = Convert.ToByte(tens); // COUNT2
+            MasterConfiguration[10] = Convert.ToByte(ones); // COUNT3
+
+            huns = (Floor3Count / 100);
+            tens = (Floor3Count % 100) / 10;
+            ones = (Floor3Count % 10);
+            MasterConfiguration[11] = Convert.ToByte(huns); // COUNT1
+            MasterConfiguration[12] = Convert.ToByte(tens); // COUNT2
+            MasterConfiguration[13] = Convert.ToByte(ones); // COUNT3
+
+            huns = (Floor4Count / 100);
+            tens = (Floor4Count % 100) / 10;
+            ones = (Floor4Count % 10);
+            MasterConfiguration[14] = Convert.ToByte(huns); // COUNT1
+            MasterConfiguration[15] = Convert.ToByte(tens); // COUNT2
+            MasterConfiguration[16] = Convert.ToByte(ones); // COUNT3
+
+            foreach (Slave Slave in SlaveList)
             {
-                SlaveConfiguration[i][i] = 0x00;
-                //MasterConfiguration;
+                int x = SlaveList.IndexOf(Slave);
+                SlaveConfiguration[x, 4] = Slave.ByteType; // TYPE
+                SlaveConfiguration[x, 5] = Slave.ByteFloor; // FLOORID
+                SlaveConfiguration[x, 6] = Slave.ByteCount1; // COUNT1
+                SlaveConfiguration[x, 7] = Slave.ByteCount2; // COUNT2
+                SlaveConfiguration[x, 8] = Slave.ByteCount3; // COUNT3
             }
 
         }
 
-        private void SendButton_Click(object sender, EventArgs e)
+        private void NewConfig_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            Main.NewConfigLimiter = 0;
         }
     }
 
@@ -1133,9 +1219,10 @@ public class Slave
         {
             ByteFloor = 0xF4;
         }
-        
+
         ByteCount1 = Convert.ToByte(Count / 100);
         ByteCount2 = Convert.ToByte((Count % 100) / 10);
         ByteCount3 = Convert.ToByte(Count % 10);
+
     }
 }
