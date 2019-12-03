@@ -26,7 +26,7 @@ namespace Hansab_slave_configurator
         {
             //find username in user files, if there, replace passwords, else, user not found!
 
-            if (password == repeatPassword)
+            if (password == repeatPassword && password != "")
             {
                 MessageBox.Show("Passwords match", "Something happened", MessageBoxButtons.OK);
             }

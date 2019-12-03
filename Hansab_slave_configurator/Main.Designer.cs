@@ -57,6 +57,7 @@
             this.Current_cfg_label = new System.Windows.Forms.Label();
             this.Current_cfg_box = new System.Windows.Forms.RichTextBox();
             this.Load_new_config_box = new System.Windows.Forms.GroupBox();
+            this.SendConfigButton = new System.Windows.Forms.Button();
             this.NewConfig_button = new System.Windows.Forms.Button();
             this.Load_button = new System.Windows.Forms.Button();
             this.serial_tab = new System.Windows.Forms.TabPage();
@@ -95,7 +96,6 @@
             this.Serial_timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RequestCount_button = new System.Windows.Forms.Button();
-            this.SendConfigButton = new System.Windows.Forms.Button();
             this.Tab_control.SuspendLayout();
             this.Main_tab.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -403,6 +403,16 @@
             this.Load_new_config_box.TabStop = false;
             this.Load_new_config_box.Text = "Load/New Configuration file";
             // 
+            // SendConfigButton
+            // 
+            this.SendConfigButton.Location = new System.Drawing.Point(168, 24);
+            this.SendConfigButton.Name = "SendConfigButton";
+            this.SendConfigButton.Size = new System.Drawing.Size(75, 23);
+            this.SendConfigButton.TabIndex = 3;
+            this.SendConfigButton.Text = "Send";
+            this.SendConfigButton.UseVisualStyleBackColor = true;
+            this.SendConfigButton.Click += new System.EventHandler(this.SendConfigButton_Click);
+            // 
             // NewConfig_button
             // 
             this.NewConfig_button.Location = new System.Drawing.Point(87, 24);
@@ -688,9 +698,10 @@
             // 
             // OpenFileDialog1
             // 
-            this.OpenFileDialog1.FileName = "Configuration_file.txt";
-            this.OpenFileDialog1.Filter = "\"Text files (*.txt)|*.txt|All files (*.*)|*.*\"";
-            this.OpenFileDialog1.Title = "\"Open text file\"";
+            this.OpenFileDialog1.DefaultExt = "dat";
+            this.OpenFileDialog1.FileName = "Configuration_file.dat";
+            this.OpenFileDialog1.Filter = "\"Data files (*.dat)|*.dat|All files (*.*)|*.*\"";
+            this.OpenFileDialog1.Title = "\"Open data file\"";
             this.OpenFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
             // 
             // label4
@@ -788,16 +799,6 @@
             this.RequestCount_button.Text = "Request count";
             this.RequestCount_button.UseVisualStyleBackColor = true;
             this.RequestCount_button.Click += new System.EventHandler(this.RequestCount_button_Click);
-            // 
-            // SendConfigButton
-            // 
-            this.SendConfigButton.Location = new System.Drawing.Point(168, 24);
-            this.SendConfigButton.Name = "SendConfigButton";
-            this.SendConfigButton.Size = new System.Drawing.Size(75, 23);
-            this.SendConfigButton.TabIndex = 3;
-            this.SendConfigButton.Text = "Send";
-            this.SendConfigButton.UseVisualStyleBackColor = true;
-            this.SendConfigButton.Click += new System.EventHandler(this.SendConfigButton_Click);
             // 
             // Main
             // 

@@ -25,7 +25,7 @@ namespace Hansab_slave_configurator
         public String configStart = "Configuration of : \n";
         public String textToFile = "";
         //SlaveConfigBytes
-        public byte[,] SlaveConfiguration = new byte[16, 10]
+        public static byte[,] SlaveConfiguration = new byte[16, 10]
         {
             {STX,0x00,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
             {STX,0x01,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX},
@@ -45,7 +45,7 @@ namespace Hansab_slave_configurator
             {STX,0x0F,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX}
         };
         //MasterConfigBytes
-        public byte[] MasterConfiguration = new byte[18]
+        public static byte[] MasterConfiguration = new byte[18]
             {STX,IntDev,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,ETX};
         //public String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         bool CorrectConfig = false;
@@ -57,40 +57,40 @@ namespace Hansab_slave_configurator
         public int Floor3Count = 0;
         public int Floor4Count = 0;
 
-        public static Slave Slave0 = new Slave();
-        public static Slave Slave1 = new Slave();
-        public static Slave Slave2 = new Slave();
-        public static Slave Slave3 = new Slave();
-        public static Slave Slave4 = new Slave();
-        public static Slave Slave5 = new Slave();
-        public static Slave Slave6 = new Slave();
-        public static Slave Slave7 = new Slave();
-        public static Slave Slave8 = new Slave();
-        public static Slave Slave9 = new Slave();
-        public static Slave Slave10 = new Slave();
-        public static Slave Slave11 = new Slave();
-        public static Slave Slave12 = new Slave();
-        public static Slave Slave13 = new Slave();
-        public static Slave Slave14 = new Slave();
-        public static Slave Slave15 = new Slave();
+        public static Slave Slave0 = new Slave(0, 0, 0, 0);
+        public static Slave Slave1 = new Slave(1, 0, 0, 0);
+        public static Slave Slave2 = new Slave(2, 0, 0, 0);
+        public static Slave Slave3 = new Slave(3, 0, 0, 0);
+        public static Slave Slave4 = new Slave(4, 0, 0, 0);
+        public static Slave Slave5 = new Slave(5, 0, 0, 0);
+        public static Slave Slave6 = new Slave(6, 0, 0, 0);
+        public static Slave Slave7 = new Slave(7, 0, 0, 0);
+        public static Slave Slave8 = new Slave(8, 0, 0, 0);
+        public static Slave Slave9 = new Slave(9, 0, 0, 0);
+        public static Slave Slave10 = new Slave(10, 0, 0, 0);
+        public static Slave Slave11 = new Slave(11, 0, 0, 0);
+        public static Slave Slave12 = new Slave(12, 0, 0, 0);
+        public static Slave Slave13 = new Slave(13, 0, 0, 0);
+        public static Slave Slave14 = new Slave(14, 0, 0, 0);
+        public static Slave Slave15 = new Slave(15, 0, 0, 0);
 
 
-        public bool[] SlaveSettings0 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings1 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings2 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings3 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings4 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings5 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings6 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings7 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings8 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings9 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings10 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings11 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings12 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings13 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings14 = new bool[3] { false, false, false };
-        public bool[] SlaveSettings15 = new bool[3] { false, false, false };
+        public bool[] SlaveSettings0 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings1 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings2 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings3 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings4 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings5 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings6 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings7 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings8 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings9 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings10 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings11 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings12 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings13 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings14 = new bool[3] { true, false, false };
+        public bool[] SlaveSettings15 = new bool[3] { true, false, false };
 
 
         public NewConfig()
@@ -155,6 +155,11 @@ namespace Hansab_slave_configurator
         {
             using (BinaryWriter binaryWriter = new BinaryWriter(File.Open(FileName, FileMode.Create)))
             {
+                for (int i = 0; i <= 17; i++)
+                {
+                    binaryWriter.Write(MasterConfiguration[i]);
+                }
+
                 // i rows  //  j cols
                 for (int i = 0; i <= 15; i++)
                 {
@@ -521,66 +526,82 @@ namespace Hansab_slave_configurator
 
             if (Slave0.Floor == n)
             {
+                Slave0.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel0.Text = MainCount;
             }
             if (Slave1.Floor == n)
             {
+                Slave1.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel1.Text = MainCount;
             }
             if (Slave2.Floor == n)
             {
+                Slave2.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel2.Text = MainCount;
             }
             if (Slave3.Floor == n)
             {
+                Slave3.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel3.Text = MainCount;
             }
             if (Slave4.Floor == n)
             {
+                Slave4.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel4.Text = MainCount;
             }
             if (Slave5.Floor == n)
             {
+                Slave5.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel5.Text = MainCount;
             }
             if (Slave6.Floor == n)
             {
+                Slave6.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel6.Text = MainCount;
             }
             if (Slave7.Floor == n)
             {
+                Slave7.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel7.Text = MainCount;
             }
             if (Slave8.Floor == n)
             {
+                Slave8.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel8.Text = MainCount;
             }
             if (Slave9.Floor == n)
             {
+                Slave9.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel9.Text = MainCount;
             }
             if (Slave10.Floor == n)
             {
+                Slave10.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel10.Text = MainCount;
             }
             if (Slave11.Floor == n)
             {
+                Slave11.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel11.Text = MainCount;
             }
             if (Slave12.Floor == n)
             {
+                Slave12.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel12.Text = MainCount;
             }
             if (Slave13.Floor == n)
             {
+                Slave13.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel13.Text = MainCount;
             }
             if (Slave14.Floor == n)
             {
+                Slave14.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel14.Text = MainCount;
             }
             if (Slave15.Floor == n)
             {
+                Slave15.Count = Convert.ToInt32(MainCount);
                 SlaveMaxCountLabel15.Text = MainCount;
             }
         }
@@ -619,368 +640,285 @@ namespace Hansab_slave_configurator
         //=====================================[SLAVE_0]=======================================================
 
 
-        private void SlaveIDBox0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave0.ID = Convert.ToInt32(SlaveIDBox0.SelectedItem);
-            SlaveSettings0[0] = true;
-            CheckProgressBarValues(0);
-        }
-
         private void SlaveTypeBox0_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave0.Type = Convert.ToInt32(SlaveTypeBox0.SelectedItem);
+            Slave0.Type = Convert.ToInt32(SlaveTypeBox0.Text);
             SlaveSettings0[1] = true;
             CheckProgressBarValues(0);
         }
 
         private void SlaveFloor0_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave0.Floor = Convert.ToInt32(SlaveFloor0.SelectedItem);
+            Slave0.Floor = Convert.ToInt32(SlaveFloor0.Text);
             SlaveSettings0[2] = true;
             CheckProgressBarValues(0);
             SetFloorCount(Slave0.Floor);
         }
 
         //=====================================[SLAVE_1]=======================================================
-        private void SlaveIDBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave1.ID = Convert.ToInt32(SlaveIDBox1.SelectedItem);
-            SlaveSettings1[0] = true;
-            CheckProgressBarValues(1);
-        }
+
 
         private void SlaveTypeBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave1.Type = Convert.ToInt32(SlaveTypeBox1.SelectedItem);
+            Slave1.Type = Convert.ToInt32(SlaveTypeBox1.Text);
             SlaveSettings1[1] = true;
             CheckProgressBarValues(1);
         }
 
         private void SlaveFloor1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave1.Floor = Convert.ToInt32(SlaveFloor1.SelectedItem);
+            Slave1.Floor = Convert.ToInt32(SlaveFloor1.Text);
             SlaveSettings1[2] = true;
             CheckProgressBarValues(1);
             SetFloorCount(Slave1.Floor);
         }
 
         //=====================================[SLAVE_2]=======================================================
-        private void SlaveIDBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave2.ID = Convert.ToInt32(SlaveIDBox2.SelectedItem);
-            SlaveSettings2[0] = true;
-            CheckProgressBarValues(2);
-        }
+
 
         private void SlaveTypeBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave2.Type = Convert.ToInt32(SlaveTypeBox2.SelectedItem);
+            Slave2.Type = Convert.ToInt32(SlaveTypeBox2.Text);
             SlaveSettings2[1] = true;
             CheckProgressBarValues(2);
         }
 
         private void SlaveFloor2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave2.Floor = Convert.ToInt32(SlaveFloor2.SelectedItem);
+            Slave2.Floor = Convert.ToInt32(SlaveFloor2.Text);
             SlaveSettings2[2] = true;
             CheckProgressBarValues(2);
             SetFloorCount(Slave2.Floor);
         }
 
         //=====================================[SLAVE_3]=======================================================
-        private void SlaveIDBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave3.ID = Convert.ToInt32(SlaveIDBox3.SelectedItem);
-            SlaveSettings3[0] = true;
-            CheckProgressBarValues(3);
-        }
+
 
         private void SlaveTypeBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave3.Type = Convert.ToInt32(SlaveTypeBox3.SelectedItem);
+            Slave3.Type = Convert.ToInt32(SlaveTypeBox3.Text);
             SlaveSettings3[1] = true;
             CheckProgressBarValues(3);
         }
 
         private void SlaveFloor3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave3.Floor = Convert.ToInt32(SlaveFloor3.SelectedItem);
+            Slave3.Floor = Convert.ToInt32(SlaveFloor3.Text);
             SlaveSettings3[2] = true;
             CheckProgressBarValues(3);
             SetFloorCount(Slave3.Floor);
         }
 
         //=====================================[SLAVE_4]=======================================================
-        private void SlaveIDBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave4.ID = Convert.ToInt32(SlaveIDBox4.SelectedItem);
-            SlaveSettings4[0] = true;
-            CheckProgressBarValues(4);
-        }
+
 
         private void SlaveTypeBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave4.Type = Convert.ToInt32(SlaveTypeBox4.SelectedItem);
+            Slave4.Type = Convert.ToInt32(SlaveTypeBox4.Text);
             SlaveSettings4[1] = true;
             CheckProgressBarValues(4);
         }
 
         private void SlaveFloor4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave4.Floor = Convert.ToInt32(SlaveFloor4.SelectedItem);
+            Slave4.Floor = Convert.ToInt32(SlaveFloor4.Text);
             SlaveSettings4[2] = true;
             CheckProgressBarValues(4);
             SetFloorCount(Slave4.Floor);
         }
 
         //=====================================[SLAVE_5]=======================================================
-        private void SlaveIDBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave5.ID = Convert.ToInt32(SlaveIDBox5.SelectedItem);
-            SlaveSettings5[0] = true;
-            CheckProgressBarValues(5);
-        }
+
 
         private void SlaveTypeBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave5.Type = Convert.ToInt32(SlaveTypeBox5.SelectedItem);
+            Slave5.Type = Convert.ToInt32(SlaveTypeBox5.Text);
             SlaveSettings5[1] = true;
             CheckProgressBarValues(5);
         }
 
         private void SlaveFloor5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave5.Floor = Convert.ToInt32(SlaveFloor5.SelectedItem);
+            Slave5.Floor = Convert.ToInt32(SlaveFloor5.Text);
             SlaveSettings5[2] = true;
             CheckProgressBarValues(5);
             SetFloorCount(Slave5.Floor);
         }
 
         //=====================================[SLAVE_6]=======================================================
-        private void SlaveIDBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave6.ID = Convert.ToInt32(SlaveIDBox6.SelectedItem);
-            SlaveSettings6[0] = true;
-            CheckProgressBarValues(6);
-        }
+
 
         private void SlaveTypeBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave6.Type = Convert.ToInt32(SlaveTypeBox6.SelectedItem);
+            Slave6.Type = Convert.ToInt32(SlaveTypeBox6.Text);
             SlaveSettings6[1] = true;
             CheckProgressBarValues(6);
         }
 
         private void SlaveFloor6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave6.Floor = Convert.ToInt32(SlaveFloor6.SelectedItem);
+            Slave6.Floor = Convert.ToInt32(SlaveFloor6.Text);
             SlaveSettings6[2] = true;
             CheckProgressBarValues(6);
             SetFloorCount(Slave6.Floor);
         }
 
         //=====================================[SLAVE_7]=======================================================
-        private void SlaveIDBox7_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave7.ID = Convert.ToInt32(SlaveIDBox7.SelectedItem);
-            SlaveSettings7[0] = true;
-            CheckProgressBarValues(7);
-        }
+
 
         private void SlaveTypeBox7_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave7.Type = Convert.ToInt32(SlaveTypeBox7.SelectedItem);
+            Slave7.Type = Convert.ToInt32(SlaveTypeBox7.Text);
             SlaveSettings7[1] = true;
             CheckProgressBarValues(7);
         }
 
         private void SlaveFloor7_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave7.Floor = Convert.ToInt32(SlaveFloor7.SelectedItem);
+            Slave7.Floor = Convert.ToInt32(SlaveFloor7.Text);
             SlaveSettings7[2] = true;
             CheckProgressBarValues(7);
             SetFloorCount(Slave7.Floor);
         }
 
         //=====================================[SLAVE_8]=======================================================
-        private void SlaveIDBox8_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave8.ID = Convert.ToInt32(SlaveIDBox8.SelectedItem);
-            SlaveSettings8[0] = true;
-            CheckProgressBarValues(8);
-        }
+
 
         private void SlaveTypeBox8_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave8.Type = Convert.ToInt32(SlaveTypeBox8.SelectedItem);
+            Slave8.Type = Convert.ToInt32(SlaveTypeBox8.Text);
             SlaveSettings8[1] = true;
             CheckProgressBarValues(8);
         }
 
         private void SlaveFloor8_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave8.Floor = Convert.ToInt32(SlaveFloor8.SelectedItem);
+            Slave8.Floor = Convert.ToInt32(SlaveFloor8.Text);
             SlaveSettings8[2] = true;
             SetFloorCount(Slave8.Floor);
             CheckProgressBarValues(8);
         }
 
         //=====================================[SLAVE_9]=======================================================
-        private void SlaveIDBox9_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave9.ID = Convert.ToInt32(SlaveIDBox9.SelectedItem);
-            SlaveSettings9[0] = true;
-            CheckProgressBarValues(9);
-        }
+
 
         private void SlaveTypeBox9_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave9.Type = Convert.ToInt32(SlaveTypeBox9.SelectedItem);
+            Slave9.Type = Convert.ToInt32(SlaveTypeBox9.Text);
             SlaveSettings9[1] = true;
             CheckProgressBarValues(9);
         }
 
         private void SlaveFloor9_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave9.Floor = Convert.ToInt32(SlaveFloor9.SelectedItem);
+            Slave9.Floor = Convert.ToInt32(SlaveFloor9.Text);
             SlaveSettings9[2] = true;
             SetFloorCount(Slave9.Floor);
             CheckProgressBarValues(9);
         }
 
         //=====================================[SLAVE_10]=======================================================
-        private void SlaveIDBox10_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave10.ID = Convert.ToInt32(SlaveIDBox10.SelectedItem);
-            SlaveSettings10[0] = true;
-            CheckProgressBarValues(10);
-        }
+
 
         private void SlaveTypeBox10_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave10.Type = Convert.ToInt32(SlaveTypeBox10.SelectedItem);
+            Slave10.Type = Convert.ToInt32(SlaveTypeBox10.Text);
             SlaveSettings10[1] = true;
             CheckProgressBarValues(10);
         }
 
         private void SlaveFloor10_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave10.Floor = Convert.ToInt32(SlaveFloor10.SelectedItem);
+            Slave10.Floor = Convert.ToInt32(SlaveFloor10.Text);
             SlaveSettings10[2] = true;
             SetFloorCount(Slave10.Floor);
             CheckProgressBarValues(10);
         }
 
         //=====================================[SLAVE_11]=======================================================
-        private void SlaveIDBox11_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave11.ID = Convert.ToInt32(SlaveIDBox11.SelectedItem);
-            SlaveSettings11[0] = true;
-            CheckProgressBarValues(11);
-        }
+
 
         private void SlaveTypeBox11_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave11.Type = Convert.ToInt32(SlaveTypeBox11.SelectedItem);
+            Slave11.Type = Convert.ToInt32(SlaveTypeBox11.Text);
             SlaveSettings11[1] = true;
             CheckProgressBarValues(11);
         }
 
         private void SlaveFloor11_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave11.Floor = Convert.ToInt32(SlaveFloor11.SelectedItem);
+            Slave11.Floor = Convert.ToInt32(SlaveFloor11.Text);
             SlaveSettings11[2] = true;
             SetFloorCount(Slave11.Floor);
             CheckProgressBarValues(11);
         }
 
         //=====================================[SLAVE_12]=======================================================
-        private void SlaveIDBox12_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave12.ID = Convert.ToInt32(SlaveIDBox12.SelectedItem);
-            SlaveSettings12[0] = true;
-            CheckProgressBarValues(12);
-        }
+
 
         private void SlaveTypeBox12_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave12.Type = Convert.ToInt32(SlaveTypeBox12.SelectedItem);
+            Slave12.Type = Convert.ToInt32(SlaveTypeBox12.Text);
             SlaveSettings12[1] = true;
             CheckProgressBarValues(12);
         }
 
         private void SlaveFloor12_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave12.Floor = Convert.ToInt32(SlaveFloor12.SelectedItem);
+            Slave12.Floor = Convert.ToInt32(SlaveFloor12.Text);
             SlaveSettings12[2] = true;
             SetFloorCount(Slave12.Floor);
             CheckProgressBarValues(12);
         }
 
         //=====================================[SLAVE_13]=======================================================
-        private void SlaveIDBox13_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave13.ID = Convert.ToInt32(SlaveIDBox13.SelectedItem);
-            SlaveSettings13[0] = true;
-            CheckProgressBarValues(13);
-        }
+
 
         private void SlaveTypeBox13_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave13.Type = Convert.ToInt32(SlaveTypeBox13.SelectedItem);
+            Slave13.Type = Convert.ToInt32(SlaveTypeBox13.Text);
             SlaveSettings13[1] = true;
             CheckProgressBarValues(13);
         }
 
         private void SlaveFloor13_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave13.Floor = Convert.ToInt32(SlaveFloor13.SelectedItem);
+            Slave13.Floor = Convert.ToInt32(SlaveFloor13.Text);
             SlaveSettings13[2] = true;
             SetFloorCount(Slave13.Floor);
             CheckProgressBarValues(13);
         }
 
         //=====================================[SLAVE_14]=======================================================
-        private void SlaveIDBox14_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave14.ID = Convert.ToInt32(SlaveIDBox14.SelectedItem);
-            SlaveSettings14[0] = true;
-            CheckProgressBarValues(14);
-        }
+
 
         private void SlaveTypeBox14_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave14.Type = Convert.ToInt32(SlaveTypeBox14.SelectedItem);
+            Slave14.Type = Convert.ToInt32(SlaveTypeBox14.Text);
             SlaveSettings14[1] = true;
             CheckProgressBarValues(14);
         }
 
         private void SlaveFloor14_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave14.Floor = Convert.ToInt32(SlaveFloor14.SelectedItem);
+            Slave14.Floor = Convert.ToInt32(SlaveFloor14.Text);
             SlaveSettings14[2] = true;
             SetFloorCount(Slave14.Floor);
             CheckProgressBarValues(14);
         }
 
         //=====================================[SLAVE_15]=======================================================
-        private void SlaveIDBox15_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Slave15.ID = Convert.ToInt32(SlaveIDBox15.SelectedItem);
-            SlaveSettings15[0] = true;
-            CheckProgressBarValues(15);
-        }
 
         private void SlaveTypeBox15_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave15.Type = Convert.ToInt32(SlaveTypeBox15.SelectedItem);
+            Slave15.Type = Convert.ToInt32(SlaveTypeBox15.Text);
             SlaveSettings15[1] = true;
             CheckProgressBarValues(15);
         }
 
         private void SlaveFloor15_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Slave15.Floor = Convert.ToInt32(SlaveFloor15.SelectedItem);
+            Slave15.Floor = Convert.ToInt32(SlaveFloor15.Text);
             SlaveSettings15[2] = true;
             SetFloorCount(Slave15.Floor);
             CheckProgressBarValues(15);
@@ -1131,42 +1069,72 @@ namespace Hansab_slave_configurator
 
             MasterConfiguration[4] = Convert.ToByte(UsedSlaveCount); // SLAVECNT
 
-            huns = (Floor1Count / 100);
-            tens = (Floor1Count % 100) / 10;
-            ones = (Floor1Count % 10);
+            huns = (Floor1Count / 100) + 48;
+            tens = ((Floor1Count % 100) / 10) + 48;
+            ones = (Floor1Count % 10) + 48;
             MasterConfiguration[5] = Convert.ToByte(huns); // COUNT1
             MasterConfiguration[6] = Convert.ToByte(tens); // COUNT2
             MasterConfiguration[7] = Convert.ToByte(ones); // COUNT3
 
-            huns = (Floor2Count / 100);
-            tens = (Floor2Count % 100) / 10;
-            ones = (Floor2Count % 10);
+            huns = (Floor2Count / 100) + 48; ;
+            tens = ((Floor2Count % 100) / 10) + 48; ;
+            ones = (Floor2Count % 10) + 48; ;
             MasterConfiguration[8] = Convert.ToByte(huns); // COUNT1
             MasterConfiguration[9] = Convert.ToByte(tens); // COUNT2
             MasterConfiguration[10] = Convert.ToByte(ones); // COUNT3
 
-            huns = (Floor3Count / 100);
-            tens = (Floor3Count % 100) / 10;
-            ones = (Floor3Count % 10);
+            huns = (Floor3Count / 100) + 48; ;
+            tens = ((Floor3Count % 100) / 10) + 48; ;
+            ones = (Floor3Count % 10) + 48; ;
             MasterConfiguration[11] = Convert.ToByte(huns); // COUNT1
             MasterConfiguration[12] = Convert.ToByte(tens); // COUNT2
             MasterConfiguration[13] = Convert.ToByte(ones); // COUNT3
 
-            huns = (Floor4Count / 100);
-            tens = (Floor4Count % 100) / 10;
-            ones = (Floor4Count % 10);
+            huns = (Floor4Count / 100) + 48; ;
+            tens = ((Floor4Count % 100) / 10) + 48; ;
+            ones = (Floor4Count % 10) + 48; ;
             MasterConfiguration[14] = Convert.ToByte(huns); // COUNT1
             MasterConfiguration[15] = Convert.ToByte(tens); // COUNT2
             MasterConfiguration[16] = Convert.ToByte(ones); // COUNT3
 
             foreach (Slave Slave in SlaveList)
             {
+
+                Slave.ByteType = Convert.ToByte(Slave.Type);
+
+                if (Slave.Floor == 1)
+                {
+                    Slave.ByteFloor = 0xF1;
+                }
+                else if (Slave.Floor == 2)
+                {
+                    Slave.ByteFloor = 0xF2;
+                }
+                else if (Slave.Floor == 3)
+                {
+                    Slave.ByteFloor = 0xF3;
+                }
+                else if (Slave.Floor == 4)
+                {
+                    Slave.ByteFloor = 0xF4;
+                }
+
+                Slave.ByteCount1 = Convert.ToByte((Slave.Count / 100) + 48);
+                Slave.ByteCount2 = Convert.ToByte(((Slave.Count % 100) / 10) + 48);
+                Slave.ByteCount3 = Convert.ToByte((Slave.Count % 10) + 48);
+
+
                 int x = SlaveList.IndexOf(Slave);
                 SlaveConfiguration[x, 4] = Slave.ByteType; // TYPE
                 SlaveConfiguration[x, 5] = Slave.ByteFloor; // FLOORID
                 SlaveConfiguration[x, 6] = Slave.ByteCount1; // COUNT1
                 SlaveConfiguration[x, 7] = Slave.ByteCount2; // COUNT2
                 SlaveConfiguration[x, 8] = Slave.ByteCount3; // COUNT3
+                MessageBox.Show(Slave.ID + " " + Slave.ID + " \n"
+                                + Slave.Type.ToString() + " Byte Type: " + Convert.ToInt32(Slave.ByteType).ToString() + " \n"
+                                + Slave.Floor.ToString() + " Byte Floor: " + Convert.ToInt32(Slave.ByteFloor).ToString() + " \n"
+                                + Slave.Count.ToString() + " Byte Count: " + Convert.ToInt32(Slave.ByteCount1).ToString() + Convert.ToInt32(Slave.ByteCount2).ToString() + Convert.ToInt32(Slave.ByteCount3).ToString()
+                                , "AAAAAAAAAAAAAAAAAAAA", MessageBoxButtons.OK);
             }
 
         }
@@ -1188,41 +1156,17 @@ public class Slave
     public int Floor { get; set; }
     public int Count { get; set; }
 
-    public byte ByteType { get; }
-    public byte ByteFloor { get; }
-    public byte ByteCount1 { get; }
-    public byte ByteCount2 { get; }
-    public byte ByteCount3 { get; }
+    public byte ByteType { get; set; }
+    public byte ByteFloor { get; set; }
+    public byte ByteCount1 { get; set; }
+    public byte ByteCount2 { get; set; }
+    public byte ByteCount3 { get; set; }
 
-    public Slave(int id = 0, int type = 0, int floor = 0, int count = 0)
+    public Slave(int id, int type, int floor, int count)
     {
         ID = id;
         Type = type;
         Floor = floor;
         Count = count;
-
-        ByteType = Convert.ToByte(Type);
-
-        if (Floor == 1)
-        {
-            ByteFloor = 0xF1;
-        }
-        else if (Floor == 2)
-        {
-            ByteFloor = 0xF2;
-        }
-        else if (Floor == 3)
-        {
-            ByteFloor = 0xF3;
-        }
-        else if (Floor == 4)
-        {
-            ByteFloor = 0xF4;
-        }
-
-        ByteCount1 = Convert.ToByte(Count / 100);
-        ByteCount2 = Convert.ToByte((Count % 100) / 10);
-        ByteCount3 = Convert.ToByte(Count % 10);
-
     }
 }

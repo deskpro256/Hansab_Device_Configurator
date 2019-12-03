@@ -41,6 +41,25 @@ namespace Hansab_slave_configurator
         public bool ConfigEnabled = true;
 
         // RS485 stuff end
+        // Configuration files:
+
+        byte[] MasterConfig = new byte[18];
+        byte[] Slave0Config = new byte[10];
+        byte[] Slave1Config = new byte[10];
+        byte[] Slave2Config = new byte[10];
+        byte[] Slave3Config = new byte[10];
+        byte[] Slave4Config = new byte[10];
+        byte[] Slave5Config = new byte[10];
+        byte[] Slave6Config = new byte[10];
+        byte[] Slave7Config = new byte[10];
+        byte[] Slave8Config = new byte[10];
+        byte[] Slave9Config = new byte[10];
+        byte[] Slave10Config = new byte[10];
+        byte[] Slave11Config = new byte[10];
+        byte[] Slave12Config = new byte[10];
+        byte[] Slave13Config = new byte[10];
+        byte[] Slave14Config = new byte[10];
+        byte[] Slave15Config = new byte[10];
         public Main(string type, string username)
         {
             InitializeComponent();
@@ -203,10 +222,30 @@ namespace Hansab_slave_configurator
 
         private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            //textFromFile;
-            StreamReader streamReader = new StreamReader(OpenFileDialog1.FileName);
-            textFromFile = streamReader.ReadToEnd();
-            Current_cfg_box.Text = textFromFile;
+
+            using (BinaryReader reader = new BinaryReader(File.Open(OpenFileDialog1.FileName, FileMode.Open)))
+            {
+                MasterConfig = reader.ReadBytes(18);
+
+                Slave0Config = reader.ReadBytes(10);
+                Slave1Config = reader.ReadBytes(10);
+                Slave2Config = reader.ReadBytes(10);
+                Slave3Config = reader.ReadBytes(10);
+                Slave4Config = reader.ReadBytes(10);
+                Slave5Config = reader.ReadBytes(10);
+                Slave6Config = reader.ReadBytes(10);
+                Slave7Config = reader.ReadBytes(10);
+                Slave8Config = reader.ReadBytes(10);
+                Slave9Config = reader.ReadBytes(10);
+                Slave10Config = reader.ReadBytes(10);
+                Slave11Config = reader.ReadBytes(10);
+                Slave12Config = reader.ReadBytes(10);
+                Slave13Config = reader.ReadBytes(10);
+                Slave14Config = reader.ReadBytes(10);
+                Slave15Config = reader.ReadBytes(10);
+
+                reader.Close();
+            }
             SendConfigButton.Enabled = true;
         }
 
@@ -236,7 +275,6 @@ namespace Hansab_slave_configurator
 
         private void RestartSystem()
         {
-            MessageBox.Show("Restarting the system!");
 
             SimpleIOClass.ClearPin(3);
             ConfigDisableButton.Enabled = false;
@@ -254,6 +292,7 @@ namespace Hansab_slave_configurator
 
             RS485Send(0x1D, messageType[0], CMDLUT[8], 0x52, 0x53, 0x54);  // restart CMD for interface device
 
+            MessageBox.Show("System restarted!");
         }
 
         private void NewUserButton_Click(object sender, EventArgs e)
@@ -579,9 +618,32 @@ namespace Hansab_slave_configurator
             }
         }
 
+        public void MasterConfigSend()
+        {
+            SimpleIOClass.SetPin(2); //enable sending
+            System.Threading.Thread.Sleep(10);
+            serialPort1.Write(MasterConfig, 0, 18);
+            System.Threading.Thread.Sleep(10);
+            SimpleIOClass.ClearPin(2); //disable sending
+        }
+        public void SlaveConfigSend(byte[] SlaveData)
+        {
+            SimpleIOClass.SetPin(2); //enable sending
+            System.Threading.Thread.Sleep(10);
+            serialPort1.Write(SlaveData, 0, 10);
+            System.Threading.Thread.Sleep(10);
+            SimpleIOClass.ClearPin(2); //disable sending
+        }
+
         private void SendConfigButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Sending the configuration data!", "Attention!", MessageBoxButtons.OK);
+            RS485Send(IntDev, messageType[0], CMDLUT[4], 0x43, 0x46, 0x47);
+            MasterConfigSend();
+
+            //SlaveConfigSend();
+            MessageBox.Show("Sending the configuration data!", "Attention!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
         }
     }
 }

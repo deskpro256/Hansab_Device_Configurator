@@ -265,7 +265,7 @@
             0});
             this.FloorCountNumeric.Name = "FloorCountNumeric";
             this.FloorCountNumeric.Size = new System.Drawing.Size(45, 20);
-            this.FloorCountNumeric.TabIndex = 0;
+            this.FloorCountNumeric.TabIndex = 3;
             this.FloorCountNumeric.Value = new decimal(new int[] {
             1,
             0,
@@ -278,7 +278,7 @@
             this.AcceptFloorButton.Location = new System.Drawing.Point(192, 21);
             this.AcceptFloorButton.Name = "AcceptFloorButton";
             this.AcceptFloorButton.Size = new System.Drawing.Size(20, 20);
-            this.AcceptFloorButton.TabIndex = 2;
+            this.AcceptFloorButton.TabIndex = 4;
             this.AcceptFloorButton.TabStop = false;
             this.AcceptFloorButton.Text = ">";
             this.AcceptFloorButton.UseVisualStyleBackColor = true;
@@ -315,27 +315,12 @@
             // 
             this.SlaveIDBox1.FormattingEnabled = true;
             this.SlaveIDBox1.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "1"});
             this.SlaveIDBox1.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox1.Name = "SlaveIDBox1";
             this.SlaveIDBox1.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox1.TabIndex = 5;
-            this.SlaveIDBox1.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox1_SelectedIndexChanged);
+            this.SlaveIDBox1.Text = "1";
             // 
             // FloorMax1
             // 
@@ -365,7 +350,7 @@
             0});
             this.SlaveCount.Name = "SlaveCount";
             this.SlaveCount.Size = new System.Drawing.Size(44, 20);
-            this.SlaveCount.TabIndex = 3;
+            this.SlaveCount.TabIndex = 1;
             this.SlaveCount.Value = new decimal(new int[] {
             1,
             0,
@@ -484,7 +469,7 @@
             this.LotNameLocationBox.Location = new System.Drawing.Point(65, 35);
             this.LotNameLocationBox.Name = "LotNameLocationBox";
             this.LotNameLocationBox.Size = new System.Drawing.Size(177, 20);
-            this.LotNameLocationBox.TabIndex = 9;
+            this.LotNameLocationBox.TabIndex = 0;
             // 
             // saveFileDialog1
             // 
@@ -545,7 +530,7 @@
             this.SlaveCountAccept.Location = new System.Drawing.Point(195, 68);
             this.SlaveCountAccept.Name = "SlaveCountAccept";
             this.SlaveCountAccept.Size = new System.Drawing.Size(20, 20);
-            this.SlaveCountAccept.TabIndex = 3;
+            this.SlaveCountAccept.TabIndex = 2;
             this.SlaveCountAccept.TabStop = false;
             this.SlaveCountAccept.Text = ">";
             this.SlaveCountAccept.UseVisualStyleBackColor = true;
@@ -829,27 +814,12 @@
             // 
             this.SlaveIDBox2.FormattingEnabled = true;
             this.SlaveIDBox2.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "2"});
             this.SlaveIDBox2.Location = new System.Drawing.Point(55, 30);
             this.SlaveIDBox2.Name = "SlaveIDBox2";
             this.SlaveIDBox2.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox2.TabIndex = 5;
-            this.SlaveIDBox2.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox2_SelectedIndexChanged);
+            this.SlaveIDBox2.Text = "2";
             // 
             // SlaveTypeBox2
             // 
@@ -957,27 +927,12 @@
             // 
             this.SlaveIDBox3.FormattingEnabled = true;
             this.SlaveIDBox3.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "3"});
             this.SlaveIDBox3.Location = new System.Drawing.Point(55, 32);
             this.SlaveIDBox3.Name = "SlaveIDBox3";
             this.SlaveIDBox3.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox3.TabIndex = 5;
-            this.SlaveIDBox3.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox3_SelectedIndexChanged);
+            this.SlaveIDBox3.Text = "3";
             // 
             // SlaveTypeBox3
             // 
@@ -1079,27 +1034,12 @@
             // 
             this.SlaveIDBox4.FormattingEnabled = true;
             this.SlaveIDBox4.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "4"});
             this.SlaveIDBox4.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox4.Name = "SlaveIDBox4";
             this.SlaveIDBox4.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox4.TabIndex = 5;
-            this.SlaveIDBox4.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox4_SelectedIndexChanged);
+            this.SlaveIDBox4.Text = "4";
             // 
             // SlaveTypeBox4
             // 
@@ -1201,27 +1141,12 @@
             // 
             this.SlaveIDBox5.FormattingEnabled = true;
             this.SlaveIDBox5.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "5"});
             this.SlaveIDBox5.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox5.Name = "SlaveIDBox5";
             this.SlaveIDBox5.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox5.TabIndex = 5;
-            this.SlaveIDBox5.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox5_SelectedIndexChanged);
+            this.SlaveIDBox5.Text = "5";
             // 
             // SlaveTypeBox5
             // 
@@ -1329,27 +1254,12 @@
             // 
             this.SlaveIDBox6.FormattingEnabled = true;
             this.SlaveIDBox6.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "6"});
             this.SlaveIDBox6.Location = new System.Drawing.Point(55, 30);
             this.SlaveIDBox6.Name = "SlaveIDBox6";
             this.SlaveIDBox6.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox6.TabIndex = 5;
-            this.SlaveIDBox6.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox6_SelectedIndexChanged);
+            this.SlaveIDBox6.Text = "6";
             // 
             // SlaveTypeBox6
             // 
@@ -1451,27 +1361,12 @@
             // 
             this.SlaveIDBox7.FormattingEnabled = true;
             this.SlaveIDBox7.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "7"});
             this.SlaveIDBox7.Location = new System.Drawing.Point(55, 32);
             this.SlaveIDBox7.Name = "SlaveIDBox7";
             this.SlaveIDBox7.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox7.TabIndex = 5;
-            this.SlaveIDBox7.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox7_SelectedIndexChanged);
+            this.SlaveIDBox7.Text = "7";
             // 
             // SlaveTypeBox7
             // 
@@ -1573,27 +1468,12 @@
             // 
             this.SlaveIDBox8.FormattingEnabled = true;
             this.SlaveIDBox8.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "8"});
             this.SlaveIDBox8.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox8.Name = "SlaveIDBox8";
             this.SlaveIDBox8.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox8.TabIndex = 5;
-            this.SlaveIDBox8.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox8_SelectedIndexChanged);
+            this.SlaveIDBox8.Text = "8";
             // 
             // SlaveTypeBox8
             // 
@@ -1695,27 +1575,12 @@
             // 
             this.SlaveIDBox9.FormattingEnabled = true;
             this.SlaveIDBox9.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "9"});
             this.SlaveIDBox9.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox9.Name = "SlaveIDBox9";
             this.SlaveIDBox9.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox9.TabIndex = 5;
-            this.SlaveIDBox9.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox9_SelectedIndexChanged);
+            this.SlaveIDBox9.Text = "9";
             // 
             // SlaveTypeBox9
             // 
@@ -1817,27 +1682,12 @@
             // 
             this.SlaveIDBox10.FormattingEnabled = true;
             this.SlaveIDBox10.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "10"});
             this.SlaveIDBox10.Location = new System.Drawing.Point(55, 30);
             this.SlaveIDBox10.Name = "SlaveIDBox10";
             this.SlaveIDBox10.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox10.TabIndex = 5;
-            this.SlaveIDBox10.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox10_SelectedIndexChanged);
+            this.SlaveIDBox10.Text = "10";
             // 
             // SlaveTypeBox10
             // 
@@ -1939,27 +1789,12 @@
             // 
             this.SlaveIDBox11.FormattingEnabled = true;
             this.SlaveIDBox11.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "11"});
             this.SlaveIDBox11.Location = new System.Drawing.Point(55, 32);
             this.SlaveIDBox11.Name = "SlaveIDBox11";
             this.SlaveIDBox11.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox11.TabIndex = 5;
-            this.SlaveIDBox11.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox11_SelectedIndexChanged);
+            this.SlaveIDBox11.Text = "11";
             // 
             // SlaveTypeBox11
             // 
@@ -2061,27 +1896,12 @@
             // 
             this.SlaveIDBox12.FormattingEnabled = true;
             this.SlaveIDBox12.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "12"});
             this.SlaveIDBox12.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox12.Name = "SlaveIDBox12";
             this.SlaveIDBox12.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox12.TabIndex = 5;
-            this.SlaveIDBox12.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox12_SelectedIndexChanged);
+            this.SlaveIDBox12.Text = "12";
             // 
             // SlaveTypeBox12
             // 
@@ -2183,27 +2003,12 @@
             // 
             this.SlaveIDBox13.FormattingEnabled = true;
             this.SlaveIDBox13.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "13"});
             this.SlaveIDBox13.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox13.Name = "SlaveIDBox13";
             this.SlaveIDBox13.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox13.TabIndex = 5;
-            this.SlaveIDBox13.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox13_SelectedIndexChanged);
+            this.SlaveIDBox13.Text = "13";
             // 
             // SlaveTypeBox13
             // 
@@ -2305,27 +2110,12 @@
             // 
             this.SlaveIDBox14.FormattingEnabled = true;
             this.SlaveIDBox14.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "14"});
             this.SlaveIDBox14.Location = new System.Drawing.Point(55, 30);
             this.SlaveIDBox14.Name = "SlaveIDBox14";
             this.SlaveIDBox14.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox14.TabIndex = 5;
-            this.SlaveIDBox14.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox14_SelectedIndexChanged);
+            this.SlaveIDBox14.Text = "14";
             // 
             // SlaveTypeBox14
             // 
@@ -2427,27 +2217,12 @@
             // 
             this.SlaveIDBox15.FormattingEnabled = true;
             this.SlaveIDBox15.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
             "15"});
             this.SlaveIDBox15.Location = new System.Drawing.Point(55, 32);
             this.SlaveIDBox15.Name = "SlaveIDBox15";
             this.SlaveIDBox15.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox15.TabIndex = 5;
-            this.SlaveIDBox15.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox15_SelectedIndexChanged);
+            this.SlaveIDBox15.Text = "15";
             // 
             // SlaveTypeBox15
             // 
@@ -2549,27 +2324,12 @@
             // 
             this.SlaveIDBox0.FormattingEnabled = true;
             this.SlaveIDBox0.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "0"});
             this.SlaveIDBox0.Location = new System.Drawing.Point(55, 27);
             this.SlaveIDBox0.Name = "SlaveIDBox0";
             this.SlaveIDBox0.Size = new System.Drawing.Size(45, 21);
             this.SlaveIDBox0.TabIndex = 5;
-            this.SlaveIDBox0.SelectedIndexChanged += new System.EventHandler(this.SlaveIDBox0_SelectedIndexChanged);
+            this.SlaveIDBox0.Text = "0";
             // 
             // SlaveTypeBox0
             // 
