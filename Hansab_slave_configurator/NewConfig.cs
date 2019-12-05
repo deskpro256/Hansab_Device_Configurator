@@ -1130,11 +1130,13 @@ namespace Hansab_slave_configurator
                 SlaveConfiguration[x, 6] = Slave.ByteCount1; // COUNT1
                 SlaveConfiguration[x, 7] = Slave.ByteCount2; // COUNT2
                 SlaveConfiguration[x, 8] = Slave.ByteCount3; // COUNT3
+                /*
                 MessageBox.Show(Slave.ID + " " + Slave.ID + " \n"
                                 + Slave.Type.ToString() + " Byte Type: " + Convert.ToInt32(Slave.ByteType).ToString() + " \n"
                                 + Slave.Floor.ToString() + " Byte Floor: " + Convert.ToInt32(Slave.ByteFloor).ToString() + " \n"
                                 + Slave.Count.ToString() + " Byte Count: " + Convert.ToInt32(Slave.ByteCount1).ToString() + Convert.ToInt32(Slave.ByteCount2).ToString() + Convert.ToInt32(Slave.ByteCount3).ToString()
                                 , "AAAAAAAAAAAAAAAAAAAA", MessageBoxButtons.OK);
+                */
             }
 
         }

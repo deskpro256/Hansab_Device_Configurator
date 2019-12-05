@@ -54,13 +54,12 @@
             // richTextBox1
             // 
             this.richTextBox1.Enabled = false;
-            this.richTextBox1.Location = new System.Drawing.Point(12, 233);
+            this.richTextBox1.Location = new System.Drawing.Point(44, 233);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(264, 66);
+            this.richTextBox1.Size = new System.Drawing.Size(201, 66);
             this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "+37127845921 - Jānis Jānis - janisj@hansab.lv\n+37128355928 - Brālis Jānis - brali" +
-    "sj@hansab.lv\n+37127845929 - Andris Jānis - andrisj@hansab.lv\n+37127845923 - Baņa" +
-    " Jānis - banaj@hansab.lv";
+            this.richTextBox1.Text = "+37128693276 - Kārlis Ulmanis - karlis.ulmanis@hansab.lv\n+37127891272 - Māris Šma" +
+    "ukstelis - maris.smaukstelis@hansab.lv";
             // 
             // pictureBox1
             // 

@@ -96,6 +96,7 @@
             this.Serial_timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RequestCount_button = new System.Windows.Forms.Button();
+            this.ClearErrorsButton = new System.Windows.Forms.Button();
             this.Tab_control.SuspendLayout();
             this.Main_tab.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -476,6 +477,7 @@
             // 
             // error_tab
             // 
+            this.error_tab.Controls.Add(this.ClearErrorsButton);
             this.error_tab.Controls.Add(this.GetErrors_button);
             this.error_tab.Controls.Add(this.Errors_label);
             this.error_tab.Controls.Add(this.current_errors);
@@ -491,7 +493,7 @@
             // 
             // GetErrors_button
             // 
-            this.GetErrors_button.Location = new System.Drawing.Point(207, 10);
+            this.GetErrors_button.Location = new System.Drawing.Point(130, 10);
             this.GetErrors_button.Name = "GetErrors_button";
             this.GetErrors_button.Size = new System.Drawing.Size(75, 23);
             this.GetErrors_button.TabIndex = 4;
@@ -800,6 +802,16 @@
             this.RequestCount_button.UseVisualStyleBackColor = true;
             this.RequestCount_button.Click += new System.EventHandler(this.RequestCount_button_Click);
             // 
+            // ClearErrorsButton
+            // 
+            this.ClearErrorsButton.Location = new System.Drawing.Point(233, 10);
+            this.ClearErrorsButton.Name = "ClearErrorsButton";
+            this.ClearErrorsButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearErrorsButton.TabIndex = 5;
+            this.ClearErrorsButton.Text = "Clear Errors";
+            this.ClearErrorsButton.UseVisualStyleBackColor = true;
+            this.ClearErrorsButton.Click += new System.EventHandler(this.ClearErrorsButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -917,5 +929,6 @@
         private System.Windows.Forms.NumericUpDown Floor3SendCount;
         private System.Windows.Forms.NumericUpDown Floor2SendCount;
         private System.Windows.Forms.Button SendConfigButton;
+        private System.Windows.Forms.Button ClearErrorsButton;
     }
 }
