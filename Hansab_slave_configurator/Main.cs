@@ -80,6 +80,7 @@ namespace Hansab_slave_configurator
             ConfigEnableButton.Enabled = false;
             RequestCount_button.Enabled = false;
             GetErrors_button.Enabled = false;
+            ClearErrorsButton.Enabled = false;
             SendConfigButton.Enabled = false;
         }
 
@@ -135,6 +136,7 @@ namespace Hansab_slave_configurator
                 Restart_button.Enabled = false;
                 RequestCount_button.Enabled = false;
                 GetErrors_button.Enabled = false;
+                ClearErrorsButton.Enabled = false;
                 Ping_button.Enabled = false;
                 _continue = false;
                 apply = false;
@@ -345,6 +347,7 @@ namespace Hansab_slave_configurator
             Restart_button.Enabled = true;
             RequestCount_button.Enabled = true;
             GetErrors_button.Enabled = true;
+            ClearErrorsButton.Enabled = true;
             Ping_button.Enabled = true;
             FloorCountSendButton.Enabled = true;
         }
@@ -355,6 +358,7 @@ namespace Hansab_slave_configurator
             ConfigDisableButton.Enabled = false;
             ConfigEnableButton.Enabled = true;
             Restart_button.Enabled = false;
+            ClearErrorsButton.Enabled = false;
             RequestCount_button.Enabled = false;
             GetErrors_button.Enabled = false;
             Ping_button.Enabled = false;
