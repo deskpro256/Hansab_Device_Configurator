@@ -65,6 +65,7 @@
             this.Serial_data_label = new System.Windows.Forms.Label();
             this.Serialport_text_box = new System.Windows.Forms.RichTextBox();
             this.error_tab = new System.Windows.Forms.TabPage();
+            this.ClearErrorsButton = new System.Windows.Forms.Button();
             this.GetErrors_button = new System.Windows.Forms.Button();
             this.Errors_label = new System.Windows.Forms.Label();
             this.current_errors = new System.Windows.Forms.RichTextBox();
@@ -96,7 +97,6 @@
             this.Serial_timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RequestCount_button = new System.Windows.Forms.Button();
-            this.ClearErrorsButton = new System.Windows.Forms.Button();
             this.Tab_control.SuspendLayout();
             this.Main_tab.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -491,6 +491,16 @@
             this.error_tab.Text = "Errors";
             this.error_tab.UseVisualStyleBackColor = true;
             // 
+            // ClearErrorsButton
+            // 
+            this.ClearErrorsButton.Location = new System.Drawing.Point(233, 10);
+            this.ClearErrorsButton.Name = "ClearErrorsButton";
+            this.ClearErrorsButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearErrorsButton.TabIndex = 5;
+            this.ClearErrorsButton.Text = "Clear Errors";
+            this.ClearErrorsButton.UseVisualStyleBackColor = true;
+            this.ClearErrorsButton.Click += new System.EventHandler(this.ClearErrorsButton_Click);
+            // 
             // GetErrors_button
             // 
             this.GetErrors_button.Location = new System.Drawing.Point(130, 10);
@@ -801,16 +811,6 @@
             this.RequestCount_button.Text = "Request count";
             this.RequestCount_button.UseVisualStyleBackColor = true;
             this.RequestCount_button.Click += new System.EventHandler(this.RequestCount_button_Click);
-            // 
-            // ClearErrorsButton
-            // 
-            this.ClearErrorsButton.Location = new System.Drawing.Point(233, 10);
-            this.ClearErrorsButton.Name = "ClearErrorsButton";
-            this.ClearErrorsButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearErrorsButton.TabIndex = 5;
-            this.ClearErrorsButton.Text = "Clear Errors";
-            this.ClearErrorsButton.UseVisualStyleBackColor = true;
-            this.ClearErrorsButton.Click += new System.EventHandler(this.ClearErrorsButton_Click);
             // 
             // Main
             // 

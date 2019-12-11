@@ -75,7 +75,6 @@ namespace Hansab_slave_configurator
             PingProgressBar.Visible = false;
             Ping_button.Enabled = false;
             serialPort1.PortName = "COM99";
-            ConnectedDeviceList.ExpandAll();
             ConfigDisableButton.Enabled = false;
             ConfigEnableButton.Enabled = false;
             RequestCount_button.Enabled = false;
