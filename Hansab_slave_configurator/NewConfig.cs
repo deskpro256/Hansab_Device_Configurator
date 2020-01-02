@@ -136,13 +136,13 @@ namespace Hansab_slave_configurator
         {
             ConfigTextBox.Text = "";
             ConfigTextBox.AppendText(configStart);
-            ConfigTextBox.AppendText(LotNameLocationBox.Text + "\n");
             for (int i = 0; i <= 15; i++)
             {
                 for (int j = 0; j <= 9; j++)
                 {
                     ConfigTextBox.AppendText(Convert.ToInt32(SlaveConfiguration[i, j]).ToString());
                 }
+                ConfigTextBox.AppendText("\n");
             }
             SaveButton.Enabled = true;
 
@@ -352,7 +352,8 @@ namespace Hansab_slave_configurator
             if (FloorNumericValue == 1)
             {
                 // "1","2","3","4"
-                FloorGroupBox.Height = 110;
+                
+                FloorGroupBox.Height = 90;
                 SlaveFloor0.Items.AddRange(new object[] { "1" });
                 SlaveFloor1.Items.AddRange(new object[] { "1" });
                 SlaveFloor2.Items.AddRange(new object[] { "1" });
@@ -372,7 +373,7 @@ namespace Hansab_slave_configurator
             }
             else if (FloorNumericValue == 2)
             {
-                FloorGroupBox.Height = 170;
+                FloorGroupBox.Height = 120;
                 SlaveFloor0.Items.AddRange(new object[] { "1", "2" });
                 SlaveFloor1.Items.AddRange(new object[] { "1", "2" });
                 SlaveFloor2.Items.AddRange(new object[] { "1", "2" });
@@ -392,7 +393,7 @@ namespace Hansab_slave_configurator
             }
             else if (FloorNumericValue == 3)
             {
-                FloorGroupBox.Height = 230;
+                FloorGroupBox.Height = 150;
                 SlaveFloor0.Items.AddRange(new object[] { "1", "2", "3" });
                 SlaveFloor1.Items.AddRange(new object[] { "1", "2", "3" });
                 SlaveFloor2.Items.AddRange(new object[] { "1", "2", "3" });
@@ -412,7 +413,7 @@ namespace Hansab_slave_configurator
             }
             else if (FloorNumericValue == 4)
             {
-                FloorGroupBox.Height = 300;
+                FloorGroupBox.Height = 195;
                 SlaveFloor0.Items.AddRange(new object[] { "1", "2", "3", "4" });
                 SlaveFloor1.Items.AddRange(new object[] { "1", "2", "3", "4" });
                 SlaveFloor2.Items.AddRange(new object[] { "1", "2", "3", "4" });

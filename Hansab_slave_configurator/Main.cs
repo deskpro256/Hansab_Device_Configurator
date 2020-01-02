@@ -209,26 +209,30 @@ namespace Hansab_slave_configurator
         private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
+            Current_cfg_box.Text = "";
+            Current_cfg_box.AppendText("Loading config file... \n");
             using (BinaryReader reader = new BinaryReader(File.Open(OpenFileDialog1.FileName, FileMode.Open)))
             {
-                //String test = "";
                 for (int i = 0; i <= 17; i++)
                 {
                     MasterConfig[i] = reader.ReadByte();
+                    Current_cfg_box.AppendText(Convert.ToInt32(MasterConfig[i]).ToString() + " ");
                     //test += Convert.ToInt32(MasterConfig[i]).ToString() + " ";
                 }
-                //MessageBox.Show("Read config: \n" + test, "Master config",MessageBoxButtons.OK);
-
+                Current_cfg_box.AppendText("\n");
                 for (int i = 0; i <= 15; i++)
                 {
                     for (int j = 0; j <= 9; j++)
                     {
                         SlaveConfig[i, j] = reader.ReadByte();
+                        Current_cfg_box.AppendText(Convert.ToInt32(SlaveConfig[i, j]).ToString() + " ");
                     }
+                    Current_cfg_box.AppendText("\n");
                 }
 
                 reader.Close();
             }
+            Current_cfg_box.AppendText("Config loaded successfully! \n");
             SendConfigButton.Enabled = true;
         }
 
@@ -245,10 +249,7 @@ namespace Hansab_slave_configurator
         private void Restart_button_Click(object sender, EventArgs e)
         {
             switch (MessageBox.Show("Are you sure you want to restart the system? ", "Warning!", MessageBoxButtons.YesNo,
-                            //MessageBoxIcon.Warning // for Warning  
-                            //MessageBoxIcon.Error // for Error 
-                            //MessageBoxIcon.Information  // for Information
-                            MessageBoxIcon.Question // for Question
+                            MessageBoxIcon.Question
                             ))
             {
                 case DialogResult.Yes: RestartSystem(); break;
@@ -381,9 +382,37 @@ namespace Hansab_slave_configurator
             Ping_button.Enabled = false;
 
             ConnectedDeviceList.Nodes.Clear();
-            ConnectedDeviceList.Nodes.Add("Interface");
-            ConnectedDeviceList.Nodes[0].Checked = true;
 
+            // ping interface device
+            Ping(IntDev);
+            System.Threading.Thread.Sleep(50);
+
+            if (serialPort1.BytesToRead > 0)
+            {
+                LookForSTX = 0x00;
+                LookForSTX = Convert.ToByte(serialPort1.ReadByte());
+            }
+            if (LookForSTX == STX)
+            {
+                RS485Receive();
+            }
+
+            if (replied == true)
+            {
+                if (RS485ReadBytes[1] == IntDev)
+                {
+                    ConnectedDeviceList.Nodes.Add("Interface");
+                    ConnectedDeviceList.Nodes[0].Checked = true;
+                    replied = false;
+                }
+                else
+                {
+                    replied = false;
+                }
+            }
+            // ping interface device
+
+            //pinging slaves
             for (int id = 0; id <= 15; id++)
             {
 
@@ -412,7 +441,7 @@ namespace Hansab_slave_configurator
                     if (RS485ReadBytes[1] == Convert.ToByte(id))
                     {
                         ConnectedDeviceList.Nodes.Add("Slave" + id);
-                        ConnectedDeviceList.Nodes[0].Checked = true;
+                        ConnectedDeviceList.Nodes[id + 1].Checked = true;
                         replied = false;
                     }
                     else
@@ -451,6 +480,10 @@ namespace Hansab_slave_configurator
             {
                 SimpleIOClass.ClearPin(3);
                 serialPort1.Close();
+            }
+            else
+            {
+                SimpleIOClass.ClearPin(3);
             }
         }
 
@@ -567,7 +600,6 @@ namespace Hansab_slave_configurator
             message = serialPort1.ReadExisting();
             current_errors.Clear();
             current_errors.Text = message;
-            //serialPort1.DiscardInBuffer();
             GetErrors_button.Enabled = true;
         }
 
@@ -637,18 +669,22 @@ namespace Hansab_slave_configurator
             {
                 MessageBox.Show("Sending the configuration data!", "Attention!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 RS485Send(IntDev, messageType[0], CMDLUT[4], 0x43, 0x46, 0x47);
+                System.Threading.Thread.Sleep(50);
                 MasterConfigSend();
+                System.Threading.Thread.Sleep(50);
 
 
                 for (int i = 0; i <= 15; i++)
                 {
                     byte[] SlaveData = new byte[10];
                     RS485Send(Convert.ToByte(i), messageType[0], CMDLUT[4], 0x43, 0x46, 0x47);
+                    System.Threading.Thread.Sleep(50);
                     for (int j = 0; j <= 9; j++)
                     {
                         SlaveData[j] = SlaveConfig[i, j];
                     }
                     SlaveConfigSend(SlaveData);
+                    System.Threading.Thread.Sleep(50);
                 }
 
             }

@@ -120,14 +120,12 @@
   <data name="Error_help_box.Text" xml:space="preserve">
     <value>Error codes come in following a dash and device ID on which the error occoured on.
 Example:
-E0-12 = Device with ID 12 is not responding.
+12-E0 = Device with ID 12 is not responding.
 
 E0 : Device not responding.
 E1 : Invalid count on a device. Either lower than 0 or higher than it's maximum capacity. See configuration file for proper count.
 E2 : Reserved
-E3 : Reserved
-
-</value>
+E3 : Reserved</value>
   </data>
   <data name="richTextBox1.Text" xml:space="preserve">
     <value>Loads of helpful text

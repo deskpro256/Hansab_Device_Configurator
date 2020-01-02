@@ -46,23 +46,14 @@
             this.Type_label = new System.Windows.Forms.Label();
             this.SlaveTypeBox1 = new System.Windows.Forms.ComboBox();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LotNameLocationBox = new System.Windows.Forms.TextBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.ApplyConfigSettingsButton = new System.Windows.Forms.Button();
             this.ConfigTextBox = new System.Windows.Forms.RichTextBox();
             this.CheckButton = new System.Windows.Forms.Button();
             this.Setup_groupbox = new System.Windows.Forms.GroupBox();
+            this.slaveSettingsGroupBox = new System.Windows.Forms.GroupBox();
             this.SlaveCountAccept = new System.Windows.Forms.Button();
             this.FloorGroupBox = new System.Windows.Forms.GroupBox();
-            this.F4_Occupied_label = new System.Windows.Forms.Label();
-            this.F4_occupied_box = new System.Windows.Forms.NumericUpDown();
-            this.F3_Occupied_label = new System.Windows.Forms.Label();
-            this.F3_occupied_box = new System.Windows.Forms.NumericUpDown();
-            this.F2_Occupied_label = new System.Windows.Forms.Label();
-            this.F2_occupied_box = new System.Windows.Forms.NumericUpDown();
-            this.F1_Occupied_label = new System.Windows.Forms.Label();
-            this.F1_occupied_box = new System.Windows.Forms.NumericUpDown();
             this.Floor4Label = new System.Windows.Forms.Label();
             this.FloorMax4 = new System.Windows.Forms.NumericUpDown();
             this.Floor3Label = new System.Windows.Forms.Label();
@@ -225,11 +216,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.SlaveCount)).BeginInit();
             this.SlaveSettingsBox1.SuspendLayout();
             this.Setup_groupbox.SuspendLayout();
+            this.slaveSettingsGroupBox.SuspendLayout();
             this.FloorGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.F4_occupied_box)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.F3_occupied_box)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.F2_occupied_box)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.F1_occupied_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FloorMax4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FloorMax3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FloorMax2)).BeginInit();
@@ -337,7 +325,7 @@
             // 
             // SlaveCount
             // 
-            this.SlaveCount.Location = new System.Drawing.Point(145, 68);
+            this.SlaveCount.Location = new System.Drawing.Point(141, 28);
             this.SlaveCount.Maximum = new decimal(new int[] {
             16,
             0,
@@ -361,11 +349,11 @@
             // SlaveCountLabel1
             // 
             this.SlaveCountLabel1.AutoSize = true;
-            this.SlaveCountLabel1.Location = new System.Drawing.Point(72, 70);
+            this.SlaveCountLabel1.Location = new System.Drawing.Point(29, 30);
             this.SlaveCountLabel1.Name = "SlaveCountLabel1";
-            this.SlaveCountLabel1.Size = new System.Drawing.Size(67, 13);
+            this.SlaveCountLabel1.Size = new System.Drawing.Size(111, 13);
             this.SlaveCountLabel1.TabIndex = 10;
-            this.SlaveCountLabel1.Text = "Slave count:";
+            this.SlaveCountLabel1.Text = "Enter the slave count:";
             // 
             // SlaveSettingsBox1
             // 
@@ -447,29 +435,13 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(220, 401);
+            this.SaveButton.Location = new System.Drawing.Point(224, 307);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(60, 24);
             this.SaveButton.TabIndex = 7;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(85, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Parking lot location/name:";
-            // 
-            // LotNameLocationBox
-            // 
-            this.LotNameLocationBox.Location = new System.Drawing.Point(65, 35);
-            this.LotNameLocationBox.Name = "LotNameLocationBox";
-            this.LotNameLocationBox.Size = new System.Drawing.Size(177, 20);
-            this.LotNameLocationBox.TabIndex = 0;
             // 
             // saveFileDialog1
             // 
@@ -479,7 +451,7 @@
             // 
             // ApplyConfigSettingsButton
             // 
-            this.ApplyConfigSettingsButton.Location = new System.Drawing.Point(129, 401);
+            this.ApplyConfigSettingsButton.Location = new System.Drawing.Point(133, 307);
             this.ApplyConfigSettingsButton.Name = "ApplyConfigSettingsButton";
             this.ApplyConfigSettingsButton.Size = new System.Drawing.Size(60, 24);
             this.ApplyConfigSettingsButton.TabIndex = 10;
@@ -489,16 +461,16 @@
             // 
             // ConfigTextBox
             // 
-            this.ConfigTextBox.Location = new System.Drawing.Point(6, 431);
+            this.ConfigTextBox.Location = new System.Drawing.Point(6, 344);
             this.ConfigTextBox.Name = "ConfigTextBox";
             this.ConfigTextBox.ReadOnly = true;
-            this.ConfigTextBox.Size = new System.Drawing.Size(308, 150);
+            this.ConfigTextBox.Size = new System.Drawing.Size(308, 237);
             this.ConfigTextBox.TabIndex = 11;
             this.ConfigTextBox.Text = "";
             // 
             // CheckButton
             // 
-            this.CheckButton.Location = new System.Drawing.Point(28, 401);
+            this.CheckButton.Location = new System.Drawing.Point(32, 307);
             this.CheckButton.Name = "CheckButton";
             this.CheckButton.Size = new System.Drawing.Size(60, 24);
             this.CheckButton.TabIndex = 12;
@@ -508,16 +480,12 @@
             // 
             // Setup_groupbox
             // 
-            this.Setup_groupbox.Controls.Add(this.SlaveCountAccept);
+            this.Setup_groupbox.Controls.Add(this.slaveSettingsGroupBox);
             this.Setup_groupbox.Controls.Add(this.FloorGroupBox);
             this.Setup_groupbox.Controls.Add(this.SaveButton);
             this.Setup_groupbox.Controls.Add(this.CheckButton);
-            this.Setup_groupbox.Controls.Add(this.SlaveCount);
             this.Setup_groupbox.Controls.Add(this.ApplyConfigSettingsButton);
-            this.Setup_groupbox.Controls.Add(this.label1);
             this.Setup_groupbox.Controls.Add(this.ConfigTextBox);
-            this.Setup_groupbox.Controls.Add(this.LotNameLocationBox);
-            this.Setup_groupbox.Controls.Add(this.SlaveCountLabel1);
             this.Setup_groupbox.Location = new System.Drawing.Point(12, 12);
             this.Setup_groupbox.Name = "Setup_groupbox";
             this.Setup_groupbox.Size = new System.Drawing.Size(320, 587);
@@ -525,9 +493,21 @@
             this.Setup_groupbox.TabStop = false;
             this.Setup_groupbox.Text = "Setup";
             // 
+            // slaveSettingsGroupBox
+            // 
+            this.slaveSettingsGroupBox.Controls.Add(this.SlaveCountLabel1);
+            this.slaveSettingsGroupBox.Controls.Add(this.SlaveCountAccept);
+            this.slaveSettingsGroupBox.Controls.Add(this.SlaveCount);
+            this.slaveSettingsGroupBox.Location = new System.Drawing.Point(28, 25);
+            this.slaveSettingsGroupBox.Name = "slaveSettingsGroupBox";
+            this.slaveSettingsGroupBox.Size = new System.Drawing.Size(260, 63);
+            this.slaveSettingsGroupBox.TabIndex = 14;
+            this.slaveSettingsGroupBox.TabStop = false;
+            this.slaveSettingsGroupBox.Text = "Slave settings";
+            // 
             // SlaveCountAccept
             // 
-            this.SlaveCountAccept.Location = new System.Drawing.Point(195, 68);
+            this.SlaveCountAccept.Location = new System.Drawing.Point(191, 28);
             this.SlaveCountAccept.Name = "SlaveCountAccept";
             this.SlaveCountAccept.Size = new System.Drawing.Size(20, 20);
             this.SlaveCountAccept.TabIndex = 2;
@@ -538,14 +518,6 @@
             // 
             // FloorGroupBox
             // 
-            this.FloorGroupBox.Controls.Add(this.F4_Occupied_label);
-            this.FloorGroupBox.Controls.Add(this.F4_occupied_box);
-            this.FloorGroupBox.Controls.Add(this.F3_Occupied_label);
-            this.FloorGroupBox.Controls.Add(this.F3_occupied_box);
-            this.FloorGroupBox.Controls.Add(this.F2_Occupied_label);
-            this.FloorGroupBox.Controls.Add(this.F2_occupied_box);
-            this.FloorGroupBox.Controls.Add(this.F1_Occupied_label);
-            this.FloorGroupBox.Controls.Add(this.F1_occupied_box);
             this.FloorGroupBox.Controls.Add(this.Floor4Label);
             this.FloorGroupBox.Controls.Add(this.FloorMax4);
             this.FloorGroupBox.Controls.Add(this.Floor3Label);
@@ -559,99 +531,15 @@
             this.FloorGroupBox.Controls.Add(this.Floor_count_label);
             this.FloorGroupBox.Location = new System.Drawing.Point(28, 94);
             this.FloorGroupBox.Name = "FloorGroupBox";
-            this.FloorGroupBox.Size = new System.Drawing.Size(260, 50);
+            this.FloorGroupBox.Size = new System.Drawing.Size(260, 195);
             this.FloorGroupBox.TabIndex = 13;
             this.FloorGroupBox.TabStop = false;
             this.FloorGroupBox.Text = "Floor settings";
             // 
-            // F4_Occupied_label
-            // 
-            this.F4_Occupied_label.AutoSize = true;
-            this.F4_Occupied_label.Location = new System.Drawing.Point(42, 264);
-            this.F4_Occupied_label.Name = "F4_Occupied_label";
-            this.F4_Occupied_label.Size = new System.Drawing.Size(93, 13);
-            this.F4_Occupied_label.TabIndex = 24;
-            this.F4_Occupied_label.Text = "Occupied spaces:";
-            // 
-            // F4_occupied_box
-            // 
-            this.F4_occupied_box.Location = new System.Drawing.Point(141, 262);
-            this.F4_occupied_box.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.F4_occupied_box.Name = "F4_occupied_box";
-            this.F4_occupied_box.Size = new System.Drawing.Size(45, 20);
-            this.F4_occupied_box.TabIndex = 25;
-            // 
-            // F3_Occupied_label
-            // 
-            this.F3_Occupied_label.AutoSize = true;
-            this.F3_Occupied_label.Location = new System.Drawing.Point(42, 203);
-            this.F3_Occupied_label.Name = "F3_Occupied_label";
-            this.F3_Occupied_label.Size = new System.Drawing.Size(93, 13);
-            this.F3_Occupied_label.TabIndex = 22;
-            this.F3_Occupied_label.Text = "Occupied spaces:";
-            // 
-            // F3_occupied_box
-            // 
-            this.F3_occupied_box.Location = new System.Drawing.Point(141, 201);
-            this.F3_occupied_box.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.F3_occupied_box.Name = "F3_occupied_box";
-            this.F3_occupied_box.Size = new System.Drawing.Size(45, 20);
-            this.F3_occupied_box.TabIndex = 23;
-            // 
-            // F2_Occupied_label
-            // 
-            this.F2_Occupied_label.AutoSize = true;
-            this.F2_Occupied_label.Location = new System.Drawing.Point(42, 144);
-            this.F2_Occupied_label.Name = "F2_Occupied_label";
-            this.F2_Occupied_label.Size = new System.Drawing.Size(93, 13);
-            this.F2_Occupied_label.TabIndex = 20;
-            this.F2_Occupied_label.Text = "Occupied spaces:";
-            // 
-            // F2_occupied_box
-            // 
-            this.F2_occupied_box.Location = new System.Drawing.Point(141, 142);
-            this.F2_occupied_box.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.F2_occupied_box.Name = "F2_occupied_box";
-            this.F2_occupied_box.Size = new System.Drawing.Size(45, 20);
-            this.F2_occupied_box.TabIndex = 21;
-            // 
-            // F1_Occupied_label
-            // 
-            this.F1_Occupied_label.AutoSize = true;
-            this.F1_Occupied_label.Location = new System.Drawing.Point(42, 84);
-            this.F1_Occupied_label.Name = "F1_Occupied_label";
-            this.F1_Occupied_label.Size = new System.Drawing.Size(93, 13);
-            this.F1_Occupied_label.TabIndex = 18;
-            this.F1_Occupied_label.Text = "Occupied spaces:";
-            // 
-            // F1_occupied_box
-            // 
-            this.F1_occupied_box.Location = new System.Drawing.Point(141, 82);
-            this.F1_occupied_box.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.F1_occupied_box.Name = "F1_occupied_box";
-            this.F1_occupied_box.Size = new System.Drawing.Size(45, 20);
-            this.F1_occupied_box.TabIndex = 19;
-            // 
             // Floor4Label
             // 
             this.Floor4Label.AutoSize = true;
-            this.Floor4Label.Location = new System.Drawing.Point(70, 238);
+            this.Floor4Label.Location = new System.Drawing.Point(70, 160);
             this.Floor4Label.Name = "Floor4Label";
             this.Floor4Label.Size = new System.Drawing.Size(65, 13);
             this.Floor4Label.TabIndex = 16;
@@ -659,7 +547,7 @@
             // 
             // FloorMax4
             // 
-            this.FloorMax4.Location = new System.Drawing.Point(141, 236);
+            this.FloorMax4.Location = new System.Drawing.Point(141, 158);
             this.FloorMax4.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -673,7 +561,7 @@
             // Floor3Label
             // 
             this.Floor3Label.AutoSize = true;
-            this.Floor3Label.Location = new System.Drawing.Point(70, 179);
+            this.Floor3Label.Location = new System.Drawing.Point(70, 126);
             this.Floor3Label.Name = "Floor3Label";
             this.Floor3Label.Size = new System.Drawing.Size(65, 13);
             this.Floor3Label.TabIndex = 14;
@@ -681,7 +569,7 @@
             // 
             // FloorMax3
             // 
-            this.FloorMax3.Location = new System.Drawing.Point(141, 177);
+            this.FloorMax3.Location = new System.Drawing.Point(141, 124);
             this.FloorMax3.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -695,7 +583,7 @@
             // Floor2Label
             // 
             this.Floor2Label.AutoSize = true;
-            this.Floor2Label.Location = new System.Drawing.Point(70, 118);
+            this.Floor2Label.Location = new System.Drawing.Point(70, 93);
             this.Floor2Label.Name = "Floor2Label";
             this.Floor2Label.Size = new System.Drawing.Size(65, 13);
             this.Floor2Label.TabIndex = 12;
@@ -703,7 +591,7 @@
             // 
             // FloorMax2
             // 
-            this.FloorMax2.Location = new System.Drawing.Point(141, 116);
+            this.FloorMax2.Location = new System.Drawing.Point(141, 91);
             this.FloorMax2.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -2382,13 +2270,10 @@
             this.SlaveSettingsBox1.ResumeLayout(false);
             this.SlaveSettingsBox1.PerformLayout();
             this.Setup_groupbox.ResumeLayout(false);
-            this.Setup_groupbox.PerformLayout();
+            this.slaveSettingsGroupBox.ResumeLayout(false);
+            this.slaveSettingsGroupBox.PerformLayout();
             this.FloorGroupBox.ResumeLayout(false);
             this.FloorGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.F4_occupied_box)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.F3_occupied_box)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.F2_occupied_box)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.F1_occupied_box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FloorMax4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FloorMax3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FloorMax2)).EndInit();
@@ -2441,8 +2326,6 @@
         private System.Windows.Forms.NumericUpDown SlaveCount;
         private System.Windows.Forms.Label SlaveCountLabel1;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox LotNameLocationBox;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button ApplyConfigSettingsButton;
         private System.Windows.Forms.RichTextBox ConfigTextBox;
@@ -2611,13 +2494,6 @@
         private System.Windows.Forms.ProgressBar progressBar15;
         private System.Windows.Forms.ProgressBar progressBar0;
         private System.Windows.Forms.ComboBox SlaveFloor11;
-        private System.Windows.Forms.Label F4_Occupied_label;
-        private System.Windows.Forms.NumericUpDown F4_occupied_box;
-        private System.Windows.Forms.Label F3_Occupied_label;
-        private System.Windows.Forms.NumericUpDown F3_occupied_box;
-        private System.Windows.Forms.Label F2_Occupied_label;
-        private System.Windows.Forms.NumericUpDown F2_occupied_box;
-        private System.Windows.Forms.Label F1_Occupied_label;
-        private System.Windows.Forms.NumericUpDown F1_occupied_box;
+        private System.Windows.Forms.GroupBox slaveSettingsGroupBox;
     }
 }
