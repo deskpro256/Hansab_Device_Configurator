@@ -57,7 +57,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(44, 233);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(201, 66);
-            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "+37128693276 - Kārlis Ulmanis - karlis.ulmanis@hansab.lv\n+37127891272 - Māris Šma" +
     "ukstelis - maris.smaukstelis@hansab.lv";
             // 
@@ -88,7 +88,7 @@
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.PasswordChar = '*';
             this.PasswordBox.Size = new System.Drawing.Size(131, 26);
-            this.PasswordBox.TabIndex = 6;
+            this.PasswordBox.TabIndex = 1;
             this.PasswordBox.TextChanged += new System.EventHandler(this.PasswordBox_TextChanged);
             // 
             // ChangeButton
@@ -96,7 +96,7 @@
             this.ChangeButton.Location = new System.Drawing.Point(102, 192);
             this.ChangeButton.Name = "ChangeButton";
             this.ChangeButton.Size = new System.Drawing.Size(75, 23);
-            this.ChangeButton.TabIndex = 7;
+            this.ChangeButton.TabIndex = 3;
             this.ChangeButton.Text = "Change";
             this.ChangeButton.UseVisualStyleBackColor = true;
             this.ChangeButton.Click += new System.EventHandler(this.ChangeButton_Click);
@@ -107,7 +107,7 @@
             this.UsernameBox.Location = new System.Drawing.Point(76, 37);
             this.UsernameBox.Name = "UsernameBox";
             this.UsernameBox.Size = new System.Drawing.Size(131, 26);
-            this.UsernameBox.TabIndex = 9;
+            this.UsernameBox.TabIndex = 0;
             this.UsernameBox.TextChanged += new System.EventHandler(this.UsernameBox_TextChanged);
             // 
             // usernameLabel
@@ -127,7 +127,7 @@
             this.RepPasswordBox.Name = "RepPasswordBox";
             this.RepPasswordBox.PasswordChar = '*';
             this.RepPasswordBox.Size = new System.Drawing.Size(131, 26);
-            this.RepPasswordBox.TabIndex = 11;
+            this.RepPasswordBox.TabIndex = 2;
             this.RepPasswordBox.TextChanged += new System.EventHandler(this.RepPasswordBox_TextChanged);
             // 
             // RepeatPassLabel

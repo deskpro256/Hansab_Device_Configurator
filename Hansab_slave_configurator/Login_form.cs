@@ -25,6 +25,7 @@ namespace Hansab_slave_configurator
         public Login_form()
         {
             InitializeComponent();
+            CheckForLUD();
         }
 
         private void username_box_TextChanged(object sender, EventArgs e)
@@ -81,6 +82,7 @@ namespace Hansab_slave_configurator
             {
                 while (readLogins.Peek() > -1 || LoggedIn != true)
                 {
+                    textFromFile = "";
                     try
                     {
                         textFromFile = readLogins.ReadLine();
@@ -120,5 +122,28 @@ namespace Hansab_slave_configurator
         {
             Application.Exit();
         }
+
+        public void CheckForLUD()
+        {
+            String FileName = "lud.lfs";
+            String Content = "admin admin Hansab123 \n" +
+                             "guest guest Guest123 \n ";
+            if (File.Exists(FileName) == true)
+            {
+                //do nothing
+                MessageBox.Show("Exists", "aa", MessageBoxButtons.OK);
+            }
+            
+            else
+            {
+                using (BinaryWriter binaryWriter = new BinaryWriter(File.Open(FileName, FileMode.Create)))
+                {
+                    MessageBox.Show("Does not exist", "ww", MessageBoxButtons.OK);
+                    binaryWriter.Write(Content);
+                    binaryWriter.Close();
+                }
+            }
+        }
+
     }
 }
