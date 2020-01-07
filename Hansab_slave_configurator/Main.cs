@@ -81,6 +81,7 @@ namespace Hansab_slave_configurator
             GetErrors_button.Enabled = false;
             ClearErrorsButton.Enabled = false;
             SendConfigButton.Enabled = false;
+            FloorCountSendButton.Enabled = false;
         }
 
         private void Apply_button_Click(object sender, EventArgs e)
@@ -636,6 +637,7 @@ namespace Hansab_slave_configurator
         }
         private void FloorCountSendButton_Click(object sender, EventArgs e)
         {
+            FloorCountSendButton.Enabled = false;
             for (int i = 0; i <= 3; i++)
             {
                 byte huns = System.Convert.ToByte((floorNums[i] / 100) + 0x30);
@@ -644,6 +646,7 @@ namespace Hansab_slave_configurator
                 byte floorAddress = floorNaddresses[i];
                 RS485Send(floorAddress, messageType[0], CMDLUT[2], huns, tens, ones);
             }
+            FloorCountSendButton.Enabled = true;
         }
 
         public void MasterConfigSend()
