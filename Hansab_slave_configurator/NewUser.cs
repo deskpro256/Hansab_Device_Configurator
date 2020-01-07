@@ -38,7 +38,7 @@ namespace Hansab_slave_configurator
             readFile.Close();
 
             StreamWriter newUser = File.CreateText("lud.lfs");
-            textToFile = usertype + ' ' + username + ' ' + password + "\n";
+            textToFile = usertype + " " + username + " " + password + "\n";
             textToFile = tempText + textToFile;
 
             newUser.Write(textToFile);

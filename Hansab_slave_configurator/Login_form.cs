@@ -20,6 +20,7 @@ namespace Hansab_slave_configurator
         public string username;
         public string password;
         public string textFromFile;
+        public string tempLUD;
         public static int forgotLimiter;
 
         public Login_form()
@@ -80,41 +81,39 @@ namespace Hansab_slave_configurator
 
             using (StreamReader readLogins = File.OpenText("lud.lfs"))
             {
-                while (readLogins.Peek() > -1 || LoggedIn != true)
+                tempLUD = readLogins.ReadToEnd();
+                readLogins.Close();
+            }
+            StringReader strReader = new StringReader(tempLUD);
+            textFromFile = "";
+            while (textFromFile.Contains(username) == false || LoggedIn != true)
+            {
+                try
                 {
-                    textFromFile = "";
-                    try
+                    textFromFile = strReader.ReadLine();
+                    if (textFromFile.Contains(typeAdmin) && textFromFile.Contains(username) && textFromFile.Contains(password))
                     {
-                        textFromFile = readLogins.ReadLine();
-                        if (textFromFile.Contains(typeAdmin) && textFromFile.Contains(username) && textFromFile.Contains(password))
-                        {
-                            LoggedIn = true;
-                            readLogins.Close();
-                            AdminLogin();
-                            break;
-                        }
-                        else if (textFromFile.Contains(typeGuest) && textFromFile.Contains(username) && textFromFile.Contains(password))
-                        {
-                            LoggedIn = true;
-                            readLogins.Close();
-                            GuestLogin();
-                            break;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Incorrect username or password!", "Warning!", MessageBoxButtons.OK);
-                            LoggedIn = false;
-                            Incorrect_label.Visible = true;
-                        }
-
-                    }
-                    catch (Exception)
-                    {
+                        LoggedIn = true;
+                        AdminLogin();
                         break;
                     }
-
+                    else if (textFromFile.Contains(typeGuest) && textFromFile.Contains(username) && textFromFile.Contains(password))
+                    {
+                        LoggedIn = true;
+                        GuestLogin();
+                        break;
+                    }
+                    else
+                    {
+                        LoggedIn = false;
+                        Incorrect_label.Visible = true;
+                    }
                 }
-                readLogins.Close();
+                catch (Exception)
+                {
+                    break;
+                }
+
             }
         }
 
@@ -130,15 +129,13 @@ namespace Hansab_slave_configurator
                              "guest guest Guest123 \n ";
             if (File.Exists(FileName) == true)
             {
-                //do nothing
-                MessageBox.Show("Exists", "aa", MessageBoxButtons.OK);
+                //continue
             }
-            
+
             else
             {
                 using (BinaryWriter binaryWriter = new BinaryWriter(File.Open(FileName, FileMode.Create)))
                 {
-                    MessageBox.Show("Does not exist", "ww", MessageBoxButtons.OK);
                     binaryWriter.Write(Content);
                     binaryWriter.Close();
                 }

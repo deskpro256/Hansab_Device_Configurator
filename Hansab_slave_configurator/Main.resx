@@ -122,9 +122,9 @@
 Example:
 12-E0 = Device with ID 12 is not responding.
 
-E0 : Device not responding.
-E1 : Invalid count on a device. Either lower than 0 or higher than it's maximum capacity. See configuration file for proper count.
-E2 : Reserved
+E0 : No Error
+E1 : Device not responding.
+E2 : Invalid count on a device. Either lower than 0 or higher than it's maximum capacity. See configuration file for proper count.
 E3 : Reserved</value>
   </data>
   <data name="richTextBox1.Text" xml:space="preserve">

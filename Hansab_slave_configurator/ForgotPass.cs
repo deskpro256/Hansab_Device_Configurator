@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +13,13 @@ namespace Hansab_slave_configurator
 {
     public partial class ForgotPass : Form
     {
-        public int supportID;
-        public string username;
-        public string password;
-        public string repeatPassword;
+        public string username = "";
+        public string password = "";
+        public string repeatPassword = "";
+        public string textFromFile = "";
+        public string tempLUD = "";
+        public string newText = "";
+
 
         public ForgotPass()
         {
@@ -25,22 +29,107 @@ namespace Hansab_slave_configurator
         private void ChangeButton_Click(object sender, EventArgs e)
         {
             //find username in user files, if there, replace passwords, else, user not found!
-
-            if (password == repeatPassword && password != "")
+            if (username != "")
             {
-                MessageBox.Show("Passwords match", "Something happened", MessageBoxButtons.OK);
+                using (StreamReader readLogins = File.OpenText("lud.lfs"))
+                {
+                    textFromFile = "";
+                    try
+                    {
+                        textFromFile = readLogins.ReadToEnd();
+                        readLogins.Close();
+                        if (textFromFile.Contains(username) == true)
+                        {
+                            MessageBox.Show("User found!", "Success", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            MessageBox.Show("User not found!", "Error", MessageBoxButtons.OK);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                    }
+
+                }
+                if (password == repeatPassword && password != "")
+                {
+                    MessageBox.Show("Passwords match", "Something happened", MessageBoxButtons.OK);
+                    replacePassword();
+                }
+                else if (password != repeatPassword && password != "" || repeatPassword != "")
+                {
+                    MessageBox.Show("Passwords don't match", "Something happened", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Fields can't be empty!", "Something happened", MessageBoxButtons.OK);
+                }
             }
             else
             {
-                MessageBox.Show("Passwords don't match", "Something happened", MessageBoxButtons.OK);
+                MessageBox.Show("Fields can't be empty!", "Something happened", MessageBoxButtons.OK);
             }
+
         }
 
+        public void replacePassword()
+        {
+
+            using (StreamReader readLogins = File.OpenText("lud.lfs"))
+            {
+                tempLUD = readLogins.ReadToEnd();
+                readLogins.Close();
+            }
+            StringReader strReader = new StringReader(tempLUD);
+            textFromFile = "";
+            try
+            {
+                while (textFromFile.Contains(username) == false)
+                {
+                    textFromFile = strReader.ReadLine();
+                    MessageBox.Show(textFromFile, "textFromFile", MessageBoxButtons.OK);
+                    if (textFromFile.Contains(username) == true)
+                    {
+                        if (textFromFile.Contains("admin") == true)
+                        {
+                            newText = "admin " + username + " " + password + "\n";
+                            tempLUD.Replace(textFromFile, newText);
+                            tempLUD += newText;
+                            MessageBox.Show(tempLUD, "tempLUD", MessageBoxButtons.OK);
+                            File.Delete("lud.lfs");
+                            StreamWriter SWriter = File.CreateText("lud.lfs");
+                            SWriter.Write(tempLUD);
+                            SWriter.Close();
+                            MessageBox.Show(" Username found!\n Password changed!", "Success!", MessageBoxButtons.OK);
+                            break;
+                        }
+                        else if (textFromFile.Contains("guest") == true)
+                        {
+                            newText = "guest " + username + " " + password + "\n";
+                            tempLUD.Replace(textFromFile, newText);
+                            tempLUD += newText;
+                            MessageBox.Show(tempLUD, "tempLUD", MessageBoxButtons.OK);
+                            File.Delete("lud.lfs");
+                            StreamWriter SWriter = File.CreateText("lud.lfs");
+                            SWriter.Write(tempLUD);
+                            SWriter.Close();
+                            MessageBox.Show(" Username found!\n Password changed!", "Success!", MessageBoxButtons.OK);
+                            break;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("EXCEPTION CAUGHT!", "Something happened", MessageBoxButtons.OK);
+            }
+
+        }
         private void PasswordBox_TextChanged(object sender, EventArgs e)
         {
             password = PasswordBox.Text;
-            //get the password string
-            //add it to valid passwords
         }
 
         private void RepPasswordBox_TextChanged(object sender, EventArgs e)
@@ -55,7 +144,7 @@ namespace Hansab_slave_configurator
 
         private void UsernameBox_TextChanged(object sender, EventArgs e)
         {
-
+            username = UsernameBox.Text;
         }
     }
 }
