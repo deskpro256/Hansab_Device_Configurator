@@ -518,7 +518,7 @@ namespace Hansab_slave_configurator
                     int tens = RS485ReadBytes[5] - 48;
                     int ones = RS485ReadBytes[6] - 48;
                     int floorGetCount = (hundreds * 100) + (tens * 10) + ones;
-                    if (i == 0)   //_floor == 0xF1 241
+                    if (_floor == 0xF1)   //_floor == 0xF1 241
                     //if (_floor == 0xF1)   //_floor == 0xF1 241
                     {
                         try
@@ -528,7 +528,7 @@ namespace Hansab_slave_configurator
                         }
                         catch (ArgumentOutOfRangeException) { }
                     }
-                    else if (i == 1)   //_floor == 0xF2 242
+                    else if (_floor == 0xF2)   //_floor == 0xF2 242
                     {
                         try
                         {
@@ -537,7 +537,7 @@ namespace Hansab_slave_configurator
                         }
                         catch (ArgumentOutOfRangeException) { }
                     }
-                    else if (i == 2)   //_floor == 0xF3 243
+                    else if (_floor == 0xF3)   //_floor == 0xF3 243
                     {
                         try
                         {
@@ -546,7 +546,7 @@ namespace Hansab_slave_configurator
                         }
                         catch (ArgumentOutOfRangeException) { }
                     }
-                    else if (i == 3)   //_floor == 0xF4 244
+                    else if (_floor == 0xF4)   //_floor == 0xF4 244
                     {
                         try
                         {
@@ -674,7 +674,6 @@ namespace Hansab_slave_configurator
                 RS485Send(IntDev, messageType[0], CMDLUT[4], 0x43, 0x46, 0x47);
                 System.Threading.Thread.Sleep(50);
                 MasterConfigSend();
-                System.Threading.Thread.Sleep(50);
 
 
                 for (int i = 0; i <= 15; i++)
