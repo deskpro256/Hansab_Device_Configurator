@@ -22,7 +22,6 @@ namespace Hansab_slave_configurator
         public static byte[] CMDLUT = new byte[11] { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B };
 
         public String FileName = "Config.dat";
-        public String configStart = "Configuration of : \n";
         public String textToFile = "";
         //SlaveConfigBytes
         public static byte[,] SlaveConfiguration = new byte[16, 10]
@@ -47,7 +46,6 @@ namespace Hansab_slave_configurator
         //MasterConfigBytes
         public static byte[] MasterConfiguration = new byte[18]
             {STX,IntDev,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,ETX};
-        //public String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         bool CorrectConfig = false;
 
         public int FloorNumericValue = 1;
@@ -135,7 +133,6 @@ namespace Hansab_slave_configurator
         private void ApplyConfigSettingsButton_Click(object sender, EventArgs e)
         {
             ConfigTextBox.Text = "";
-            ConfigTextBox.AppendText(configStart);
             for (int i = 0; i <= 15; i++)
             {
                 for (int j = 0; j <= 9; j++)
@@ -153,6 +150,10 @@ namespace Hansab_slave_configurator
         //==============================[SAVE_FUNC]=============================================
         private void SaveButton_Click(object sender, EventArgs e)
         {
+
+            saveFileDialog1.ShowDialog();
+            FileName = saveFileDialog1.FileName;
+
             using (BinaryWriter binaryWriter = new BinaryWriter(File.Open(FileName, FileMode.Create)))
             {
                 for (int i = 0; i <= 17; i++)
@@ -172,8 +173,8 @@ namespace Hansab_slave_configurator
                 binaryWriter.Close();
             }
 
-            //saveFileDialog1.ShowDialog();
-            MessageBox.Show("File saved in Hansab_slave_configurator/bin/x86/Debug/Config.dat!", "File saved!", MessageBoxButtons.OK);
+            MessageBox.Show("File saved in:" + FileName, "File saved!", MessageBoxButtons.OK);
+
         }
 
         private void SlaveCount_ValueChanged(object sender, EventArgs e)

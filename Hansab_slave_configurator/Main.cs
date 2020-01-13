@@ -272,9 +272,11 @@ namespace Hansab_slave_configurator
 
             for (int i = 0; i <= 15; i++)
             {
+                System.Threading.Thread.Sleep(20);
                 RS485Send(Convert.ToByte(i), messageType[0], CMDLUT[8], 0x52, 0x53, 0x54);  // restart CMD for slaves
             }
 
+            System.Threading.Thread.Sleep(20);
             RS485Send(0x1D, messageType[0], CMDLUT[8], 0x52, 0x53, 0x54);  // restart CMD for interface device
 
             MessageBox.Show("System restarted!");
@@ -576,9 +578,9 @@ namespace Hansab_slave_configurator
             SimpleIOClass.SetPin(2); //enable sending
             System.Threading.Thread.Sleep(50);
             serialPort1.Write(msg, 0, 9);
-            System.Threading.Thread.Sleep(50);
-            Serialport_text_box.AppendText(Encoding.ASCII.GetString(msg));
+            System.Threading.Thread.Sleep(20);
             SimpleIOClass.ClearPin(2); //disable sending
+            Serialport_text_box.AppendText(Encoding.ASCII.GetString(msg));
         }
         public void RS485Receive()
         {
