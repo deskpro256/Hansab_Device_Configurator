@@ -38,7 +38,8 @@ namespace Hansab_slave_configurator
         public byte ETX = 0x5D;
         public byte[] CMDLUT = new byte[11] { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B };
         public byte[] messageType = new byte[3] { 0x05, 0x06, 0x21 }; //ENQ ACK NAK
-        public bool ConfigEnabled = true;
+        public bool ConfigEnabled = false;
+        public bool ConfigLoaded = false;
 
         // RS485 stuff end
         // Configuration files:
@@ -82,6 +83,8 @@ namespace Hansab_slave_configurator
             ClearErrorsButton.Enabled = false;
             SendConfigButton.Enabled = false;
             FloorCountSendButton.Enabled = false;
+            ConfigLoaded = false;
+            ConfigEnabled = false;
         }
 
         private void Apply_button_Click(object sender, EventArgs e)
@@ -152,6 +155,7 @@ namespace Hansab_slave_configurator
                 ConfigEnableButton.Enabled = false;
                 FloorCountSendButton.Enabled = false;
                 Refresh_button.Enabled = true;
+                ConfigEnabled = false;
                 serialPort1.Close();
             }
         }
@@ -209,16 +213,14 @@ namespace Hansab_slave_configurator
 
         private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-
             Current_cfg_box.Text = "";
-            Current_cfg_box.AppendText("Loading config file... \n");
+            Current_cfg_box.AppendText("Loading config file: \n" + OpenFileDialog1.FileName + " \n");
             using (BinaryReader reader = new BinaryReader(File.Open(OpenFileDialog1.FileName, FileMode.Open)))
             {
                 for (int i = 0; i <= 17; i++)
                 {
                     MasterConfig[i] = reader.ReadByte();
                     Current_cfg_box.AppendText(Convert.ToInt32(MasterConfig[i]).ToString() + " ");
-                    //test += Convert.ToInt32(MasterConfig[i]).ToString() + " ";
                 }
                 Current_cfg_box.AppendText("\n");
                 for (int i = 0; i <= 15; i++)
@@ -233,8 +235,8 @@ namespace Hansab_slave_configurator
 
                 reader.Close();
             }
+            ConfigLoaded = true;
             Current_cfg_box.AppendText("Config loaded successfully! \n");
-            SendConfigButton.Enabled = true;
         }
 
         private void NewConfig_button_Click(object sender, EventArgs e)
@@ -260,25 +262,22 @@ namespace Hansab_slave_configurator
 
         private void RestartSystem()
         {
-
-            SimpleIOClass.ClearPin(3);
             ConfigDisableButton.Enabled = false;
             ConfigEnableButton.Enabled = true;
             Restart_button.Enabled = false;
             RequestCount_button.Enabled = false;
             GetErrors_button.Enabled = false;
+            ClearErrorsButton.Enabled = false;
             Ping_button.Enabled = false;
             FloorCountSendButton.Enabled = false;
 
             for (int i = 0; i <= 15; i++)
             {
-                System.Threading.Thread.Sleep(20);
                 RS485Send(Convert.ToByte(i), messageType[0], CMDLUT[8], 0x52, 0x53, 0x54);  // restart CMD for slaves
             }
 
-            System.Threading.Thread.Sleep(20);
             RS485Send(0x1D, messageType[0], CMDLUT[8], 0x52, 0x53, 0x54);  // restart CMD for interface device
-
+            SimpleIOClass.ClearPin(3);
             MessageBox.Show("System restarted!");
         }
 
@@ -333,6 +332,14 @@ namespace Hansab_slave_configurator
                 RequestCount_button.Enabled = false;
                 Restart_button.Enabled = false;
             }
+            if (ConfigEnabled == true && ConfigLoaded == true)
+            {
+                SendConfigButton.Enabled = true;
+            }
+            else
+            {
+                SendConfigButton.Enabled = false;
+            }
         }
         public void MCP2200Load()
         {
@@ -345,6 +352,7 @@ namespace Hansab_slave_configurator
         private void ConfigEnableButton_Click(object sender, EventArgs e)
         {
             SimpleIOClass.SetPin(3);
+            ConfigEnabled = true;
             ConfigEnableButton.Enabled = false;
             ConfigDisableButton.Enabled = true;
             Restart_button.Enabled = true;
@@ -358,6 +366,7 @@ namespace Hansab_slave_configurator
         private void ConfigDisableButton_Click(object sender, EventArgs e)
         {
             SimpleIOClass.ClearPin(3);
+            ConfigEnabled = false;
             ConfigDisableButton.Enabled = false;
             ConfigEnableButton.Enabled = true;
             Restart_button.Enabled = false;
@@ -404,7 +413,7 @@ namespace Hansab_slave_configurator
             {
                 if (RS485ReadBytes[1] == IntDev)
                 {
-                    ConnectedDeviceList.Nodes.Add("Interface");
+                    ConnectedDeviceList.Nodes.Add("Main unit");
                     ConnectedDeviceList.Nodes[0].Checked = true;
                     replied = false;
                 }
@@ -443,7 +452,7 @@ namespace Hansab_slave_configurator
                 {
                     if (RS485ReadBytes[1] == Convert.ToByte(id))
                     {
-                        ConnectedDeviceList.Nodes.Add("Slave" + id);
+                        ConnectedDeviceList.Nodes.Add("Interface " + id);
                         ConnectedDeviceList.Nodes[id + 1].Checked = true;
                         replied = false;
                     }
@@ -521,7 +530,7 @@ namespace Hansab_slave_configurator
                     int ones = RS485ReadBytes[6] - 48;
                     int floorGetCount = (hundreds * 100) + (tens * 10) + ones;
                     if (_floor == 0xF1)   //_floor == 0xF1 241
-                    //if (_floor == 0xF1)   //_floor == 0xF1 241
+                                          //if (_floor == 0xF1)   //_floor == 0xF1 241
                     {
                         try
                         {
@@ -562,7 +571,6 @@ namespace Hansab_slave_configurator
                 }
             }
         }
-
         public void RS485Send(byte receiverID, byte msgType, byte command, byte data1, byte data2, byte data3)
         {
             msg[0] = STX;
@@ -677,7 +685,6 @@ namespace Hansab_slave_configurator
                 System.Threading.Thread.Sleep(50);
                 MasterConfigSend();
 
-
                 for (int i = 0; i <= 15; i++)
                 {
                     byte[] SlaveData = new byte[10];
@@ -690,13 +697,11 @@ namespace Hansab_slave_configurator
                     SlaveConfigSend(SlaveData);
                     System.Threading.Thread.Sleep(50);
                 }
-
             }
             else
             {
-                MessageBox.Show("SerialPort not open! \n Connect to an Interface device to configure the system!", "Serial port closed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("SerialPort not open! \n Connect to an Interface device to configure the system!", "Cannot send configuration!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
         }
 
     }

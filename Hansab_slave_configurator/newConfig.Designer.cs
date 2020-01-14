@@ -314,7 +314,7 @@
             // 
             this.FloorMax1.Location = new System.Drawing.Point(141, 58);
             this.FloorMax1.Maximum = new decimal(new int[] {
-            1000,
+            999,
             0,
             0,
             0});
@@ -549,7 +549,7 @@
             // 
             this.FloorMax4.Location = new System.Drawing.Point(141, 158);
             this.FloorMax4.Maximum = new decimal(new int[] {
-            1000,
+            999,
             0,
             0,
             0});
@@ -571,7 +571,7 @@
             // 
             this.FloorMax3.Location = new System.Drawing.Point(141, 124);
             this.FloorMax3.Maximum = new decimal(new int[] {
-            1000,
+            999,
             0,
             0,
             0});
@@ -593,7 +593,7 @@
             // 
             this.FloorMax2.Location = new System.Drawing.Point(141, 91);
             this.FloorMax2.Maximum = new decimal(new int[] {
-            1000,
+            999,
             0,
             0,
             0});

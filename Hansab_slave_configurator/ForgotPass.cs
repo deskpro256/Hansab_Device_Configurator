@@ -38,11 +38,7 @@ namespace Hansab_slave_configurator
                     {
                         textFromFile = readLogins.ReadToEnd();
                         readLogins.Close();
-                        if (textFromFile.Contains(username) == true)
-                        {
-                            MessageBox.Show("User found!", "Success", MessageBoxButtons.OK);
-                        }
-                        else
+                        if (textFromFile.Contains(username) == false)
                         {
                             MessageBox.Show("User not found!", "Error", MessageBoxButtons.OK);
                         }
@@ -54,7 +50,6 @@ namespace Hansab_slave_configurator
                 }
                 if (password == repeatPassword && password != "")
                 {
-                    MessageBox.Show("Passwords match", "Something happened", MessageBoxButtons.OK);
                     replacePassword();
                 }
                 else if (password != repeatPassword && password != "" || repeatPassword != "")
@@ -88,7 +83,7 @@ namespace Hansab_slave_configurator
                 while (textFromFile.Contains(username) == false)
                 {
                     textFromFile = strReader.ReadLine();
-                    MessageBox.Show(textFromFile, "textFromFile", MessageBoxButtons.OK);
+                    //MessageBox.Show(textFromFile, "textFromFile", MessageBoxButtons.OK);
                     if (textFromFile.Contains(username) == true)
                     {
                         if (textFromFile.Contains("admin") == true)
@@ -96,7 +91,7 @@ namespace Hansab_slave_configurator
                             newText = "admin " + username + " " + password + "\n";
                             tempLUD.Replace(textFromFile, newText);
                             tempLUD += newText;
-                            MessageBox.Show(tempLUD, "tempLUD", MessageBoxButtons.OK);
+                            //MessageBox.Show(tempLUD, "tempLUD", MessageBoxButtons.OK);
                             File.Delete("lud.lfs");
                             StreamWriter SWriter = File.CreateText("lud.lfs");
                             SWriter.Write(tempLUD);
@@ -109,7 +104,7 @@ namespace Hansab_slave_configurator
                             newText = "guest " + username + " " + password + "\n";
                             tempLUD.Replace(textFromFile, newText);
                             tempLUD += newText;
-                            MessageBox.Show(tempLUD, "tempLUD", MessageBoxButtons.OK);
+                            //MessageBox.Show(tempLUD, "tempLUD", MessageBoxButtons.OK);
                             File.Delete("lud.lfs");
                             StreamWriter SWriter = File.CreateText("lud.lfs");
                             SWriter.Write(tempLUD);
@@ -123,7 +118,6 @@ namespace Hansab_slave_configurator
             }
             catch (Exception)
             {
-                MessageBox.Show("EXCEPTION CAUGHT!", "Something happened", MessageBoxButtons.OK);
             }
 
         }

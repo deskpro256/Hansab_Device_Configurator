@@ -78,42 +78,47 @@ namespace Hansab_slave_configurator
 
         private void ValidateLogin()
         {
-
-            using (StreamReader readLogins = File.OpenText("lud.lfs"))
+            try
             {
-                tempLUD = readLogins.ReadToEnd();
-                readLogins.Close();
+                using (StreamReader readLogins = File.OpenText("lud.lfs"))
+                {
+                    tempLUD = readLogins.ReadToEnd();
+                    readLogins.Close();
+                }
+                StringReader strReader = new StringReader(tempLUD);
+                textFromFile = "";
+                while (textFromFile.Contains(username) == false || LoggedIn != true)
+                {
+                    try
+                    {
+                        textFromFile = strReader.ReadLine();
+                        if (textFromFile.Contains(typeAdmin) && textFromFile.Contains(username) && textFromFile.Contains(password))
+                        {
+                            LoggedIn = true;
+                            AdminLogin();
+                            break;
+                        }
+                        else if (textFromFile.Contains(typeGuest) && textFromFile.Contains(username) && textFromFile.Contains(password))
+                        {
+                            LoggedIn = true;
+                            GuestLogin();
+                            break;
+                        }
+                        else
+                        {
+                            LoggedIn = false;
+                            Incorrect_label.Visible = true;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        break;
+                    }
+
+                }
             }
-            StringReader strReader = new StringReader(tempLUD);
-            textFromFile = "";
-            while (textFromFile.Contains(username) == false || LoggedIn != true)
+            catch (Exception)
             {
-                try
-                {
-                    textFromFile = strReader.ReadLine();
-                    if (textFromFile.Contains(typeAdmin) && textFromFile.Contains(username) && textFromFile.Contains(password))
-                    {
-                        LoggedIn = true;
-                        AdminLogin();
-                        break;
-                    }
-                    else if (textFromFile.Contains(typeGuest) && textFromFile.Contains(username) && textFromFile.Contains(password))
-                    {
-                        LoggedIn = true;
-                        GuestLogin();
-                        break;
-                    }
-                    else
-                    {
-                        LoggedIn = false;
-                        Incorrect_label.Visible = true;
-                    }
-                }
-                catch (Exception)
-                {
-                    break;
-                }
-
             }
         }
 
