@@ -26,7 +26,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\Hansab\Hansab parking solutions\</InstallUrl>
     <PublisherName>Hansab SIA</PublisherName>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -112,6 +112,12 @@
     <Compile Include="ForgotPass.Designer.cs">
       <DependentUpon>ForgotPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageEditor.Designer.cs">
+      <DependentUpon>ImageEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ForgotPass.resx">
       <DependentUpon>ForgotPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageEditor.resx">
+      <DependentUpon>ImageEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_form.resx">
       <DependentUpon>Login_form.cs</DependentUpon>

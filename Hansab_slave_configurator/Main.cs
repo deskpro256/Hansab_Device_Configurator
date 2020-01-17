@@ -12,6 +12,7 @@ namespace Hansab_slave_configurator
     public partial class Main : Form
     {
         public static int NewConfigLimiter = 0;
+        public static int NewImageEditorLimiter = 0;
         public static int NewUserLimiter = 0;
         public Boolean apply = false;
         public Boolean _continue = false;
@@ -364,6 +365,12 @@ namespace Hansab_slave_configurator
             ClearErrorsButton.Enabled = true;
             Ping_button.Enabled = true;
             FloorCountSendButton.Enabled = true;
+            while (serialPort1.BytesToRead > 0)
+            {
+                serialPort1.ReadByte();
+            }
+            System.Threading.Thread.Sleep(100);
+            RequestCurrentCount();
         }
 
         private void ConfigDisableButton_Click(object sender, EventArgs e)
@@ -511,6 +518,11 @@ namespace Hansab_slave_configurator
         }
 
         private void RequestCount_button_Click(object sender, EventArgs e)
+        {
+            RequestCurrentCount();
+        }
+
+        public void RequestCurrentCount()
         {
             //floorNaddresses[0-3]
             for (int i = 0; i <= 3; i++)
@@ -729,13 +741,18 @@ namespace Hansab_slave_configurator
 
         public void AddToSerialData(byte[] data)
         {
-            //String StringData = "";
-
-
             logText = Encoding.ASCII.GetString(data).ToString();
             Serialport_text_box.AppendText("\n[" + DateTime.Now + "] " + logText);
-
         }
 
+        private void ImageEditorBtn_Click(object sender, EventArgs e)
+        {
+            NewImageEditorLimiter++;
+            if (NewImageEditorLimiter == 1)
+            {
+                var newwindow = new ImageEditor();
+                newwindow.Show();
+            }
+        }
     }
 }

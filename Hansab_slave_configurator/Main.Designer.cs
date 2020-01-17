@@ -54,6 +54,8 @@
             this.Plugged_label = new System.Windows.Forms.Label();
             this.SystemStatus_label = new System.Windows.Forms.Label();
             this.config_tab = new System.Windows.Forms.TabPage();
+            this.ImageEdotorBox = new System.Windows.Forms.GroupBox();
+            this.ImageEditorBtn = new System.Windows.Forms.Button();
             this.Current_cfg_label = new System.Windows.Forms.Label();
             this.Current_cfg_box = new System.Windows.Forms.RichTextBox();
             this.Load_new_config_box = new System.Windows.Forms.GroupBox();
@@ -75,6 +77,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Floor4SendCount = new System.Windows.Forms.NumericUpDown();
+            this.RequestCount_button = new System.Windows.Forms.Button();
             this.Floor3SendCount = new System.Windows.Forms.NumericUpDown();
             this.Floor2SendCount = new System.Windows.Forms.NumericUpDown();
             this.Floor1SendCount = new System.Windows.Forms.NumericUpDown();
@@ -96,12 +99,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Serial_timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.RequestCount_button = new System.Windows.Forms.Button();
             this.Tab_control.SuspendLayout();
             this.Main_tab.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SerialPortBox.SuspendLayout();
             this.config_tab.SuspendLayout();
+            this.ImageEdotorBox.SuspendLayout();
             this.Load_new_config_box.SuspendLayout();
             this.serial_tab.SuspendLayout();
             this.error_tab.SuspendLayout();
@@ -362,6 +365,7 @@
             // 
             // config_tab
             // 
+            this.config_tab.Controls.Add(this.ImageEdotorBox);
             this.config_tab.Controls.Add(this.Current_cfg_label);
             this.config_tab.Controls.Add(this.Current_cfg_box);
             this.config_tab.Controls.Add(this.Load_new_config_box);
@@ -372,6 +376,26 @@
             this.config_tab.TabIndex = 0;
             this.config_tab.Text = "Configuration";
             this.config_tab.UseVisualStyleBackColor = true;
+            // 
+            // ImageEdotorBox
+            // 
+            this.ImageEdotorBox.Controls.Add(this.ImageEditorBtn);
+            this.ImageEdotorBox.Location = new System.Drawing.Point(317, 23);
+            this.ImageEdotorBox.Name = "ImageEdotorBox";
+            this.ImageEdotorBox.Size = new System.Drawing.Size(144, 60);
+            this.ImageEdotorBox.TabIndex = 4;
+            this.ImageEdotorBox.TabStop = false;
+            this.ImageEdotorBox.Text = "Add parking plan(optional)";
+            // 
+            // ImageEditorBtn
+            // 
+            this.ImageEditorBtn.Location = new System.Drawing.Point(39, 24);
+            this.ImageEditorBtn.Name = "ImageEditorBtn";
+            this.ImageEditorBtn.Size = new System.Drawing.Size(75, 23);
+            this.ImageEditorBtn.TabIndex = 0;
+            this.ImageEditorBtn.Text = "Open editor";
+            this.ImageEditorBtn.UseVisualStyleBackColor = true;
+            this.ImageEditorBtn.Click += new System.EventHandler(this.ImageEditorBtn_Click);
             // 
             // Current_cfg_label
             // 
@@ -569,6 +593,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.Floor4SendCount);
+            this.groupBox3.Controls.Add(this.RequestCount_button);
             this.groupBox3.Controls.Add(this.Floor3SendCount);
             this.groupBox3.Controls.Add(this.Floor2SendCount);
             this.groupBox3.Controls.Add(this.Floor1SendCount);
@@ -577,16 +602,16 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(12, 281);
+            this.groupBox3.Location = new System.Drawing.Point(8, 230);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(159, 176);
+            this.groupBox3.Size = new System.Drawing.Size(163, 228);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Send count to display";
             // 
             // Floor4SendCount
             // 
-            this.Floor4SendCount.Location = new System.Drawing.Point(72, 108);
+            this.Floor4SendCount.Location = new System.Drawing.Point(71, 155);
             this.Floor4SendCount.Maximum = new decimal(new int[] {
             999,
             0,
@@ -597,9 +622,19 @@
             this.Floor4SendCount.TabIndex = 28;
             this.Floor4SendCount.ValueChanged += new System.EventHandler(this.Floor4SendCount_ValueChanged);
             // 
+            // RequestCount_button
+            // 
+            this.RequestCount_button.Location = new System.Drawing.Point(21, 31);
+            this.RequestCount_button.Name = "RequestCount_button";
+            this.RequestCount_button.Size = new System.Drawing.Size(127, 23);
+            this.RequestCount_button.TabIndex = 28;
+            this.RequestCount_button.Text = "Request count";
+            this.RequestCount_button.UseVisualStyleBackColor = true;
+            this.RequestCount_button.Click += new System.EventHandler(this.RequestCount_button_Click);
+            // 
             // Floor3SendCount
             // 
-            this.Floor3SendCount.Location = new System.Drawing.Point(72, 82);
+            this.Floor3SendCount.Location = new System.Drawing.Point(71, 129);
             this.Floor3SendCount.Maximum = new decimal(new int[] {
             999,
             0,
@@ -612,7 +647,7 @@
             // 
             // Floor2SendCount
             // 
-            this.Floor2SendCount.Location = new System.Drawing.Point(72, 56);
+            this.Floor2SendCount.Location = new System.Drawing.Point(71, 103);
             this.Floor2SendCount.Maximum = new decimal(new int[] {
             999,
             0,
@@ -625,7 +660,7 @@
             // 
             // Floor1SendCount
             // 
-            this.Floor1SendCount.Location = new System.Drawing.Point(72, 30);
+            this.Floor1SendCount.Location = new System.Drawing.Point(71, 77);
             this.Floor1SendCount.Maximum = new decimal(new int[] {
             999,
             0,
@@ -638,18 +673,18 @@
             // 
             // FloorCountSendButton
             // 
-            this.FloorCountSendButton.Location = new System.Drawing.Point(54, 140);
+            this.FloorCountSendButton.Location = new System.Drawing.Point(21, 195);
             this.FloorCountSendButton.Name = "FloorCountSendButton";
-            this.FloorCountSendButton.Size = new System.Drawing.Size(52, 23);
+            this.FloorCountSendButton.Size = new System.Drawing.Size(127, 23);
             this.FloorCountSendButton.TabIndex = 8;
-            this.FloorCountSendButton.Text = "SEND!";
+            this.FloorCountSendButton.Text = "Update count";
             this.FloorCountSendButton.UseVisualStyleBackColor = true;
             this.FloorCountSendButton.Click += new System.EventHandler(this.FloorCountSendButton_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(27, 110);
+            this.label6.Location = new System.Drawing.Point(26, 157);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 13);
             this.label6.TabIndex = 3;
@@ -658,7 +693,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 84);
+            this.label3.Location = new System.Drawing.Point(26, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 2;
@@ -667,7 +702,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 58);
+            this.label2.Location = new System.Drawing.Point(26, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 1;
@@ -676,7 +711,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 32);
+            this.label1.Location = new System.Drawing.Point(26, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 0;
@@ -685,7 +720,7 @@
             // UserType
             // 
             this.UserType.AutoSize = true;
-            this.UserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.UserType.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.UserType.ForeColor = System.Drawing.Color.Crimson;
             this.UserType.Location = new System.Drawing.Point(28, 9);
             this.UserType.Name = "UserType";
@@ -801,23 +836,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User";
             // 
-            // RequestCount_button
-            // 
-            this.RequestCount_button.Location = new System.Drawing.Point(29, 246);
-            this.RequestCount_button.Name = "RequestCount_button";
-            this.RequestCount_button.Size = new System.Drawing.Size(127, 23);
-            this.RequestCount_button.TabIndex = 28;
-            this.RequestCount_button.Text = "Request count";
-            this.RequestCount_button.UseVisualStyleBackColor = true;
-            this.RequestCount_button.Click += new System.EventHandler(this.RequestCount_button_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(677, 561);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.RequestCount_button);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.hansab_logo);
@@ -840,6 +864,7 @@
             this.SerialPortBox.PerformLayout();
             this.config_tab.ResumeLayout(false);
             this.config_tab.PerformLayout();
+            this.ImageEdotorBox.ResumeLayout(false);
             this.Load_new_config_box.ResumeLayout(false);
             this.serial_tab.ResumeLayout(false);
             this.serial_tab.PerformLayout();
@@ -929,5 +954,7 @@
         private System.Windows.Forms.NumericUpDown Floor2SendCount;
         private System.Windows.Forms.Button SendConfigButton;
         private System.Windows.Forms.Button ClearErrorsButton;
+        private System.Windows.Forms.GroupBox ImageEdotorBox;
+        private System.Windows.Forms.Button ImageEditorBtn;
     }
 }
