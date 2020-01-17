@@ -154,9 +154,9 @@
             this.groupBox2.Controls.Add(this.ConfigEnableButton);
             this.groupBox2.Controls.Add(this.Restart_button);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(27, 219);
+            this.groupBox2.Location = new System.Drawing.Point(27, 220);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(229, 127);
+            this.groupBox2.Size = new System.Drawing.Size(229, 124);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Configuration Options";
@@ -165,7 +165,7 @@
             // 
             this.ConfigDisableButton.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
             this.ConfigDisableButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ConfigDisableButton.Location = new System.Drawing.Point(118, 28);
+            this.ConfigDisableButton.Location = new System.Drawing.Point(118, 31);
             this.ConfigDisableButton.Name = "ConfigDisableButton";
             this.ConfigDisableButton.Size = new System.Drawing.Size(75, 23);
             this.ConfigDisableButton.TabIndex = 11;
@@ -175,7 +175,7 @@
             // 
             // ConfigEnableButton
             // 
-            this.ConfigEnableButton.Location = new System.Drawing.Point(37, 28);
+            this.ConfigEnableButton.Location = new System.Drawing.Point(37, 31);
             this.ConfigEnableButton.Name = "ConfigEnableButton";
             this.ConfigEnableButton.Size = new System.Drawing.Size(75, 23);
             this.ConfigEnableButton.TabIndex = 10;
@@ -186,8 +186,8 @@
             // Restart_button
             // 
             this.Restart_button.Enabled = false;
-            this.Restart_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.Restart_button.Location = new System.Drawing.Point(74, 85);
+            this.Restart_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Restart_button.Location = new System.Drawing.Point(72, 90);
             this.Restart_button.Name = "Restart_button";
             this.Restart_button.Size = new System.Drawing.Size(75, 23);
             this.Restart_button.TabIndex = 4;
@@ -198,10 +198,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label5.Location = new System.Drawing.Point(60, 66);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(71, 74);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 16);
+            this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "System Restart";
             // 
@@ -253,7 +253,6 @@
             // 
             // ConnectedDeviceList
             // 
-            this.ConnectedDeviceList.CheckBoxes = true;
             this.ConnectedDeviceList.HideSelection = false;
             this.ConnectedDeviceList.Location = new System.Drawing.Point(286, 61);
             this.ConnectedDeviceList.Name = "ConnectedDeviceList";
@@ -377,7 +376,7 @@
             // Current_cfg_label
             // 
             this.Current_cfg_label.AutoSize = true;
-            this.Current_cfg_label.Location = new System.Drawing.Point(20, 98);
+            this.Current_cfg_label.Location = new System.Drawing.Point(20, 96);
             this.Current_cfg_label.Name = "Current_cfg_label";
             this.Current_cfg_label.Size = new System.Drawing.Size(108, 13);
             this.Current_cfg_label.TabIndex = 4;
@@ -385,10 +384,10 @@
             // 
             // Current_cfg_box
             // 
-            this.Current_cfg_box.Location = new System.Drawing.Point(17, 114);
+            this.Current_cfg_box.Location = new System.Drawing.Point(17, 117);
             this.Current_cfg_box.Name = "Current_cfg_box";
             this.Current_cfg_box.ReadOnly = true;
-            this.Current_cfg_box.Size = new System.Drawing.Size(444, 376);
+            this.Current_cfg_box.Size = new System.Drawing.Size(444, 373);
             this.Current_cfg_box.TabIndex = 3;
             this.Current_cfg_box.Text = "Load a configuration file to view it here";
             // 
@@ -397,7 +396,7 @@
             this.Load_new_config_box.Controls.Add(this.SendConfigButton);
             this.Load_new_config_box.Controls.Add(this.NewConfig_button);
             this.Load_new_config_box.Controls.Add(this.Load_button);
-            this.Load_new_config_box.Location = new System.Drawing.Point(17, 12);
+            this.Load_new_config_box.Location = new System.Drawing.Point(17, 23);
             this.Load_new_config_box.Name = "Load_new_config_box";
             this.Load_new_config_box.Size = new System.Drawing.Size(253, 60);
             this.Load_new_config_box.TabIndex = 2;
@@ -784,7 +783,7 @@
             // Serial_timer
             // 
             this.Serial_timer.Enabled = true;
-            this.Serial_timer.Interval = 10;
+            this.Serial_timer.Interval = 50;
             this.Serial_timer.Tick += new System.EventHandler(this.Serial_timer_Tick);
             // 
             // groupBox1

@@ -173,7 +173,7 @@ namespace Hansab_slave_configurator
                 binaryWriter.Close();
             }
 
-            MessageBox.Show("File saved in:" + FileName, "File saved!", MessageBoxButtons.OK);
+            MessageBox.Show("File saved in:\n" + FileName, "File saved!", MessageBoxButtons.OK);
 
         }
 

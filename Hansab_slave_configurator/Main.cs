@@ -28,6 +28,9 @@ namespace Hansab_slave_configurator
         byte LookForSTX = 0x00;
         public byte[] RS485ReadBytes = new byte[8];
         bool replied = false;
+        public byte[] logBytes = new byte[9];
+        String logText = "";
+
 
         public int[] floorNums = new int[4];
         public byte[] floorNaddresses = { 0xF1, 0xF2, 0xF3, 0xF4 };
@@ -381,9 +384,10 @@ namespace Hansab_slave_configurator
         {
             if (serialPort1.IsOpen)
             {
-                if (serialPort1.ReadExisting().Length > 0)
+                if (serialPort1.BytesToRead > 8)
                 {
-                    RS485Receive();
+                    serialPort1.Read(logBytes, 0, 9);
+                    AddToSerialData(logBytes);
                 }
             }
         }
@@ -413,8 +417,7 @@ namespace Hansab_slave_configurator
             {
                 if (RS485ReadBytes[1] == IntDev)
                 {
-                    ConnectedDeviceList.Nodes.Add("Main unit");
-                    ConnectedDeviceList.Nodes[0].Checked = true;
+                    ConnectedDeviceList.Nodes.Add("Main interface unit");
                     replied = false;
                 }
                 else
@@ -450,15 +453,23 @@ namespace Hansab_slave_configurator
 
                 if (replied == true)
                 {
-                    if (RS485ReadBytes[1] == Convert.ToByte(id))
+                    try
                     {
-                        ConnectedDeviceList.Nodes.Add("Interface " + id);
-                        ConnectedDeviceList.Nodes[id + 1].Checked = true;
-                        replied = false;
+                        if (RS485ReadBytes[1] == Convert.ToByte(id))
+                        {
+                            ConnectedDeviceList.Nodes.Add("Interface node " + id);
+                            replied = false;
+                        }
+                        else
+                        {
+                            replied = false;
+                            continue;
+                        }
+
                     }
-                    else
+                    catch (Exception)
                     {
-                        replied = false;
+                        continue;
                     }
 
                 }
@@ -588,7 +599,8 @@ namespace Hansab_slave_configurator
             serialPort1.Write(msg, 0, 9);
             System.Threading.Thread.Sleep(20);
             SimpleIOClass.ClearPin(2); //disable sending
-            Serialport_text_box.AppendText(Encoding.ASCII.GetString(msg));
+            AddToSerialData(msg);
+
         }
         public void RS485Receive()
         {
@@ -596,7 +608,7 @@ namespace Hansab_slave_configurator
             {
                 LookForSTX = 0x00;
                 serialPort1.Read(RS485ReadBytes, 0, 8);
-                Serialport_text_box.AppendText(RS485ReadBytes.ToString() + "\n\r");
+                AddToSerialData(RS485ReadBytes);
                 replied = true;
             }
             else
@@ -608,6 +620,7 @@ namespace Hansab_slave_configurator
         {
             GetErrors_button.Enabled = false;
             RS485Send(IntDev, 0x05, 0x08, 0x45, 0x52, 0x52);
+            System.Threading.Thread.Sleep(50);
             message = serialPort1.ReadExisting();
             current_errors.Clear();
             current_errors.Text = message;
@@ -697,11 +710,31 @@ namespace Hansab_slave_configurator
                     SlaveConfigSend(SlaveData);
                     System.Threading.Thread.Sleep(50);
                 }
+
+                ConfigDisableButton.Enabled = false;
+                ConfigEnableButton.Enabled = true;
+                Restart_button.Enabled = false;
+                RequestCount_button.Enabled = false;
+                GetErrors_button.Enabled = false;
+                ClearErrorsButton.Enabled = false;
+                Ping_button.Enabled = false;
+                FloorCountSendButton.Enabled = false;
+                SimpleIOClass.ClearPin(3);
             }
             else
             {
                 MessageBox.Show("SerialPort not open! \n Connect to an Interface device to configure the system!", "Cannot send configuration!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        public void AddToSerialData(byte[] data)
+        {
+            //String StringData = "";
+
+
+            logText = Encoding.ASCII.GetString(data).ToString();
+            Serialport_text_box.AppendText("\n[" + DateTime.Now + "] " + logText);
+
         }
 
     }
