@@ -11,6 +11,10 @@ namespace Hansab_slave_configurator
 {
     public partial class Main : Form
     {
+        public static bool loadSavedConfig = false;
+        public static String loadConfigName = "";
+        public static int loadConfigCounter = 0;
+        public String FileName = "Log.txt";
         public static int NewConfigLimiter = 0;
         public static int NewImageEditorLimiter = 0;
         public static int NewUserLimiter = 0;
@@ -217,24 +221,36 @@ namespace Hansab_slave_configurator
 
         private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
+            LoadConfig(OpenFileDialog1.FileName);
+        }
+
+        public void LoadConfig(String _filename)
+        {
             Current_cfg_box.Text = "";
-            Current_cfg_box.AppendText("Loading config file: \n" + OpenFileDialog1.FileName + " \n");
-            using (BinaryReader reader = new BinaryReader(File.Open(OpenFileDialog1.FileName, FileMode.Open)))
+            Current_cfg_box.AppendText("Loading config file: \n" + _filename + " \n");
+            try
+            {
+                using (StreamReader filereader = new StreamReader(File.Open(_filename + "_Readable.txt", FileMode.Open)))
+                {
+                    String textFromConfig = filereader.ReadToEnd();
+                    Current_cfg_box.AppendText(textFromConfig);
+                }
+            }
+            catch (Exception)
+            {
+            }
+            using (BinaryReader reader = new BinaryReader(File.Open(_filename, FileMode.Open)))
             {
                 for (int i = 0; i <= 17; i++)
                 {
                     MasterConfig[i] = reader.ReadByte();
-                    Current_cfg_box.AppendText(Convert.ToInt32(MasterConfig[i]).ToString() + " ");
                 }
-                Current_cfg_box.AppendText("\n");
                 for (int i = 0; i <= 15; i++)
                 {
                     for (int j = 0; j <= 9; j++)
                     {
                         SlaveConfig[i, j] = reader.ReadByte();
-                        Current_cfg_box.AppendText(Convert.ToInt32(SlaveConfig[i, j]).ToString() + " ");
                     }
-                    Current_cfg_box.AppendText("\n");
                 }
 
                 reader.Close();
@@ -242,6 +258,7 @@ namespace Hansab_slave_configurator
             ConfigLoaded = true;
             Current_cfg_box.AppendText("Config loaded successfully! \n");
         }
+
 
         private void NewConfig_button_Click(object sender, EventArgs e)
         {
@@ -343,6 +360,14 @@ namespace Hansab_slave_configurator
             else
             {
                 SendConfigButton.Enabled = false;
+            }
+            if (loadSavedConfig)
+            {
+                loadConfigCounter++;
+                if (loadConfigCounter == 1)
+                {
+                    LoadConfig(loadConfigName);
+                }
             }
         }
         public void MCP2200Load()
@@ -630,11 +655,11 @@ namespace Hansab_slave_configurator
         }
         private void GetErrors_button_Click(object sender, EventArgs e)
         {
+            current_errors.Clear();
             GetErrors_button.Enabled = false;
             RS485Send(IntDev, 0x05, 0x08, 0x45, 0x52, 0x52);
-            System.Threading.Thread.Sleep(50);
+            System.Threading.Thread.Sleep(100);
             message = serialPort1.ReadExisting();
-            current_errors.Clear();
             current_errors.Text = message;
             GetErrors_button.Enabled = true;
         }
@@ -752,6 +777,24 @@ namespace Hansab_slave_configurator
             {
                 var newwindow = new ImageEditor();
                 newwindow.Show();
+            }
+        }
+
+        private void LogSaveBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                saveFileDialog1.ShowDialog();
+                FileName = saveFileDialog1.FileName;
+                using (StreamWriter writer = new StreamWriter(File.Open(FileName, FileMode.Create)))
+                {
+                    writer.Write(Serialport_text_box.Text);
+                    writer.Close();
+                }
+                MessageBox.Show("File saved in:\n" + FileName, "File saved!", MessageBoxButtons.OK);
+            }
+            catch (Exception)
+            {
             }
         }
     }

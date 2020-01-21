@@ -63,6 +63,7 @@
             this.NewConfig_button = new System.Windows.Forms.Button();
             this.Load_button = new System.Windows.Forms.Button();
             this.serial_tab = new System.Windows.Forms.TabPage();
+            this.LogSaveBtn = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
             this.Serial_data_label = new System.Windows.Forms.Label();
             this.Serialport_text_box = new System.Windows.Forms.RichTextBox();
@@ -99,6 +100,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Serial_timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.Tab_control.SuspendLayout();
             this.Main_tab.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -162,7 +164,7 @@
             this.groupBox2.Size = new System.Drawing.Size(229, 124);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Configuration Options";
+            this.groupBox2.Text = "Edit System Options";
             // 
             // ConfigDisableButton
             // 
@@ -172,7 +174,7 @@
             this.ConfigDisableButton.Name = "ConfigDisableButton";
             this.ConfigDisableButton.Size = new System.Drawing.Size(75, 23);
             this.ConfigDisableButton.TabIndex = 11;
-            this.ConfigDisableButton.Text = "ConfigDis";
+            this.ConfigDisableButton.Text = "Stop Editing";
             this.ConfigDisableButton.UseVisualStyleBackColor = false;
             this.ConfigDisableButton.Click += new System.EventHandler(this.ConfigDisableButton_Click);
             // 
@@ -182,7 +184,7 @@
             this.ConfigEnableButton.Name = "ConfigEnableButton";
             this.ConfigEnableButton.Size = new System.Drawing.Size(75, 23);
             this.ConfigEnableButton.TabIndex = 10;
-            this.ConfigEnableButton.Text = "ConfigEn";
+            this.ConfigEnableButton.Text = "Start Editing";
             this.ConfigEnableButton.UseVisualStyleBackColor = false;
             this.ConfigEnableButton.Click += new System.EventHandler(this.ConfigEnableButton_Click);
             // 
@@ -237,21 +239,21 @@
             // 
             // Ping_button
             // 
-            this.Ping_button.Location = new System.Drawing.Point(285, 8);
+            this.Ping_button.Location = new System.Drawing.Point(286, 9);
             this.Ping_button.Name = "Ping_button";
-            this.Ping_button.Size = new System.Drawing.Size(81, 23);
+            this.Ping_button.Size = new System.Drawing.Size(90, 23);
             this.Ping_button.TabIndex = 15;
-            this.Ping_button.Text = "Ping devices";
+            this.Ping_button.Text = "Detect devices";
             this.Ping_button.UseVisualStyleBackColor = true;
             this.Ping_button.Click += new System.EventHandler(this.Ping_button_Click);
             // 
             // PingProgressBar
             // 
             this.PingProgressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.PingProgressBar.Location = new System.Drawing.Point(371, 10);
+            this.PingProgressBar.Location = new System.Drawing.Point(382, 11);
             this.PingProgressBar.MarqueeAnimationSpeed = 200;
             this.PingProgressBar.Name = "PingProgressBar";
-            this.PingProgressBar.Size = new System.Drawing.Size(75, 20);
+            this.PingProgressBar.Size = new System.Drawing.Size(67, 20);
             this.PingProgressBar.TabIndex = 20;
             // 
             // ConnectedDeviceList
@@ -259,7 +261,7 @@
             this.ConnectedDeviceList.HideSelection = false;
             this.ConnectedDeviceList.Location = new System.Drawing.Point(286, 61);
             this.ConnectedDeviceList.Name = "ConnectedDeviceList";
-            this.ConnectedDeviceList.Size = new System.Drawing.Size(163, 285);
+            this.ConnectedDeviceList.Size = new System.Drawing.Size(163, 283);
             this.ConnectedDeviceList.TabIndex = 19;
             // 
             // progressLED
@@ -283,7 +285,7 @@
             this.SerialPortBox.Size = new System.Drawing.Size(229, 147);
             this.SerialPortBox.TabIndex = 5;
             this.SerialPortBox.TabStop = false;
-            this.SerialPortBox.Text = "Connection Settings";
+            this.SerialPortBox.Text = "Serial Connection Settings";
             // 
             // Refresh_button
             // 
@@ -297,11 +299,11 @@
             // 
             // Apply_button
             // 
-            this.Apply_button.Location = new System.Drawing.Point(159, 63);
+            this.Apply_button.Location = new System.Drawing.Point(159, 64);
             this.Apply_button.Name = "Apply_button";
-            this.Apply_button.Size = new System.Drawing.Size(42, 24);
+            this.Apply_button.Size = new System.Drawing.Size(47, 24);
             this.Apply_button.TabIndex = 13;
-            this.Apply_button.Text = "Apply";
+            this.Apply_button.Text = "Select";
             this.Apply_button.UseVisualStyleBackColor = true;
             this.Apply_button.Click += new System.EventHandler(this.Apply_button_Click);
             // 
@@ -312,6 +314,7 @@
             this.COM_ports_box.Name = "COM_ports_box";
             this.COM_ports_box.Size = new System.Drawing.Size(79, 21);
             this.COM_ports_box.TabIndex = 5;
+            this.COM_ports_box.Text = "Select Port";
             this.COM_ports_box.SelectedIndexChanged += new System.EventHandler(this.COM_ports_box_SelectedIndexChanged);
             // 
             // Disonnect_button
@@ -459,6 +462,7 @@
             // 
             // serial_tab
             // 
+            this.serial_tab.Controls.Add(this.LogSaveBtn);
             this.serial_tab.Controls.Add(this.ClearButton);
             this.serial_tab.Controls.Add(this.Serial_data_label);
             this.serial_tab.Controls.Add(this.Serialport_text_box);
@@ -470,9 +474,19 @@
             this.serial_tab.Text = "Log";
             this.serial_tab.UseVisualStyleBackColor = true;
             // 
+            // LogSaveBtn
+            // 
+            this.LogSaveBtn.Location = new System.Drawing.Point(375, 482);
+            this.LogSaveBtn.Name = "LogSaveBtn";
+            this.LogSaveBtn.Size = new System.Drawing.Size(75, 23);
+            this.LogSaveBtn.TabIndex = 6;
+            this.LogSaveBtn.Text = "Save .txt";
+            this.LogSaveBtn.UseVisualStyleBackColor = true;
+            this.LogSaveBtn.Click += new System.EventHandler(this.LogSaveBtn_Click);
+            // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(375, 482);
+            this.ClearButton.Location = new System.Drawing.Point(27, 482);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(75, 23);
             this.ClearButton.TabIndex = 5;
@@ -836,6 +850,11 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User";
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "txt";
+            this.saveFileDialog1.Filter = "\"Text files (*.txt)|*.txt|All files (*.*)|*.*\"";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -956,5 +975,7 @@
         private System.Windows.Forms.Button ClearErrorsButton;
         private System.Windows.Forms.GroupBox ImageEdotorBox;
         private System.Windows.Forms.Button ImageEditorBtn;
+        private System.Windows.Forms.Button LogSaveBtn;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

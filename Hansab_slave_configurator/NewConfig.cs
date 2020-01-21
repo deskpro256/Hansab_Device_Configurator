@@ -132,15 +132,8 @@ namespace Hansab_slave_configurator
         //==============================[APPLY_FUNC]=============================================
         private void ApplyConfigSettingsButton_Click(object sender, EventArgs e)
         {
-            ConfigTextBox.Text = "";
-            for (int i = 0; i <= 15; i++)
-            {
-                for (int j = 0; j <= 9; j++)
-                {
-                    ConfigTextBox.AppendText(Convert.ToInt32(SlaveConfiguration[i, j]).ToString());
-                }
-                ConfigTextBox.AppendText("\n");
-            }
+            ConfigTextBox.Text = "[Configuration data] \n\n";
+            
             SaveButton.Enabled = true;
 
             CreateConfigurationBytes(UsedSlaveCount);
@@ -150,7 +143,7 @@ namespace Hansab_slave_configurator
         //==============================[SAVE_FUNC]=============================================
         private void SaveButton_Click(object sender, EventArgs e)
         {
-
+            Main.loadConfigCounter = 0;
             saveFileDialog1.ShowDialog();
             FileName = saveFileDialog1.FileName;
 
@@ -172,7 +165,13 @@ namespace Hansab_slave_configurator
 
                 binaryWriter.Close();
             }
-
+            using (StreamWriter writer = new StreamWriter(File.Open(FileName + "_Readable.txt", FileMode.Create)))
+            {
+                writer.Write(ConfigTextBox.Text);
+                writer.Close();
+            }
+            Main.loadSavedConfig = true;
+            Main.loadConfigName = FileName;
             MessageBox.Show("File saved in:\n" + FileName, "File saved!", MessageBoxButtons.OK);
 
         }
@@ -949,7 +948,7 @@ namespace Hansab_slave_configurator
             }
             else
             {
-                MessageBox.Show("You missed something! \r\nIndicators need to be green!");
+                MessageBox.Show("You missed something! \nIndicators need to be green!");
                 ApplyConfigSettingsButton.Enabled = false;
             }
         }
@@ -1069,6 +1068,34 @@ namespace Hansab_slave_configurator
                                               Slave8, Slave9, Slave10, Slave11,
                                               Slave12, Slave13, Slave14, Slave15};
 
+
+            ConfigTextBox.AppendText("[Master settings]\n\n");
+            ConfigTextBox.AppendText("Used slave count: " + slaveCount + "\n");
+            if (FloorNumericValue == 1)
+            {
+                ConfigTextBox.AppendText("Floor 1 MAX count: " + Floor1Count + "\n");
+            }
+            else if (FloorNumericValue == 2)
+            {
+                ConfigTextBox.AppendText("Floor 1 MAX count: " + Floor1Count + "\n");
+                ConfigTextBox.AppendText("Floor 2 MAX count: " + Floor2Count + "\n");
+            }
+            else if (FloorNumericValue == 3)
+            {
+                ConfigTextBox.AppendText("Floor 1 MAX count: " + Floor1Count + "\n");
+                ConfigTextBox.AppendText("Floor 2 MAX count: " + Floor2Count + "\n");
+                ConfigTextBox.AppendText("Floor 3 MAX count: " + Floor3Count + "\n");
+            }
+            else if (FloorNumericValue == 4)
+            {
+                ConfigTextBox.AppendText("Floor 1 MAX count: " + Floor1Count + "\n");
+                ConfigTextBox.AppendText("Floor 2 MAX count: " + Floor2Count + "\n");
+                ConfigTextBox.AppendText("Floor 3 MAX count: " + Floor3Count + "\n");
+                ConfigTextBox.AppendText("Floor 4 MAX count: " + Floor4Count + "\n");
+            }
+
+            ConfigTextBox.AppendText("\n[Slave settings]\n\n");
+
             MasterConfiguration[4] = Convert.ToByte(UsedSlaveCount); // SLAVECNT
 
             huns = (Floor1Count / 100) + 48;
@@ -1101,7 +1128,11 @@ namespace Hansab_slave_configurator
 
             foreach (Slave Slave in SlaveList)
             {
-
+                if (Slave.ID <= UsedSlaveCount-1)
+                {
+                    ConfigTextBox.AppendText("Slave" + Slave.ID + " MAX count:" + Slave.Count + ", Type: " + Slave.Type
+                                            + ", Floor: " + Slave.Floor + "\n");
+                }
                 Slave.ByteType = Convert.ToByte(Slave.Type);
 
                 if (Slave.Floor == 1)
@@ -1132,13 +1163,7 @@ namespace Hansab_slave_configurator
                 SlaveConfiguration[x, 6] = Slave.ByteCount1; // COUNT1
                 SlaveConfiguration[x, 7] = Slave.ByteCount2; // COUNT2
                 SlaveConfiguration[x, 8] = Slave.ByteCount3; // COUNT3
-                /*
-                MessageBox.Show(Slave.ID + " " + Slave.ID + " \n"
-                                + Slave.Type.ToString() + " Byte Type: " + Convert.ToInt32(Slave.ByteType).ToString() + " \n"
-                                + Slave.Floor.ToString() + " Byte Floor: " + Convert.ToInt32(Slave.ByteFloor).ToString() + " \n"
-                                + Slave.Count.ToString() + " Byte Count: " + Convert.ToInt32(Slave.ByteCount1).ToString() + Convert.ToInt32(Slave.ByteCount2).ToString() + Convert.ToInt32(Slave.ByteCount3).ToString()
-                                , "AAAAAAAAAAAAAAAAAAAA", MessageBoxButtons.OK);
-                */
+                
             }
 
         }

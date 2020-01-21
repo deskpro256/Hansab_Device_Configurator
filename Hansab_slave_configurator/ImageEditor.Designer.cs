@@ -64,8 +64,7 @@
             this.PictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PictureBox.Location = new System.Drawing.Point(3, 16);
             this.PictureBox.Name = "PictureBox";
-            this.PictureBox.Size = new System.Drawing.Size(720, 518);
-            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox.Size = new System.Drawing.Size(820, 568);
             this.PictureBox.TabIndex = 0;
             this.PictureBox.TabStop = false;
             this.PictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PictureBox_MouseDoubleClick);
@@ -189,10 +188,11 @@
             // 
             // ImageGroupBox
             // 
+            this.ImageGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ImageGroupBox.Controls.Add(this.PictureBox);
             this.ImageGroupBox.Location = new System.Drawing.Point(146, 12);
             this.ImageGroupBox.Name = "ImageGroupBox";
-            this.ImageGroupBox.Size = new System.Drawing.Size(726, 537);
+            this.ImageGroupBox.Size = new System.Drawing.Size(826, 587);
             this.ImageGroupBox.TabIndex = 3;
             this.ImageGroupBox.TabStop = false;
             this.ImageGroupBox.Text = "Image";
@@ -216,13 +216,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(984, 611);
             this.Controls.Add(this.ImageGroupBox);
             this.Controls.Add(this.AddItemsBox);
             this.Controls.Add(this.LoadSaveBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(650, 400);
             this.Name = "ImageEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ImageEditor";

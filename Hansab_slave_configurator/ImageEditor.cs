@@ -17,14 +17,17 @@ namespace Hansab_slave_configurator
         Image PlanImage;
         Font fnt = new Font("Arial", 10);
         int currentItem = 9;
-        int headRoom = -20;
-        bool newItemAdded = false;
+        int headRoom = 20;
+        bool newItemAdded;
         Point point;
+        float stretch_X;
+        float stretch_Y;
 
 
         public ImageEditor()
         {
             InitializeComponent();
+            SaveBtn.Enabled = false ;
         }
 
         private void LoadBtn_Click(object sender, EventArgs e)
@@ -35,6 +38,11 @@ namespace Hansab_slave_configurator
                 PlanImage = Image.FromFile(openFileDialog1.FileName);
                 Canvas = new Bitmap(PlanImage);
                 PictureBox.Image = Canvas;
+                PictureBox.Height = ImageGroupBox.Height;
+                PictureBox.Width = ImageGroupBox.Width;
+                stretch_X = PlanImage.Width / (float)PictureBox.Width;
+                stretch_Y = PlanImage.Height / (float)PictureBox.Height;
+                SaveBtn.Enabled = true;
             }
         }
 
@@ -61,32 +69,32 @@ namespace Hansab_slave_configurator
                 g = Graphics.FromImage(Canvas);
                 if (currentItem == 0)
                 {
-                    g.DrawImage(imageList1.Images[currentItem], point.X, point.Y);
-                    g.DrawString("[PC]",fnt, System.Drawing.Brushes.Blue, point.X, point.Y+ headRoom);
+                    g.DrawImage(imageList1.Images[currentItem], (point.X * stretch_X), (point.Y * stretch_Y));
+                    g.DrawString("[PC]", fnt, System.Drawing.Brushes.Blue, (point.X * stretch_X), (point.Y * stretch_Y) - headRoom);
                 }
                 else if (currentItem == 1)
                 {
-                    g.DrawImage(imageList1.Images[currentItem], point.X, point.Y);
-                    g.DrawString("[INTERFACE]", fnt, System.Drawing.Brushes.Blue, point.X, point.Y + headRoom);
+                    g.DrawImage(imageList1.Images[currentItem], (point.X * stretch_X), (point.Y * stretch_Y));
+                    g.DrawString("[INTERFACE]", fnt, System.Drawing.Brushes.Blue, (point.X * stretch_X), (point.Y * stretch_Y) - headRoom);
                 }
                 else if (currentItem == 2)
                 {
-                    g.DrawImage(imageList1.Images[currentItem], point.X, point.Y);
-                    g.DrawString("[SLAVE]", fnt, System.Drawing.Brushes.Blue, point.X, point.Y + headRoom);
+                    g.DrawImage(imageList1.Images[currentItem], (point.X * stretch_X), (point.Y * stretch_Y));
+                    g.DrawString("[SLAVE]", fnt, System.Drawing.Brushes.Blue, (point.X * stretch_X), (point.Y * stretch_Y) - headRoom);
                 }
                 else if (currentItem == 3)
                 {
-                    g.DrawImage(imageList1.Images[currentItem], point.X, point.Y);
-                    g.DrawString("[DISPLAY]", fnt, System.Drawing.Brushes.Blue, point.X, point.Y + headRoom);
+                    g.DrawImage(imageList1.Images[currentItem], (point.X * stretch_X), (point.Y * stretch_Y));
+                    g.DrawString("[DISPLAY]", fnt, System.Drawing.Brushes.Blue, (point.X * stretch_X), (point.Y * stretch_Y) - headRoom);
                 }
                 else if (currentItem == 4)
                 {
-                    g.DrawImage(imageList1.Images[currentItem], point.X, point.Y);
-                    g.DrawString("[LOOP]", fnt, System.Drawing.Brushes.Blue, point.X, point.Y + headRoom);
+                    g.DrawImage(imageList1.Images[currentItem], (point.X * stretch_X), (point.Y * stretch_Y));
+                    g.DrawString("[LOOP]", fnt, System.Drawing.Brushes.Blue, (point.X * stretch_X), (point.Y * stretch_Y) - headRoom);
                 }
                 else if (currentItem == 5)
                 {
-                    g.DrawString(ItemText, fnt, Brushes.Blue, point.X, point.Y);
+                    g.DrawString(ItemText, fnt, Brushes.Blue, (point.X * stretch_X), (point.Y * stretch_Y));
                 }
                 newItemAdded = false;
                 PictureBox.Image = Canvas;
