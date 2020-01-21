@@ -540,6 +540,7 @@ namespace Hansab_slave_configurator
             {
                 SimpleIOClass.ClearPin(3);
             }
+            Application.Exit();
         }
 
         private void RequestCount_button_Click(object sender, EventArgs e)
