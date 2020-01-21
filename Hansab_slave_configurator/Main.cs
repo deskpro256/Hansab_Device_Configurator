@@ -316,8 +316,6 @@ namespace Hansab_slave_configurator
         {
             serialPort1.Close();
             this.Close();
-            var newwindow = new Login_form();
-            newwindow.Show();
 
         }
 
