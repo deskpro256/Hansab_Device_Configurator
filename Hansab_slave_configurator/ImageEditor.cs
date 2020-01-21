@@ -18,7 +18,7 @@ namespace Hansab_slave_configurator
         Font fnt = new Font("Arial", 10);
         int currentItem = 9;
         int headRoom = 20;
-        bool newItemAdded;
+        bool newItemAdded = false;
         Point point;
         float stretch_X;
         float stretch_Y;

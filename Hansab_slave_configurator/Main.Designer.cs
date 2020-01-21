@@ -94,8 +94,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.NewUserButton = new System.Windows.Forms.Button();
             this.NewUserText = new System.Windows.Forms.Label();
-            this.LogOutButton = new System.Windows.Forms.Button();
-            this.ChangeUserLabel = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Serial_timer = new System.Windows.Forms.Timer(this.components);
@@ -616,7 +614,7 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(8, 230);
+            this.groupBox3.Location = new System.Drawing.Point(8, 201);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(163, 228);
             this.groupBox3.TabIndex = 24;
@@ -793,25 +791,6 @@
             this.NewUserText.TabIndex = 5;
             this.NewUserText.Text = "Add New User";
             // 
-            // LogOutButton
-            // 
-            this.LogOutButton.Location = new System.Drawing.Point(46, 123);
-            this.LogOutButton.Name = "LogOutButton";
-            this.LogOutButton.Size = new System.Drawing.Size(73, 23);
-            this.LogOutButton.TabIndex = 6;
-            this.LogOutButton.Text = "Log Out";
-            this.LogOutButton.UseVisualStyleBackColor = true;
-            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
-            // 
-            // ChangeUserLabel
-            // 
-            this.ChangeUserLabel.AutoSize = true;
-            this.ChangeUserLabel.Location = new System.Drawing.Point(50, 105);
-            this.ChangeUserLabel.Name = "ChangeUserLabel";
-            this.ChangeUserLabel.Size = new System.Drawing.Size(69, 13);
-            this.ChangeUserLabel.TabIndex = 7;
-            this.ChangeUserLabel.Text = "Change User";
-            // 
             // UsernameLabel
             // 
             this.UsernameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -840,12 +819,10 @@
             this.groupBox1.Controls.Add(this.NewUserButton);
             this.groupBox1.Controls.Add(this.UsernameLabel);
             this.groupBox1.Controls.Add(this.NewUserText);
-            this.groupBox1.Controls.Add(this.ChangeUserLabel);
-            this.groupBox1.Controls.Add(this.LogOutButton);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(8, 57);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(163, 167);
+            this.groupBox1.Size = new System.Drawing.Size(163, 112);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User";
@@ -943,8 +920,6 @@
         private System.Windows.Forms.Button NewUserButton;
         private System.Windows.Forms.Label NewUserText;
         private System.Windows.Forms.ProgressBar progressLED;
-        private System.Windows.Forms.Button LogOutButton;
-        private System.Windows.Forms.Label ChangeUserLabel;
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button ConfigEnableButton;

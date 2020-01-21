@@ -312,13 +312,6 @@ namespace Hansab_slave_configurator
             }
         }
 
-        private void LogOutButton_Click(object sender, EventArgs e)
-        {
-            serialPort1.Close();
-            this.Close();
-
-        }
-
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
