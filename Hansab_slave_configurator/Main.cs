@@ -343,6 +343,8 @@ namespace Hansab_slave_configurator
                 FloorCountSendButton.Enabled = false;
                 RequestCount_button.Enabled = false;
                 Restart_button.Enabled = false;
+                GetErrors_button.Enabled = false;
+                ClearErrorsButton.Enabled = false;
             }
             if (ConfigEnabled == true && ConfigLoaded == true)
             {
@@ -385,7 +387,7 @@ namespace Hansab_slave_configurator
             {
                 serialPort1.ReadByte();
             }
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(200);
             RequestCurrentCount();
         }
 
@@ -650,7 +652,7 @@ namespace Hansab_slave_configurator
             current_errors.Clear();
             GetErrors_button.Enabled = false;
             RS485Send(IntDev, 0x05, 0x08, 0x45, 0x52, 0x52);
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(1000);
             message = serialPort1.ReadExisting();
             current_errors.Text = message;
             GetErrors_button.Enabled = true;
