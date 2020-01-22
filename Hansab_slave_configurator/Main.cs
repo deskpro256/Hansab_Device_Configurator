@@ -411,8 +411,13 @@ namespace Hansab_slave_configurator
             {
                 if (serialPort1.BytesToRead > 8)
                 {
-                    serialPort1.Read(logBytes, 0, 9);
-                    AddToSerialData(logBytes);
+                    int isSTX = serialPort1.ReadByte();
+                    if (isSTX == 91)
+                    {
+                        serialPort1.Read(logBytes, 0, 8);
+                        AddToSerialData(logBytes);
+                    }
+
                 }
             }
         }
@@ -760,8 +765,58 @@ namespace Hansab_slave_configurator
 
         public void AddToSerialData(byte[] data)
         {
-            logText = Encoding.ASCII.GetString(data).ToString();
-            Serialport_text_box.AppendText("\n[" + DateTime.Now + "] " + logText);
+            String LogText = "[";
+            Char ascii = '0';
+            try
+            {
+                for (int i = 0; i <= 7; i++)
+                {
+                    if (data[i] < 32)
+                    {
+                        if (data[i] == 28)
+                        {
+                            LogText += " [PC] ";
+                        }
+                        else if(data[i] == 29)
+                        {
+                            LogText += " [INT] ";
+                        }
+                        else
+                        {
+                            LogText += Convert.ToInt32(data[i].ToString()) + " ";
+                        }
+                    }
+                    else
+                    {
+                        if (data[i] == 0xF1)
+                        {
+                            LogText += " F1 ";
+                        }
+                        else if (data[i] == 0xF2)
+                        {
+                            LogText += " F2 ";
+                        }
+                        else if (data[i] == 0xF3)
+                        {
+                            LogText += " F3 ";
+                        }
+                        else if (data[i] == 0xF4)
+                        {
+                            LogText += " F4 ";
+                        }
+                        else
+                        {
+                            ascii = (char)data[i];
+                            LogText += ascii;
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+            Serialport_text_box.AppendText("\n[" + DateTime.Now + "] - " + LogText);
         }
 
         private void ImageEditorBtn_Click(object sender, EventArgs e)
