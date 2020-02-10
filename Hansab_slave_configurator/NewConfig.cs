@@ -145,6 +145,11 @@ namespace Hansab_slave_configurator
         {
             Main.loadConfigCounter = 0;
             saveFileDialog1.ShowDialog();
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
             FileName = saveFileDialog1.FileName;
 
             using (BinaryWriter binaryWriter = new BinaryWriter(File.Open(FileName, FileMode.Create)))
@@ -175,7 +180,6 @@ namespace Hansab_slave_configurator
             MessageBox.Show("File saved in:\n" + FileName, "File saved!", MessageBoxButtons.OK);
 
         }
-
         private void SlaveCount_ValueChanged(object sender, EventArgs e)
         {
             UsedSlaveCount = Convert.ToInt32(SlaveCount.Value);
@@ -1172,6 +1176,7 @@ namespace Hansab_slave_configurator
         {
             Main.NewConfigLimiter = 0;
         }
+
     }
 
 }

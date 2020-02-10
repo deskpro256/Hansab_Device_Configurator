@@ -449,6 +449,7 @@
             this.saveFileDialog1.DefaultExt = "dat";
             this.saveFileDialog1.FileName = "NewConfig";
             this.saveFileDialog1.Filter = "\"Data files (*.dat)|*.dat|All files (*.*)|*.*\"";
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
             // ApplyConfigSettingsButton
             // 

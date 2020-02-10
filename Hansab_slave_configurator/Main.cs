@@ -831,9 +831,13 @@ namespace Hansab_slave_configurator
 
         private void LogSaveBtn_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.ShowDialog();
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
             try
             {
-                saveFileDialog1.ShowDialog();
                 FileName = saveFileDialog1.FileName;
                 using (StreamWriter writer = new StreamWriter(File.Open(FileName, FileMode.Create)))
                 {

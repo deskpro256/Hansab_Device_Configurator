@@ -832,6 +832,7 @@
             this.saveFileDialog1.DefaultExt = "txt";
             this.saveFileDialog1.FileName = "SerialLog";
             this.saveFileDialog1.Filter = "\"Text files (*.txt)|*.txt|All files (*.*)|*.*\"";
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
             // Main
             // 
