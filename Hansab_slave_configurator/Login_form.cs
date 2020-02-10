@@ -192,7 +192,6 @@ namespace Hansab_slave_configurator
                     readLicence.Close();
                 }
 
-                //MessageBox.Show(tempLIC, "Licence", MessageBoxButtons.OK);
                 for (int i = 0; i <= 100; i++)
                 {
                     if (AllLicences[i].Contains(tempLIC))
@@ -209,10 +208,10 @@ namespace Hansab_slave_configurator
                         break;
                     }
                 }
-
             }
             catch (Exception)
             {
+                MessageBox.Show("Licence file doesn't match!", "Licence activation failed!", MessageBoxButtons.OK);
             }
 
         }
