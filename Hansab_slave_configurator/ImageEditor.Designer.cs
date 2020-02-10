@@ -54,7 +54,7 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileName = "ParkingPlanImage";
             this.openFileDialog1.Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All file" +
     "s (*.*)|*.*";
             // 
@@ -209,6 +209,7 @@
             // 
             // saveFileDialog1
             // 
+            this.saveFileDialog1.FileName = "ParkingPlanImage";
             this.saveFileDialog1.Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All file" +
     "s (*.*)|*.*";
             // 
