@@ -830,6 +830,7 @@
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "txt";
+            this.saveFileDialog1.FileName = "SerialLog";
             this.saveFileDialog1.Filter = "\"Text files (*.txt)|*.txt|All files (*.*)|*.*\"";
             // 
             // Main
