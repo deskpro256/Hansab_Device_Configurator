@@ -239,7 +239,6 @@ namespace Hansab_slave_configurator
         }
         private void AddLicence()
         {
-            openFileDialog1.ShowDialog();
             LicenceFile = openFileDialog1.FileName;
             try
             {
@@ -330,6 +329,12 @@ namespace Hansab_slave_configurator
         }
 
         private void ChangeLicenceButton_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).ToString();
+            openFileDialog1.ShowDialog();
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             AddLicence();
         }

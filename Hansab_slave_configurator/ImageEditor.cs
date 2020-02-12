@@ -32,6 +32,7 @@ namespace Hansab_slave_configurator
 
         private void LoadBtn_Click(object sender, EventArgs e)
         {
+            openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).ToString();
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 PictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -48,6 +49,7 @@ namespace Hansab_slave_configurator
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).ToString();
             try
             {
                 saveFileDialog1.ShowDialog();

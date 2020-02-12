@@ -216,6 +216,7 @@ namespace Hansab_slave_configurator
 
         private void Load_button_Click(object sender, EventArgs e)
         {
+            OpenFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).ToString();
             OpenFileDialog1.ShowDialog();
         }
 
@@ -831,6 +832,7 @@ namespace Hansab_slave_configurator
 
         private void LogSaveBtn_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).ToString();
             saveFileDialog1.ShowDialog();
         }
 

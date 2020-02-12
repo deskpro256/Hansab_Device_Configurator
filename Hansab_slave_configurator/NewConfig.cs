@@ -143,6 +143,7 @@ namespace Hansab_slave_configurator
         //==============================[SAVE_FUNC]=============================================
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).ToString();
             Main.loadConfigCounter = 0;
             saveFileDialog1.ShowDialog();
         }

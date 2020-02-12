@@ -759,6 +759,7 @@
             this.OpenFileDialog1.DefaultExt = "dat";
             this.OpenFileDialog1.FileName = "Configuration_file.dat";
             this.OpenFileDialog1.Filter = "\"Data files (*.dat)|*.dat|All files (*.*)|*.*\"";
+            this.OpenFileDialog1.InitialDirectory = "C://";
             this.OpenFileDialog1.Title = "\"Open data file\"";
             this.OpenFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
             // 
@@ -829,8 +830,10 @@
             // 
             // saveFileDialog1
             // 
+            this.saveFileDialog1.CheckFileExists = true;
+            this.saveFileDialog1.CreatePrompt = true;
             this.saveFileDialog1.DefaultExt = "txt";
-            this.saveFileDialog1.FileName = "SerialLog";
+            this.saveFileDialog1.FileName = "SerialLog.txt";
             this.saveFileDialog1.Filter = "\"Text files (*.txt)|*.txt|All files (*.*)|*.*\"";
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
