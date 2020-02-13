@@ -15,9 +15,9 @@ namespace Hansab_slave_configurator
         String FileName = "PlanImage.jpg";
         String ItemText = "";
         Image PlanImage;
-        Font fnt = new Font("Arial", 10);
+        readonly Font fnt = new Font("Arial", 10);
         int currentItem = 9;
-        int headRoom = 20;
+        readonly int headRoom = 20;
         bool newItemAdded = false;
         Point point;
         float stretch_X;
@@ -27,7 +27,7 @@ namespace Hansab_slave_configurator
         public ImageEditor()
         {
             InitializeComponent();
-            SaveBtn.Enabled = false ;
+            SaveBtn.Enabled = false;
         }
 
         private void LoadBtn_Click(object sender, EventArgs e)
