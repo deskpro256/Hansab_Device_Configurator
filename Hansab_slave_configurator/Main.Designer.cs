@@ -122,8 +122,8 @@
             // 
             this.Tab_control.Controls.Add(this.Main_tab);
             this.Tab_control.Controls.Add(this.config_tab);
-            this.Tab_control.Controls.Add(this.serial_tab);
             this.Tab_control.Controls.Add(this.error_tab);
+            this.Tab_control.Controls.Add(this.serial_tab);
             this.Tab_control.Controls.Add(this.help_tab);
             this.Tab_control.Location = new System.Drawing.Point(177, 12);
             this.Tab_control.Name = "Tab_control";
@@ -830,7 +830,6 @@
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.CheckFileExists = true;
             this.saveFileDialog1.CreatePrompt = true;
             this.saveFileDialog1.DefaultExt = "txt";
             this.saveFileDialog1.FileName = "SerialLog.txt";

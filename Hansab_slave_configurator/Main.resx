@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Loads of helpful text++
+
+Type help:
+
+    Type 1: [↑][↓]  separate directional entrance and exit 
+      L1 - L4 = OUT (L1&amp;&amp;L2)|(L3&amp;&amp;L4)
+      L5 - L8 = IN  (L5&amp;&amp;L6)|(L7&amp;&amp;L8)
+    Type 2:  eco   eco(sigle loop action)
+      L1 - L4 = OUT (L1)(L2)(L3)(L4)
+      L5 - L8 = IN  (L5)(L6)(L7)(L8)
+    Type 3: [↓↑]   single bidirectional entrance
+      L1 - L4 = IN/OUT (L1::L2)(L3::L4)
+      L5 - L8 = IN/OUT (L5::L6)(L7::L8)</value>
+  </data>
   <data name="Error_help_box.Text" xml:space="preserve">
     <value>Error codes come in following a dash and device ID on which the error occoured on.
 Example:
@@ -126,16 +141,6 @@ E0 : No Error
 E1 : Device not responding.
 E2 : Reserved
 E3 : Reserved</value>
-  </data>
-  <data name="richTextBox1.Text" xml:space="preserve">
-    <value>Loads of helpful text
-
-Type help:
-    type 1:  [ ↓ ↑ ]       single bidirectional entrance
-    type 2:  [ ↑ ] [ ↓ ]   separate directional entrance and exit
-    type 3:  [ ↑ ]          single entrance
-    type 4:  [ ↓ ]          single exit
-    type 5:  Eco         single loop action</value>
   </data>
   <metadata name="serialPort1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

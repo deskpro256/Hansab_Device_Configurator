@@ -424,9 +424,7 @@
             this.SlaveTypeBox1.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox1.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox1.Name = "SlaveTypeBox1";
             this.SlaveTypeBox1.Size = new System.Drawing.Size(45, 21);
@@ -717,9 +715,7 @@
             this.SlaveTypeBox2.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox2.Location = new System.Drawing.Point(55, 57);
             this.SlaveTypeBox2.Name = "SlaveTypeBox2";
             this.SlaveTypeBox2.Size = new System.Drawing.Size(45, 21);
@@ -830,9 +826,7 @@
             this.SlaveTypeBox3.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox3.Location = new System.Drawing.Point(55, 59);
             this.SlaveTypeBox3.Name = "SlaveTypeBox3";
             this.SlaveTypeBox3.Size = new System.Drawing.Size(45, 21);
@@ -937,9 +931,7 @@
             this.SlaveTypeBox4.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox4.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox4.Name = "SlaveTypeBox4";
             this.SlaveTypeBox4.Size = new System.Drawing.Size(45, 21);
@@ -1044,9 +1036,7 @@
             this.SlaveTypeBox5.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox5.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox5.Name = "SlaveTypeBox5";
             this.SlaveTypeBox5.Size = new System.Drawing.Size(45, 21);
@@ -1157,9 +1147,7 @@
             this.SlaveTypeBox6.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox6.Location = new System.Drawing.Point(55, 57);
             this.SlaveTypeBox6.Name = "SlaveTypeBox6";
             this.SlaveTypeBox6.Size = new System.Drawing.Size(45, 21);
@@ -1264,9 +1252,7 @@
             this.SlaveTypeBox7.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox7.Location = new System.Drawing.Point(55, 59);
             this.SlaveTypeBox7.Name = "SlaveTypeBox7";
             this.SlaveTypeBox7.Size = new System.Drawing.Size(45, 21);
@@ -1371,9 +1357,7 @@
             this.SlaveTypeBox8.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox8.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox8.Name = "SlaveTypeBox8";
             this.SlaveTypeBox8.Size = new System.Drawing.Size(45, 21);
@@ -1478,9 +1462,7 @@
             this.SlaveTypeBox9.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox9.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox9.Name = "SlaveTypeBox9";
             this.SlaveTypeBox9.Size = new System.Drawing.Size(45, 21);
@@ -1585,9 +1567,7 @@
             this.SlaveTypeBox10.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox10.Location = new System.Drawing.Point(55, 57);
             this.SlaveTypeBox10.Name = "SlaveTypeBox10";
             this.SlaveTypeBox10.Size = new System.Drawing.Size(45, 21);
@@ -1692,9 +1672,7 @@
             this.SlaveTypeBox11.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox11.Location = new System.Drawing.Point(55, 59);
             this.SlaveTypeBox11.Name = "SlaveTypeBox11";
             this.SlaveTypeBox11.Size = new System.Drawing.Size(45, 21);
@@ -1799,9 +1777,7 @@
             this.SlaveTypeBox12.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox12.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox12.Name = "SlaveTypeBox12";
             this.SlaveTypeBox12.Size = new System.Drawing.Size(45, 21);
@@ -1906,9 +1882,7 @@
             this.SlaveTypeBox13.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox13.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox13.Name = "SlaveTypeBox13";
             this.SlaveTypeBox13.Size = new System.Drawing.Size(45, 21);
@@ -2013,9 +1987,7 @@
             this.SlaveTypeBox14.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox14.Location = new System.Drawing.Point(55, 57);
             this.SlaveTypeBox14.Name = "SlaveTypeBox14";
             this.SlaveTypeBox14.Size = new System.Drawing.Size(45, 21);
@@ -2120,9 +2092,7 @@
             this.SlaveTypeBox15.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox15.Location = new System.Drawing.Point(55, 59);
             this.SlaveTypeBox15.Name = "SlaveTypeBox15";
             this.SlaveTypeBox15.Size = new System.Drawing.Size(45, 21);
@@ -2227,9 +2197,7 @@
             this.SlaveTypeBox0.Items.AddRange(new object[] {
             "1",
             "2",
-            "3",
-            "4",
-            "5"});
+            "3"});
             this.SlaveTypeBox0.Location = new System.Drawing.Point(55, 54);
             this.SlaveTypeBox0.Name = "SlaveTypeBox0";
             this.SlaveTypeBox0.Size = new System.Drawing.Size(45, 21);

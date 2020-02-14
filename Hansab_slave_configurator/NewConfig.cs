@@ -132,6 +132,7 @@ namespace Hansab_slave_configurator
         //==============================[APPLY_FUNC]=============================================
         private void ApplyConfigSettingsButton_Click(object sender, EventArgs e)
         {
+
             ConfigTextBox.Text = "[Configuration data] \n\n";
             
             SaveButton.Enabled = true;
@@ -143,6 +144,7 @@ namespace Hansab_slave_configurator
         //==============================[SAVE_FUNC]=============================================
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            Main.loadSavedConfig = false;
             saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).ToString();
             Main.loadConfigCounter = 0;
             saveFileDialog1.ShowDialog();
@@ -1178,6 +1180,7 @@ namespace Hansab_slave_configurator
             Main.NewConfigLimiter = 0;
         }
 
+    
     }
 
 }

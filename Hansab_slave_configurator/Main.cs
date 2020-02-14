@@ -170,10 +170,16 @@ namespace Hansab_slave_configurator
 
         private void Refresh_button_Click(object sender, EventArgs e)
         {
-            COM_ports_box.Text = "";
-            COM_ports_box.Items.Clear();
-            serialPort1.PortName = "COM99";
-            GetPortNames();
+            try
+            {
+                COM_ports_box.Text = "";
+                COM_ports_box.Items.Clear();
+                serialPort1.PortName = "COM99";
+                GetPortNames();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void COM_ports_box_SelectedIndexChanged(object sender, EventArgs e)
@@ -322,6 +328,7 @@ namespace Hansab_slave_configurator
             {
                 progressLED.Value = 100;
                 Plugged_label.Text = "Plugged in!";
+                Refresh_button.Enabled = true;
             }
             else
             {
@@ -384,11 +391,12 @@ namespace Hansab_slave_configurator
             ClearErrorsButton.Enabled = true;
             Ping_button.Enabled = true;
             FloorCountSendButton.Enabled = true;
+            System.Threading.Thread.Sleep(50);
             while (serialPort1.BytesToRead > 0)
             {
                 serialPort1.ReadByte();
             }
-            System.Threading.Thread.Sleep(200);
+            System.Threading.Thread.Sleep(500);
             RequestCurrentCount();
         }
 

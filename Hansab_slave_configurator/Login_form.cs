@@ -151,10 +151,6 @@ namespace Hansab_slave_configurator
         private void login_button_Click(object sender, EventArgs e)
         {
             CheckForLIC();
-            //check for user admin/guest
-            //if admin go to admin page
-            //else if guest user go to simplified page
-
         }
         private void GuestLogin()
         {
@@ -162,15 +158,12 @@ namespace Hansab_slave_configurator
             var newwindow = new Main(typeGuest, username);
             newwindow.Show();
 
-
         }
         private void AdminLogin()
         {
             this.Hide();
             var newwindow = new Main(typeAdmin, username);
             newwindow.Show();
-
-
         }
 
         private void ForgotButton_Click(object sender, EventArgs e)
