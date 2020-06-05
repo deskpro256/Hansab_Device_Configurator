@@ -54,6 +54,8 @@
             this.Plugged_label = new System.Windows.Forms.Label();
             this.SystemStatus_label = new System.Windows.Forms.Label();
             this.config_tab = new System.Windows.Forms.TabPage();
+            this.NetworkGroupBox = new System.Windows.Forms.GroupBox();
+            this.NetworkButton = new System.Windows.Forms.Button();
             this.ImageEdotorBox = new System.Windows.Forms.GroupBox();
             this.ImageEditorBtn = new System.Windows.Forms.Button();
             this.Current_cfg_label = new System.Windows.Forms.Label();
@@ -62,11 +64,6 @@
             this.SendConfigButton = new System.Windows.Forms.Button();
             this.NewConfig_button = new System.Windows.Forms.Button();
             this.Load_button = new System.Windows.Forms.Button();
-            this.serial_tab = new System.Windows.Forms.TabPage();
-            this.LogSaveBtn = new System.Windows.Forms.Button();
-            this.ClearButton = new System.Windows.Forms.Button();
-            this.Serial_data_label = new System.Windows.Forms.Label();
-            this.Serialport_text_box = new System.Windows.Forms.RichTextBox();
             this.error_tab = new System.Windows.Forms.TabPage();
             this.ClearErrorsButton = new System.Windows.Forms.Button();
             this.GetErrors_button = new System.Windows.Forms.Button();
@@ -74,6 +71,11 @@
             this.current_errors = new System.Windows.Forms.RichTextBox();
             this.error_help_label = new System.Windows.Forms.Label();
             this.Error_help_box = new System.Windows.Forms.RichTextBox();
+            this.serial_tab = new System.Windows.Forms.TabPage();
+            this.LogSaveBtn = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
+            this.Serial_data_label = new System.Windows.Forms.Label();
+            this.Serialport_text_box = new System.Windows.Forms.RichTextBox();
             this.help_tab = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -99,15 +101,17 @@
             this.Serial_timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.GetIPButton = new System.Windows.Forms.Button();
             this.Tab_control.SuspendLayout();
             this.Main_tab.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SerialPortBox.SuspendLayout();
             this.config_tab.SuspendLayout();
+            this.NetworkGroupBox.SuspendLayout();
             this.ImageEdotorBox.SuspendLayout();
             this.Load_new_config_box.SuspendLayout();
-            this.serial_tab.SuspendLayout();
             this.error_tab.SuspendLayout();
+            this.serial_tab.SuspendLayout();
             this.help_tab.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Floor4SendCount)).BeginInit();
@@ -157,10 +161,10 @@
             this.groupBox2.Controls.Add(this.ConfigEnableButton);
             this.groupBox2.Controls.Add(this.Restart_button);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(27, 220);
+            this.groupBox2.Location = new System.Drawing.Point(27, 230);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(229, 124);
-            this.groupBox2.TabIndex = 15;
+            this.groupBox2.Size = new System.Drawing.Size(229, 114);
+            this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Edit System Options";
             // 
@@ -174,7 +178,7 @@
             this.ConfigDisableButton.TabIndex = 11;
             this.ConfigDisableButton.Text = "Stop Editing";
             this.ConfigDisableButton.UseVisualStyleBackColor = false;
-            this.ConfigDisableButton.Click += new System.EventHandler(this.ConfigDisableButton_Click);
+            this.ConfigDisableButton.Click += new System.EventHandler(this.ConfigDisableButton_Click_1);
             // 
             // ConfigEnableButton
             // 
@@ -184,25 +188,24 @@
             this.ConfigEnableButton.TabIndex = 10;
             this.ConfigEnableButton.Text = "Start Editing";
             this.ConfigEnableButton.UseVisualStyleBackColor = false;
-            this.ConfigEnableButton.Click += new System.EventHandler(this.ConfigEnableButton_Click);
+            this.ConfigEnableButton.Click += new System.EventHandler(this.ConfigEnableButton_Click_1);
             // 
             // Restart_button
             // 
             this.Restart_button.Enabled = false;
             this.Restart_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.Restart_button.Location = new System.Drawing.Point(72, 90);
+            this.Restart_button.Location = new System.Drawing.Point(69, 80);
             this.Restart_button.Name = "Restart_button";
             this.Restart_button.Size = new System.Drawing.Size(75, 23);
             this.Restart_button.TabIndex = 4;
             this.Restart_button.Text = "Restart";
             this.Restart_button.UseVisualStyleBackColor = true;
-            this.Restart_button.Click += new System.EventHandler(this.Restart_button_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(71, 74);
+            this.label5.Location = new System.Drawing.Point(66, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 13);
             this.label5.TabIndex = 6;
@@ -366,6 +369,7 @@
             // 
             // config_tab
             // 
+            this.config_tab.Controls.Add(this.NetworkGroupBox);
             this.config_tab.Controls.Add(this.ImageEdotorBox);
             this.config_tab.Controls.Add(this.Current_cfg_label);
             this.config_tab.Controls.Add(this.Current_cfg_box);
@@ -378,19 +382,40 @@
             this.config_tab.Text = "Configuration";
             this.config_tab.UseVisualStyleBackColor = true;
             // 
+            // NetworkGroupBox
+            // 
+            this.NetworkGroupBox.Controls.Add(this.GetIPButton);
+            this.NetworkGroupBox.Controls.Add(this.NetworkButton);
+            this.NetworkGroupBox.Location = new System.Drawing.Point(291, 11);
+            this.NetworkGroupBox.Name = "NetworkGroupBox";
+            this.NetworkGroupBox.Size = new System.Drawing.Size(170, 60);
+            this.NetworkGroupBox.TabIndex = 5;
+            this.NetworkGroupBox.TabStop = false;
+            this.NetworkGroupBox.Text = "Network Settings";
+            // 
+            // NetworkButton
+            // 
+            this.NetworkButton.Location = new System.Drawing.Point(6, 24);
+            this.NetworkButton.Name = "NetworkButton";
+            this.NetworkButton.Size = new System.Drawing.Size(75, 23);
+            this.NetworkButton.TabIndex = 0;
+            this.NetworkButton.Text = "Edit settings";
+            this.NetworkButton.UseVisualStyleBackColor = true;
+            this.NetworkButton.Click += new System.EventHandler(this.NetworkButton_Click);
+            // 
             // ImageEdotorBox
             // 
             this.ImageEdotorBox.Controls.Add(this.ImageEditorBtn);
-            this.ImageEdotorBox.Location = new System.Drawing.Point(317, 23);
+            this.ImageEdotorBox.Location = new System.Drawing.Point(291, 77);
             this.ImageEdotorBox.Name = "ImageEdotorBox";
-            this.ImageEdotorBox.Size = new System.Drawing.Size(144, 60);
+            this.ImageEdotorBox.Size = new System.Drawing.Size(170, 60);
             this.ImageEdotorBox.TabIndex = 4;
             this.ImageEdotorBox.TabStop = false;
             this.ImageEdotorBox.Text = "Add parking plan(optional)";
             // 
             // ImageEditorBtn
             // 
-            this.ImageEditorBtn.Location = new System.Drawing.Point(39, 24);
+            this.ImageEditorBtn.Location = new System.Drawing.Point(46, 19);
             this.ImageEditorBtn.Name = "ImageEditorBtn";
             this.ImageEditorBtn.Size = new System.Drawing.Size(75, 23);
             this.ImageEditorBtn.TabIndex = 0;
@@ -401,7 +426,7 @@
             // Current_cfg_label
             // 
             this.Current_cfg_label.AutoSize = true;
-            this.Current_cfg_label.Location = new System.Drawing.Point(20, 96);
+            this.Current_cfg_label.Location = new System.Drawing.Point(20, 145);
             this.Current_cfg_label.Name = "Current_cfg_label";
             this.Current_cfg_label.Size = new System.Drawing.Size(108, 13);
             this.Current_cfg_label.TabIndex = 4;
@@ -409,10 +434,10 @@
             // 
             // Current_cfg_box
             // 
-            this.Current_cfg_box.Location = new System.Drawing.Point(17, 117);
+            this.Current_cfg_box.Location = new System.Drawing.Point(17, 167);
             this.Current_cfg_box.Name = "Current_cfg_box";
             this.Current_cfg_box.ReadOnly = true;
-            this.Current_cfg_box.Size = new System.Drawing.Size(444, 373);
+            this.Current_cfg_box.Size = new System.Drawing.Size(444, 323);
             this.Current_cfg_box.TabIndex = 3;
             this.Current_cfg_box.Text = "Load a configuration file to view it here";
             // 
@@ -421,16 +446,16 @@
             this.Load_new_config_box.Controls.Add(this.SendConfigButton);
             this.Load_new_config_box.Controls.Add(this.NewConfig_button);
             this.Load_new_config_box.Controls.Add(this.Load_button);
-            this.Load_new_config_box.Location = new System.Drawing.Point(17, 23);
+            this.Load_new_config_box.Location = new System.Drawing.Point(17, 11);
             this.Load_new_config_box.Name = "Load_new_config_box";
-            this.Load_new_config_box.Size = new System.Drawing.Size(253, 60);
+            this.Load_new_config_box.Size = new System.Drawing.Size(227, 90);
             this.Load_new_config_box.TabIndex = 2;
             this.Load_new_config_box.TabStop = false;
             this.Load_new_config_box.Text = "Load/New Configuration file";
             // 
             // SendConfigButton
             // 
-            this.SendConfigButton.Location = new System.Drawing.Point(168, 24);
+            this.SendConfigButton.Location = new System.Drawing.Point(73, 59);
             this.SendConfigButton.Name = "SendConfigButton";
             this.SendConfigButton.Size = new System.Drawing.Size(75, 23);
             this.SendConfigButton.TabIndex = 3;
@@ -440,7 +465,7 @@
             // 
             // NewConfig_button
             // 
-            this.NewConfig_button.Location = new System.Drawing.Point(87, 24);
+            this.NewConfig_button.Location = new System.Drawing.Point(121, 24);
             this.NewConfig_button.Name = "NewConfig_button";
             this.NewConfig_button.Size = new System.Drawing.Size(75, 23);
             this.NewConfig_button.TabIndex = 2;
@@ -450,65 +475,13 @@
             // 
             // Load_button
             // 
-            this.Load_button.Location = new System.Drawing.Point(6, 24);
+            this.Load_button.Location = new System.Drawing.Point(23, 24);
             this.Load_button.Name = "Load_button";
             this.Load_button.Size = new System.Drawing.Size(75, 23);
             this.Load_button.TabIndex = 0;
             this.Load_button.Text = "Load";
             this.Load_button.UseVisualStyleBackColor = true;
             this.Load_button.Click += new System.EventHandler(this.Load_button_Click);
-            // 
-            // serial_tab
-            // 
-            this.serial_tab.Controls.Add(this.LogSaveBtn);
-            this.serial_tab.Controls.Add(this.ClearButton);
-            this.serial_tab.Controls.Add(this.Serial_data_label);
-            this.serial_tab.Controls.Add(this.Serialport_text_box);
-            this.serial_tab.Location = new System.Drawing.Point(4, 22);
-            this.serial_tab.Name = "serial_tab";
-            this.serial_tab.Padding = new System.Windows.Forms.Padding(3);
-            this.serial_tab.Size = new System.Drawing.Size(480, 511);
-            this.serial_tab.TabIndex = 1;
-            this.serial_tab.Text = "Log";
-            this.serial_tab.UseVisualStyleBackColor = true;
-            // 
-            // LogSaveBtn
-            // 
-            this.LogSaveBtn.Location = new System.Drawing.Point(375, 482);
-            this.LogSaveBtn.Name = "LogSaveBtn";
-            this.LogSaveBtn.Size = new System.Drawing.Size(75, 23);
-            this.LogSaveBtn.TabIndex = 6;
-            this.LogSaveBtn.Text = "Save .txt";
-            this.LogSaveBtn.UseVisualStyleBackColor = true;
-            this.LogSaveBtn.Click += new System.EventHandler(this.LogSaveBtn_Click);
-            // 
-            // ClearButton
-            // 
-            this.ClearButton.Location = new System.Drawing.Point(27, 482);
-            this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(75, 23);
-            this.ClearButton.TabIndex = 5;
-            this.ClearButton.Text = "Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
-            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
-            // 
-            // Serial_data_label
-            // 
-            this.Serial_data_label.AutoSize = true;
-            this.Serial_data_label.Location = new System.Drawing.Point(24, 19);
-            this.Serial_data_label.Name = "Serial_data_label";
-            this.Serial_data_label.Size = new System.Drawing.Size(62, 13);
-            this.Serial_data_label.TabIndex = 4;
-            this.Serial_data_label.Text = "Serial Data:";
-            // 
-            // Serialport_text_box
-            // 
-            this.Serialport_text_box.Location = new System.Drawing.Point(27, 35);
-            this.Serialport_text_box.Name = "Serialport_text_box";
-            this.Serialport_text_box.ReadOnly = true;
-            this.Serialport_text_box.Size = new System.Drawing.Size(423, 441);
-            this.Serialport_text_box.TabIndex = 3;
-            this.Serialport_text_box.Text = "";
             // 
             // error_tab
             // 
@@ -581,6 +554,58 @@
             this.Error_help_box.Size = new System.Drawing.Size(450, 136);
             this.Error_help_box.TabIndex = 0;
             this.Error_help_box.Text = resources.GetString("Error_help_box.Text");
+            // 
+            // serial_tab
+            // 
+            this.serial_tab.Controls.Add(this.LogSaveBtn);
+            this.serial_tab.Controls.Add(this.ClearButton);
+            this.serial_tab.Controls.Add(this.Serial_data_label);
+            this.serial_tab.Controls.Add(this.Serialport_text_box);
+            this.serial_tab.Location = new System.Drawing.Point(4, 22);
+            this.serial_tab.Name = "serial_tab";
+            this.serial_tab.Padding = new System.Windows.Forms.Padding(3);
+            this.serial_tab.Size = new System.Drawing.Size(480, 511);
+            this.serial_tab.TabIndex = 1;
+            this.serial_tab.Text = "Log";
+            this.serial_tab.UseVisualStyleBackColor = true;
+            // 
+            // LogSaveBtn
+            // 
+            this.LogSaveBtn.Location = new System.Drawing.Point(375, 482);
+            this.LogSaveBtn.Name = "LogSaveBtn";
+            this.LogSaveBtn.Size = new System.Drawing.Size(75, 23);
+            this.LogSaveBtn.TabIndex = 6;
+            this.LogSaveBtn.Text = "Save .txt";
+            this.LogSaveBtn.UseVisualStyleBackColor = true;
+            this.LogSaveBtn.Click += new System.EventHandler(this.LogSaveBtn_Click);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(27, 482);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.TabIndex = 5;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
+            // Serial_data_label
+            // 
+            this.Serial_data_label.AutoSize = true;
+            this.Serial_data_label.Location = new System.Drawing.Point(24, 19);
+            this.Serial_data_label.Name = "Serial_data_label";
+            this.Serial_data_label.Size = new System.Drawing.Size(62, 13);
+            this.Serial_data_label.TabIndex = 4;
+            this.Serial_data_label.Text = "Serial Data:";
+            // 
+            // Serialport_text_box
+            // 
+            this.Serialport_text_box.Location = new System.Drawing.Point(27, 35);
+            this.Serialport_text_box.Name = "Serialport_text_box";
+            this.Serialport_text_box.ReadOnly = true;
+            this.Serialport_text_box.Size = new System.Drawing.Size(423, 441);
+            this.Serialport_text_box.TabIndex = 3;
+            this.Serialport_text_box.Text = "";
             // 
             // help_tab
             // 
@@ -836,6 +861,16 @@
             this.saveFileDialog1.Filter = "\"Text files (*.txt)|*.txt|All files (*.*)|*.*\"";
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
+            // GetIPButton
+            // 
+            this.GetIPButton.Location = new System.Drawing.Point(89, 24);
+            this.GetIPButton.Name = "GetIPButton";
+            this.GetIPButton.Size = new System.Drawing.Size(75, 23);
+            this.GetIPButton.TabIndex = 1;
+            this.GetIPButton.Text = "Get IP";
+            this.GetIPButton.UseVisualStyleBackColor = true;
+            this.GetIPButton.Click += new System.EventHandler(this.GetIPButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -864,12 +899,13 @@
             this.SerialPortBox.PerformLayout();
             this.config_tab.ResumeLayout(false);
             this.config_tab.PerformLayout();
+            this.NetworkGroupBox.ResumeLayout(false);
             this.ImageEdotorBox.ResumeLayout(false);
             this.Load_new_config_box.ResumeLayout(false);
-            this.serial_tab.ResumeLayout(false);
-            this.serial_tab.PerformLayout();
             this.error_tab.ResumeLayout(false);
             this.error_tab.PerformLayout();
+            this.serial_tab.ResumeLayout(false);
+            this.serial_tab.PerformLayout();
             this.help_tab.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -911,7 +947,6 @@
         private System.Windows.Forms.Button NewConfig_button;
         private System.Windows.Forms.Label Plugged_label;
         private System.Windows.Forms.Label SystemStatus_label;
-        private System.Windows.Forms.Button Restart_button;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox SerialPortBox;
         private System.Windows.Forms.Button Refresh_button;
@@ -920,14 +955,11 @@
         private System.Windows.Forms.Button Disonnect_button;
         private System.Windows.Forms.Button Connect_button;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button NewUserButton;
         private System.Windows.Forms.Label NewUserText;
         private System.Windows.Forms.ProgressBar progressLED;
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button ConfigEnableButton;
-        private System.Windows.Forms.Button ConfigDisableButton;
         private System.Windows.Forms.Timer Serial_timer;
         private System.Windows.Forms.TreeView ConnectedDeviceList;
         private System.Windows.Forms.Button Ping_button;
@@ -938,7 +970,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Button RequestCount_button;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button GetErrors_button;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button FloorCountSendButton;
@@ -956,5 +987,13 @@
         private System.Windows.Forms.Button ImageEditorBtn;
         private System.Windows.Forms.Button LogSaveBtn;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.GroupBox NetworkGroupBox;
+        private System.Windows.Forms.Button NetworkButton;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button ConfigDisableButton;
+        private System.Windows.Forms.Button ConfigEnableButton;
+        private System.Windows.Forms.Button Restart_button;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button GetIPButton;
     }
 }

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{908A06C4-4369-4B0B-99F2-B8255A257075}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Hansab_slave_configurator</RootNamespace>
-    <AssemblyName>Hansab_slave_configurator</AssemblyName>
+    <RootNamespace>Hansab_Parking_Configurator</RootNamespace>
+    <AssemblyName>Hansab_Parking_Configurator</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -26,7 +26,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\Hansab\Hansab parking solutions\</InstallUrl>
     <PublisherName>Hansab SIA</PublisherName>
-    <ApplicationRevision>33</ApplicationRevision>
+    <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -130,6 +130,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Network.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Network.Designer.cs">
+      <DependentUpon>Network.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network.resx">
+      <DependentUpon>Network.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewConfig.resx">
       <DependentUpon>NewConfig.cs</DependentUpon>

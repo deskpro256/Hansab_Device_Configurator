@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hansab_slave_configurator;
 
 namespace Hansab_slave_configurator
 {
@@ -223,7 +224,7 @@ namespace Hansab_slave_configurator
                                 MessageBoxIcon.Question
                                 ))
                 {
-                    case DialogResult.Yes: AddLicence(); break;
+                    case DialogResult.Yes: openFileDialog1.ShowDialog(); break;
                     case DialogResult.No: break;
                 }
 ;
@@ -231,7 +232,7 @@ namespace Hansab_slave_configurator
 
         }
         private void AddLicence()
-        {
+        {            
             LicenceFile = openFileDialog1.FileName;
             try
             {

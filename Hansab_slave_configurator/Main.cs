@@ -11,6 +11,8 @@ namespace Hansab_slave_configurator
 {
     public partial class Main : Form
     {
+        
+        public static bool NWConfigSend = false;
         public static bool loadSavedConfig = false;
         public static String loadConfigName = "";
         public static int loadConfigCounter = 0;
@@ -18,6 +20,7 @@ namespace Hansab_slave_configurator
         public static int NewConfigLimiter = 0;
         public static int NewImageEditorLimiter = 0;
         public static int NewUserLimiter = 0;
+        public static int NewIPEditorLimiter = 0;
         public Boolean apply = false;
         public Boolean _continue = false;
         public bool TimerPause = false;
@@ -34,7 +37,6 @@ namespace Hansab_slave_configurator
         public byte[] RS485ReadBytes = new byte[8];
         bool replied = false;
         public byte[] logBytes = new byte[9];
-        String logText = "";
 
 
         public int[] floorNums = new int[4];
@@ -50,8 +52,18 @@ namespace Hansab_slave_configurator
         public bool ConfigLoaded = false;
 
         // RS485 stuff end
+        // Network settings start:
+
+        public static byte DHCP = 0x00;
+        public static byte[] IP = new byte[4];
+        public static byte[] GW = new byte[4];
+        public static byte[] SN = new byte[4];
+        // Network settings end
         // Configuration files:
 
+        public static byte[] NetworkConfig = new byte[18]
+            {0x5B,0x1D,0x1C,0x09,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x5D};
+        //public static byte[] NetworkConfig = new byte[18];
         byte[] MasterConfig = new byte[18];
         byte[,] SlaveConfig = new byte[16, 10];
         public Main(string type, string username)
@@ -91,6 +103,7 @@ namespace Hansab_slave_configurator
             ClearErrorsButton.Enabled = false;
             SendConfigButton.Enabled = false;
             FloorCountSendButton.Enabled = false;
+            NetworkButton.Enabled = false;
             ConfigLoaded = false;
             ConfigEnabled = false;
         }
@@ -163,6 +176,7 @@ namespace Hansab_slave_configurator
                 ConfigEnableButton.Enabled = false;
                 FloorCountSendButton.Enabled = false;
                 Refresh_button.Enabled = true;
+                NetworkButton.Enabled = false;
                 ConfigEnabled = false;
                 serialPort1.Close();
             }
@@ -298,6 +312,8 @@ namespace Hansab_slave_configurator
             ClearErrorsButton.Enabled = false;
             Ping_button.Enabled = false;
             FloorCountSendButton.Enabled = false;
+            SendConfigButton.Enabled = false;
+            NetworkButton.Enabled = false;
 
             for (int i = 0; i <= 15; i++)
             {
@@ -353,6 +369,7 @@ namespace Hansab_slave_configurator
                 Restart_button.Enabled = false;
                 GetErrors_button.Enabled = false;
                 ClearErrorsButton.Enabled = false;
+                NetworkButton.Enabled = false;
             }
             if (ConfigEnabled == true && ConfigLoaded == true)
             {
@@ -370,6 +387,13 @@ namespace Hansab_slave_configurator
                     LoadConfig(loadConfigName);
                 }
             }
+            // check if NW settings can and need to be sent
+            if (ConfigEnabled == true && NWConfigSend == true)
+            {
+                NWConfigSend = false;
+                MessageBox.Show("Sending the network settings after this message!","Send network settings",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                SendNetworkSettings();
+            }
         }
         public void MCP2200Load()
         {
@@ -379,7 +403,7 @@ namespace Hansab_slave_configurator
             //SimpleIOClass.ConfigureIO(0x34);
         }
 
-        private void ConfigEnableButton_Click(object sender, EventArgs e)
+        private void ConfigEnableButton_Click_1(object sender, EventArgs e)
         {
             SimpleIOClass.SetPin(3);
             ConfigEnabled = true;
@@ -391,6 +415,7 @@ namespace Hansab_slave_configurator
             ClearErrorsButton.Enabled = true;
             Ping_button.Enabled = true;
             FloorCountSendButton.Enabled = true;
+            NetworkButton.Enabled = true;
             System.Threading.Thread.Sleep(50);
             while (serialPort1.BytesToRead > 0)
             {
@@ -398,9 +423,10 @@ namespace Hansab_slave_configurator
             }
             System.Threading.Thread.Sleep(500);
             RequestCurrentCount();
+            MessageBox.Show("To edit the systemm settings, open the 'Configuration' tab","Configuration",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
-        private void ConfigDisableButton_Click(object sender, EventArgs e)
+        private void ConfigDisableButton_Click_1(object sender, EventArgs e)
         {
             SimpleIOClass.ClearPin(3);
             ConfigEnabled = false;
@@ -412,6 +438,7 @@ namespace Hansab_slave_configurator
             GetErrors_button.Enabled = false;
             Ping_button.Enabled = false;
             FloorCountSendButton.Enabled = false;
+            NetworkButton.Enabled = false;
         }
 
         private void Serial_timer_Tick(object sender, EventArgs e)
@@ -757,6 +784,7 @@ namespace Hansab_slave_configurator
                 }
 
                 ConfigDisableButton.Enabled = false;
+                ConfigEnabled = false;
                 ConfigEnableButton.Enabled = true;
                 Restart_button.Enabled = false;
                 RequestCount_button.Enabled = false;
@@ -764,6 +792,7 @@ namespace Hansab_slave_configurator
                 ClearErrorsButton.Enabled = false;
                 Ping_button.Enabled = false;
                 FloorCountSendButton.Enabled = false;
+                SendConfigButton.Enabled = false;
                 SimpleIOClass.ClearPin(3);
             }
             else
@@ -786,7 +815,7 @@ namespace Hansab_slave_configurator
                         {
                             LogText += " [PC] ";
                         }
-                        else if(data[i] == 29)
+                        else if (data[i] == 29)
                         {
                             LogText += " [INT] ";
                         }
@@ -859,6 +888,63 @@ namespace Hansab_slave_configurator
             catch (Exception)
             {
             }
+        }
+
+        private void NetworkButton_Click(object sender, EventArgs e)
+        {
+            NewIPEditorLimiter++;
+            if (NewIPEditorLimiter == 1)
+            {
+                var newwindow = new Hansab_Parking_Configurator.Network();
+                newwindow.Show();
+            }
+        }
+
+
+        public void SendNetworkSettings()
+        {
+            // tell the device the network settings are coming in
+
+            RS485Send(IntDev, messageType[0], CMDLUT[9], 0x4E, 0x57, 0x43);
+            System.Threading.Thread.Sleep(50);
+
+            // set the bytes
+            NetworkConfig[4] = DHCP;
+
+            NetworkConfig[5] = IP[0];
+            NetworkConfig[6] = IP[1];
+            NetworkConfig[7] = IP[2];
+            NetworkConfig[8] = IP[3];
+
+            NetworkConfig[9] = SN[0];
+            NetworkConfig[10] = SN[1];
+            NetworkConfig[11] = SN[2];
+            NetworkConfig[12] = SN[3];
+
+            NetworkConfig[13] = GW[0];
+            NetworkConfig[14] = GW[1];
+            NetworkConfig[15] = GW[2];
+            NetworkConfig[16] = GW[3];
+
+            // send the nw settings
+            SimpleIOClass.SetPin(2); //enable sending
+            System.Threading.Thread.Sleep(50);
+            serialPort1.Write(NetworkConfig, 0, 18);
+            System.Threading.Thread.Sleep(100);
+            SimpleIOClass.ClearPin(2); //disable sending
+
+        }
+
+        public void GetNWSettings()
+        {
+            // ask for network settings
+            RS485Send(IntDev, messageType[0], CMDLUT[10], 0x4E, 0x57, 0x43);
+
+        }
+
+        private void GetIPButton_Click(object sender, EventArgs e)
+        {
+            GetNWSettings();
         }
     }
 }

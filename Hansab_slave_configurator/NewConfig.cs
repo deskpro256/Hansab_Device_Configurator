@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SimpleIO;
+using Hansab_slave_configurator;
 
 namespace Hansab_slave_configurator
 {
