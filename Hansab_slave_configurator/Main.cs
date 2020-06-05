@@ -104,6 +104,7 @@ namespace Hansab_slave_configurator
             SendConfigButton.Enabled = false;
             FloorCountSendButton.Enabled = false;
             NetworkButton.Enabled = false;
+            GetIPButton.Enabled = false;
             ConfigLoaded = false;
             ConfigEnabled = false;
         }
@@ -177,6 +178,7 @@ namespace Hansab_slave_configurator
                 FloorCountSendButton.Enabled = false;
                 Refresh_button.Enabled = true;
                 NetworkButton.Enabled = false;
+                GetIPButton.Enabled = false;
                 ConfigEnabled = false;
                 serialPort1.Close();
             }
@@ -314,6 +316,7 @@ namespace Hansab_slave_configurator
             FloorCountSendButton.Enabled = false;
             SendConfigButton.Enabled = false;
             NetworkButton.Enabled = false;
+            GetIPButton.Enabled = false;
 
             for (int i = 0; i <= 15; i++)
             {
@@ -370,6 +373,7 @@ namespace Hansab_slave_configurator
                 GetErrors_button.Enabled = false;
                 ClearErrorsButton.Enabled = false;
                 NetworkButton.Enabled = false;
+                GetIPButton.Enabled = false;
             }
             if (ConfigEnabled == true && ConfigLoaded == true)
             {
@@ -416,6 +420,7 @@ namespace Hansab_slave_configurator
             Ping_button.Enabled = true;
             FloorCountSendButton.Enabled = true;
             NetworkButton.Enabled = true;
+            GetIPButton.Enabled = true;
             System.Threading.Thread.Sleep(50);
             while (serialPort1.BytesToRead > 0)
             {
@@ -439,6 +444,7 @@ namespace Hansab_slave_configurator
             Ping_button.Enabled = false;
             FloorCountSendButton.Enabled = false;
             NetworkButton.Enabled = false;
+            GetIPButton.Enabled = false;
         }
 
         private void Serial_timer_Tick(object sender, EventArgs e)
