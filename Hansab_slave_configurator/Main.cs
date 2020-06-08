@@ -11,9 +11,10 @@ namespace Hansab_slave_configurator
 {
     public partial class Main : Form
     {
-        
+
         public static bool NWConfigSend = false;
         public static bool loadSavedConfig = false;
+        public String NetworkSettings = "";
         public static String loadConfigName = "";
         public static int loadConfigCounter = 0;
         public String FileName = "Log.txt";
@@ -395,7 +396,7 @@ namespace Hansab_slave_configurator
             if (ConfigEnabled == true && NWConfigSend == true)
             {
                 NWConfigSend = false;
-                MessageBox.Show("Sending the network settings after this message!","Send network settings",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Sending the network settings after this message!", "Send network settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SendNetworkSettings();
             }
         }
@@ -428,7 +429,7 @@ namespace Hansab_slave_configurator
             }
             System.Threading.Thread.Sleep(500);
             RequestCurrentCount();
-            MessageBox.Show("To edit the systemm settings, open the 'Configuration' tab","Configuration",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("To edit the system settings, open the 'Configuration' tab", "Configuration", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ConfigDisableButton_Click_1(object sender, EventArgs e)
@@ -945,6 +946,12 @@ namespace Hansab_slave_configurator
         {
             // ask for network settings
             RS485Send(IntDev, messageType[0], CMDLUT[10], 0x4E, 0x57, 0x43);
+            //wait a second to receive the data
+            System.Threading.Thread.Sleep(1000);
+            //show the data
+            NetworkSettings = serialPort1.ReadExisting();
+            Serialport_text_box.AppendText(NetworkSettings);
+            MessageBox.Show(NetworkSettings, "Devcice network settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
