@@ -31,6 +31,8 @@ namespace Hansab_slave_configurator
         public const uint mcp2200_VID = 0x04D8;  //VID for MCP2200
         public const uint mcp2200_PID = 0x00DF;  //PID for MCP2200
         public bool isConnected = SimpleIOClass.IsConnected();         //Connection status of MCP2200 
+        uint MCP2200Devices = 0;
+        int currentMCP2200 = 0;
 
         // RS485 stuff start:
         public byte[] msg = new byte[9];
@@ -137,7 +139,7 @@ namespace Hansab_slave_configurator
                 progressLED2.Value = 100;
                 Restart_button.Enabled = false;
                 _continue = true;
-                ConDiscon_label.Text = "Connected!";
+                ConDiscon_label.Text = "Connected! " + "(" + currentMCP2200 + ")";
                 Connect_button.Enabled = false;
                 Disonnect_button.Enabled = true;
                 ConfigDisableButton.Enabled = false;
@@ -153,7 +155,7 @@ namespace Hansab_slave_configurator
         }
         private void Disonnect_button_Click(object sender, EventArgs e)
         {
-            if (serialPort1.IsOpen == true)
+            if (serialPort1.IsOpen)
             {
                 SimpleIOClass.ClearPin(3);
                 ConnectedDeviceList.Nodes.Clear();
@@ -294,7 +296,7 @@ namespace Hansab_slave_configurator
             }
         }
 
-        private void Restart_button_Click(object sender, EventArgs e)
+        private void Restart_button_Click_1(object sender, EventArgs e)
         {
             switch (MessageBox.Show("Are you sure you want to restart the system? ", "Warning!", MessageBoxButtons.YesNo,
                             MessageBoxIcon.Question
@@ -343,11 +345,14 @@ namespace Hansab_slave_configurator
         private void Timer1_Tick(object sender, EventArgs e)
         {
             isConnected = SimpleIOClass.IsConnected();
+            MCP2200Devices = SimpleIOClass.GetNoOfDevices();
+            currentMCP2200 = SimpleIOClass.GetSelectedDevice() + 1;
+            //MessageBox.Show(MCP2200Devices.ToString(), "Number of MCP2200 devices connected", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            if (isConnected == true)
+            if (isConnected)
             {
                 progressLED.Value = 100;
-                Plugged_label.Text = "Plugged in!";
+                Plugged_label.Text = "Plugged in! " + "(" + MCP2200Devices + ")";
                 Refresh_button.Enabled = true;
             }
             else
@@ -405,7 +410,8 @@ namespace Hansab_slave_configurator
             SimpleIOClass.InitMCP2200(mcp2200_VID, mcp2200_PID);
             SimpleIOClass.ConfigureMCP2200(0x00, 9600, 5, 5, false, false, false, false);
             SimpleIOClass.ConfigureIoDefaultOutput(0x00, 0x00);
-            //SimpleIOClass.ConfigureIO(0x34);
+            SimpleIOClass.SelectDevice(0);
+
         }
 
         private void ConfigEnableButton_Click_1(object sender, EventArgs e)
@@ -959,5 +965,6 @@ namespace Hansab_slave_configurator
         {
             GetNWSettings();
         }
+
     }
 }

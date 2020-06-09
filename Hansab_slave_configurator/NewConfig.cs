@@ -45,16 +45,16 @@ namespace Hansab_slave_configurator
             {STX,0x0F,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,ETX}
         };
         //MasterConfigBytes
-        public static byte[] MasterConfiguration = new byte[18]
-            {STX,IntDev,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,ETX};
+        public static byte[] MasterConfiguration = new byte[19]
+            {STX,IntDev,myID,CMDLUT[4],0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,ETX};
         bool CorrectConfig = false;
 
-        public int FloorNumericValue = 1;
         public int UsedSlaveCount = 1;
         public int Floor1Count = 0;
         public int Floor2Count = 0;
         public int Floor3Count = 0;
         public int Floor4Count = 0;
+        public int FloorNumericValue = 1;
 
         public static Slave Slave0 = new Slave(0, 0, 0, 0);
         public static Slave Slave1 = new Slave(1, 0, 0, 0);
@@ -158,7 +158,7 @@ namespace Hansab_slave_configurator
 
             using (BinaryWriter binaryWriter = new BinaryWriter(File.Open(FileName, FileMode.Create)))
             {
-                for (int i = 0; i <= 17; i++)
+                for (int i = 0; i <= 18; i++)
                 {
                     binaryWriter.Write(MasterConfiguration[i]);
                 }
@@ -1079,6 +1079,7 @@ namespace Hansab_slave_configurator
 
             ConfigTextBox.AppendText("[Master settings]\n\n");
             ConfigTextBox.AppendText("Used slave count: " + slaveCount + "\n");
+            ConfigTextBox.AppendText("Active floor count: " + FloorNumericValue + "\n");
             if (FloorNumericValue == 1)
             {
                 ConfigTextBox.AppendText("Floor 1 MAX count: " + Floor1Count + "\n");
@@ -1133,6 +1134,8 @@ namespace Hansab_slave_configurator
             MasterConfiguration[14] = Convert.ToByte(huns); // COUNT1
             MasterConfiguration[15] = Convert.ToByte(tens); // COUNT2
             MasterConfiguration[16] = Convert.ToByte(ones); // COUNT3
+
+            MasterConfiguration[17] = Convert.ToByte(FloorNumericValue); // ACTIVE FLOOR COUNT
 
             foreach (Slave Slave in SlaveList)
             {

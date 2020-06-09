@@ -55,6 +55,7 @@
             this.SystemStatus_label = new System.Windows.Forms.Label();
             this.config_tab = new System.Windows.Forms.TabPage();
             this.NetworkGroupBox = new System.Windows.Forms.GroupBox();
+            this.GetIPButton = new System.Windows.Forms.Button();
             this.NetworkButton = new System.Windows.Forms.Button();
             this.ImageEdotorBox = new System.Windows.Forms.GroupBox();
             this.ImageEditorBtn = new System.Windows.Forms.Button();
@@ -101,7 +102,6 @@
             this.Serial_timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.GetIPButton = new System.Windows.Forms.Button();
             this.Tab_control.SuspendLayout();
             this.Main_tab.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -200,6 +200,7 @@
             this.Restart_button.TabIndex = 4;
             this.Restart_button.Text = "Restart";
             this.Restart_button.UseVisualStyleBackColor = true;
+            this.Restart_button.Click += new System.EventHandler(this.Restart_button_Click_1);
             // 
             // label5
             // 
@@ -392,6 +393,16 @@
             this.NetworkGroupBox.TabIndex = 5;
             this.NetworkGroupBox.TabStop = false;
             this.NetworkGroupBox.Text = "Network Settings";
+            // 
+            // GetIPButton
+            // 
+            this.GetIPButton.Location = new System.Drawing.Point(89, 24);
+            this.GetIPButton.Name = "GetIPButton";
+            this.GetIPButton.Size = new System.Drawing.Size(75, 23);
+            this.GetIPButton.TabIndex = 1;
+            this.GetIPButton.Text = "Get IP";
+            this.GetIPButton.UseVisualStyleBackColor = true;
+            this.GetIPButton.Click += new System.EventHandler(this.GetIPButton_Click);
             // 
             // NetworkButton
             // 
@@ -860,16 +871,6 @@
             this.saveFileDialog1.FileName = "SerialLog.txt";
             this.saveFileDialog1.Filter = "\"Text files (*.txt)|*.txt|All files (*.*)|*.*\"";
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
-            // 
-            // GetIPButton
-            // 
-            this.GetIPButton.Location = new System.Drawing.Point(89, 24);
-            this.GetIPButton.Name = "GetIPButton";
-            this.GetIPButton.Size = new System.Drawing.Size(75, 23);
-            this.GetIPButton.TabIndex = 1;
-            this.GetIPButton.Text = "Get IP";
-            this.GetIPButton.UseVisualStyleBackColor = true;
-            this.GetIPButton.Click += new System.EventHandler(this.GetIPButton_Click);
             // 
             // Main
             // 
