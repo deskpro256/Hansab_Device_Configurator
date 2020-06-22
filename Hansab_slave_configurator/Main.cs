@@ -12,6 +12,7 @@ namespace Hansab_slave_configurator
     public partial class Main : Form
     {
 
+        public static bool MACConfigSend = false;
         public static bool NWConfigSend = false;
         public static bool loadSavedConfig = false;
         public String NetworkSettings = "";
@@ -49,7 +50,7 @@ namespace Hansab_slave_configurator
         public byte myID = 0x1C;    //PC soft ID
         public byte STX = 0x5B;
         public byte ETX = 0x5D;
-        public byte[] CMDLUT = new byte[11] { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B };
+        public byte[] CMDLUT = new byte[12] { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C};
         public byte[] messageType = new byte[3] { 0x05, 0x06, 0x21 }; //ENQ ACK NAK
         public bool ConfigEnabled = false;
         public bool ConfigLoaded = false;
@@ -63,10 +64,12 @@ namespace Hansab_slave_configurator
         public static byte[] SN = new byte[4];
         // Network settings end
         // Configuration files:
-
-        public static byte[] NetworkConfig = new byte[18]
-            {0x5B,0x1D,0x1C,0x09,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x5D};
+        //                                                     [   int   pc   nwc DHCP  ip1  ip2 ip3  ip4  sn1  sn2  sn3  sn4  gw1  gw2  gw3  gw4    ]
+        public static byte[] NetworkConfig = new byte[18] { 0x5B, 0x1D, 0x1C, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x5D };
         //public static byte[] NetworkConfig = new byte[18];
+        //                                                [   int    pc  maccmd MAC1  MAC2  MAC3  MAC4  MAC5  MAC6   ]
+        public static byte[] MACConfig = new byte[11] { 0x5B, 0x1D, 0x1C, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x5D };
+
         byte[] MasterConfig = new byte[18];
         byte[,] SlaveConfig = new byte[16, 10];
         public Main(string type, string username)
@@ -401,8 +404,15 @@ namespace Hansab_slave_configurator
             if (ConfigEnabled == true && NWConfigSend == true)
             {
                 NWConfigSend = false;
-                MessageBox.Show("Sending the network settings after this message!", "Send network settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SendNetworkSettings();
+                MessageBox.Show("Network settings saved and sent!", "Network settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            // check if new MAC settings can and need to be sent
+            if (ConfigEnabled == true && MACConfigSend == true)
+            {
+                MACConfigSend = false;
+                SendMACSettings();
+                MessageBox.Show("MAC settings saved and sent!", "MAC settings", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         public void MCP2200Load()
@@ -913,6 +923,26 @@ namespace Hansab_slave_configurator
             }
         }
 
+        public void SendMACSettings()
+        {
+            // tell the device the mac settings are coming in
+
+            RS485Send(IntDev, messageType[0], CMDLUT[11], 0x4D, 0x41, 0x43);
+            System.Threading.Thread.Sleep(50);
+
+            // set the bytes
+
+
+            // send the nw settings
+            SimpleIOClass.SetPin(2); //enable sending
+            System.Threading.Thread.Sleep(50);
+            serialPort1.Write(MACConfig, 0, 11);
+            System.Threading.Thread.Sleep(100);
+            SimpleIOClass.ClearPin(2); //disable sending
+
+            MessageBox.Show("The device will restart with the new MAC settings!", "Devcice restarting.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
 
         public void SendNetworkSettings()
         {
@@ -946,14 +976,15 @@ namespace Hansab_slave_configurator
             System.Threading.Thread.Sleep(100);
             SimpleIOClass.ClearPin(2); //disable sending
 
+            MessageBox.Show("The device will restart with the new network settings!", "Devcice restarting.", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void GetNWSettings()
         {
             // ask for network settings
-            RS485Send(IntDev, messageType[0], CMDLUT[10], 0x4E, 0x57, 0x43);
+            RS485Send(IntDev, messageType[0], CMDLUT[10], 0x4E, 0x57, 0x53);
             //wait a second to receive the data
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(2000);
             //show the data
             NetworkSettings = serialPort1.ReadExisting();
             Serialport_text_box.AppendText(NetworkSettings);

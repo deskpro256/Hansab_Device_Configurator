@@ -12,6 +12,8 @@ namespace Hansab_Parking_Configurator
 {
     public partial class Network : Form
     {
+
+        public static int NewMACLimiter = 0;
         public Network()
         {
             InitializeComponent();
@@ -46,7 +48,8 @@ namespace Hansab_Parking_Configurator
         {
             if (DHCPButton.Checked == true)
             {
-                Main.NetworkConfig[0] = 1;
+                // DHCP
+                //Main.DHCP = 0x01;
                 // IP
                 Main.IP[0] = 0x00;
                 Main.IP[1] = 0x00;
@@ -69,6 +72,8 @@ namespace Hansab_Parking_Configurator
             {
                 try
                 {
+                    // DHCP
+                    //Main.DHCP = 0x00;
                     // IP
                     Main.IP[0] = Convert.ToByte(Convert.ToInt32(IPBox1.Text));
                     Main.IP[1] = Convert.ToByte(Convert.ToInt32(IPBox2.Text));
@@ -88,10 +93,9 @@ namespace Hansab_Parking_Configurator
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Check if there are no empty fields or are filed with numbrs only!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Check if there are no empty fields or are filed with numbers only!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Main.NWConfigSend = false;
                 }
-
             }
 
         }
@@ -170,5 +174,31 @@ namespace Hansab_Parking_Configurator
             GWBox3.Enabled = true;
             GWBox4.Enabled = true;
         }
+
+        private void Network_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+            if (e.KeyChar == '~')
+            {
+                switch (MessageBox.Show("Are you sure you want to edit the device's MAC Address?", "MAC Change", MessageBoxButtons.YesNo,
+                               MessageBoxIcon.Question
+                               ))
+                {
+                    case DialogResult.Yes: ChangMAC(); break;
+                    case DialogResult.No: break;
+                }
+            }
+        }
+        void ChangMAC()
+        {
+            NewMACLimiter++;
+            if (NewMACLimiter == 1)
+            {
+                var newwindow = new NewMAC();
+                newwindow.Show();
+            }
+
+        }
+
     }
 }

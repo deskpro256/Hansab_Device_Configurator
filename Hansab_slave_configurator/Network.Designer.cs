@@ -86,6 +86,7 @@
             this.IPBox1.Name = "IPBox1";
             this.IPBox1.Size = new System.Drawing.Size(27, 20);
             this.IPBox1.TabIndex = 0;
+            this.IPBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SNBox1
             // 
@@ -93,6 +94,7 @@
             this.SNBox1.Name = "SNBox1";
             this.SNBox1.Size = new System.Drawing.Size(27, 20);
             this.SNBox1.TabIndex = 4;
+            this.SNBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // GWBox1
             // 
@@ -100,6 +102,7 @@
             this.GWBox1.Name = "GWBox1";
             this.GWBox1.Size = new System.Drawing.Size(27, 20);
             this.GWBox1.TabIndex = 8;
+            this.GWBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // IPBox2
             // 
@@ -107,6 +110,7 @@
             this.IPBox2.Name = "IPBox2";
             this.IPBox2.Size = new System.Drawing.Size(27, 20);
             this.IPBox2.TabIndex = 1;
+            this.IPBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // IPBox3
             // 
@@ -114,6 +118,7 @@
             this.IPBox3.Name = "IPBox3";
             this.IPBox3.Size = new System.Drawing.Size(27, 20);
             this.IPBox3.TabIndex = 2;
+            this.IPBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // IPBox4
             // 
@@ -121,6 +126,7 @@
             this.IPBox4.Name = "IPBox4";
             this.IPBox4.Size = new System.Drawing.Size(27, 20);
             this.IPBox4.TabIndex = 3;
+            this.IPBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // GWBox2
             // 
@@ -128,6 +134,7 @@
             this.GWBox2.Name = "GWBox2";
             this.GWBox2.Size = new System.Drawing.Size(27, 20);
             this.GWBox2.TabIndex = 9;
+            this.GWBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SNBox2
             // 
@@ -135,6 +142,7 @@
             this.SNBox2.Name = "SNBox2";
             this.SNBox2.Size = new System.Drawing.Size(27, 20);
             this.SNBox2.TabIndex = 5;
+            this.SNBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SNBox3
             // 
@@ -142,6 +150,7 @@
             this.SNBox3.Name = "SNBox3";
             this.SNBox3.Size = new System.Drawing.Size(27, 20);
             this.SNBox3.TabIndex = 6;
+            this.SNBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SNBox4
             // 
@@ -149,6 +158,7 @@
             this.SNBox4.Name = "SNBox4";
             this.SNBox4.Size = new System.Drawing.Size(27, 20);
             this.SNBox4.TabIndex = 7;
+            this.SNBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ClearButton
             // 
@@ -222,6 +232,7 @@
             this.GWBox4.Name = "GWBox4";
             this.GWBox4.Size = new System.Drawing.Size(27, 20);
             this.GWBox4.TabIndex = 11;
+            this.GWBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // GWBox3
             // 
@@ -229,6 +240,7 @@
             this.GWBox3.Name = "GWBox3";
             this.GWBox3.Size = new System.Drawing.Size(27, 20);
             this.GWBox3.TabIndex = 10;
+            this.GWBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Network
             // 
@@ -246,6 +258,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Interface Network Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Network_FormClosing);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Network_KeyPress);
             this.ManuaGroupBox.ResumeLayout(false);
             this.ManuaGroupBox.PerformLayout();
             this.ResumeLayout(false);
