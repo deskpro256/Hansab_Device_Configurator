@@ -929,10 +929,6 @@ namespace Hansab_slave_configurator
 
             RS485Send(IntDev, messageType[0], CMDLUT[11], 0x4D, 0x41, 0x43);
             System.Threading.Thread.Sleep(50);
-
-            // set the bytes
-
-
             // send the nw settings
             SimpleIOClass.SetPin(2); //enable sending
             System.Threading.Thread.Sleep(50);
