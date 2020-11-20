@@ -30,21 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login_form));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.username_label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.username_box = new System.Windows.Forms.TextBox();
-            this.password_box = new System.Windows.Forms.TextBox();
+            this.Username_box = new System.Windows.Forms.TextBox();
+            this.Password_box = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.login_button = new System.Windows.Forms.Button();
+            this.Login_button = new System.Windows.Forms.Button();
             this.Incorrect_label = new System.Windows.Forms.Label();
             this.ForgotButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.ChangeLicenceButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -67,22 +65,22 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Password:";
             // 
-            // username_box
+            // Username_box
             // 
-            this.username_box.Location = new System.Drawing.Point(111, 96);
-            this.username_box.Name = "username_box";
-            this.username_box.Size = new System.Drawing.Size(100, 20);
-            this.username_box.TabIndex = 1;
-            this.username_box.TextChanged += new System.EventHandler(this.username_box_TextChanged);
+            this.Username_box.Location = new System.Drawing.Point(111, 96);
+            this.Username_box.Name = "Username_box";
+            this.Username_box.Size = new System.Drawing.Size(100, 20);
+            this.Username_box.TabIndex = 1;
+            this.Username_box.TextChanged += new System.EventHandler(this.Username_box_TextChanged);
             // 
-            // password_box
+            // Password_box
             // 
-            this.password_box.Location = new System.Drawing.Point(111, 133);
-            this.password_box.Name = "password_box";
-            this.password_box.PasswordChar = '*';
-            this.password_box.Size = new System.Drawing.Size(100, 20);
-            this.password_box.TabIndex = 2;
-            this.password_box.TextChanged += new System.EventHandler(this.password_box_TextChanged);
+            this.Password_box.Location = new System.Drawing.Point(111, 133);
+            this.Password_box.Name = "Password_box";
+            this.Password_box.PasswordChar = '*';
+            this.Password_box.Size = new System.Drawing.Size(100, 20);
+            this.Password_box.TabIndex = 2;
+            this.Password_box.TextChanged += new System.EventHandler(this.Password_box_TextChanged);
             // 
             // pictureBox1
             // 
@@ -94,15 +92,15 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // login_button
+            // Login_button
             // 
-            this.login_button.Location = new System.Drawing.Point(123, 176);
-            this.login_button.Name = "login_button";
-            this.login_button.Size = new System.Drawing.Size(75, 23);
-            this.login_button.TabIndex = 3;
-            this.login_button.Text = "Login";
-            this.login_button.UseVisualStyleBackColor = true;
-            this.login_button.Click += new System.EventHandler(this.login_button_Click);
+            this.Login_button.Location = new System.Drawing.Point(123, 176);
+            this.Login_button.Name = "Login_button";
+            this.Login_button.Size = new System.Drawing.Size(75, 23);
+            this.Login_button.TabIndex = 3;
+            this.Login_button.Text = "Login";
+            this.Login_button.UseVisualStyleBackColor = true;
+            this.Login_button.Click += new System.EventHandler(this.Login_button_Click);
             // 
             // Incorrect_label
             // 
@@ -127,49 +125,32 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(300, 300);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "Licence.lic";
-            this.openFileDialog1.Filter = "\"Licence files (*.lic)|*.lic|All files (*.*)|*.*\"";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
-            // ChangeLicenceButton
-            // 
-            this.ChangeLicenceButton.Location = new System.Drawing.Point(111, 235);
-            this.ChangeLicenceButton.Name = "ChangeLicenceButton";
-            this.ChangeLicenceButton.Size = new System.Drawing.Size(100, 23);
-            this.ChangeLicenceButton.TabIndex = 5;
-            this.ChangeLicenceButton.Text = "Change Licence";
-            this.ChangeLicenceButton.UseVisualStyleBackColor = true;
-            this.ChangeLicenceButton.Click += new System.EventHandler(this.ChangeLicenceButton_Click);
-            // 
             // Login_form
             // 
-            this.AcceptButton = this.login_button;
+            this.AcceptButton = this.Login_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 270);
-            this.Controls.Add(this.ChangeLicenceButton);
             this.Controls.Add(this.ForgotButton);
             this.Controls.Add(this.Incorrect_label);
-            this.Controls.Add(this.login_button);
+            this.Controls.Add(this.Login_button);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.password_box);
-            this.Controls.Add(this.username_box);
+            this.Controls.Add(this.Password_box);
+            this.Controls.Add(this.Username_box);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.username_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -190,15 +171,13 @@
 
         private System.Windows.Forms.Label username_label;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox username_box;
-        private System.Windows.Forms.TextBox password_box;
+        private System.Windows.Forms.TextBox Username_box;
+        private System.Windows.Forms.TextBox Password_box;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button login_button;
+        private System.Windows.Forms.Button Login_button;
         private System.Windows.Forms.Label Incorrect_label;
         private System.Windows.Forms.Button ForgotButton;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button ChangeLicenceButton;
     }
 }

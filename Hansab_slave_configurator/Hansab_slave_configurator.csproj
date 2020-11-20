@@ -83,7 +83,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Hansablogo.ico</ApplicationIcon>
@@ -156,6 +156,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RS485.cs" />
     <EmbeddedResource Include="ForgotPass.resx">
       <DependentUpon>ForgotPass.cs</DependentUpon>
     </EmbeddedResource>

@@ -230,7 +230,8 @@ namespace Hansab_slave_configurator
         }
 
         private void GetPortNames()
-        {
+        {   
+            COM_ports_box.Items.Clear();
             serialPorts = "";
             foreach (string s in SerialPort.GetPortNames())
             {

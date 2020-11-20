@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_800C3B8390806BABFDEE385FF031DEF2"
+        "MsmKey" = "8:_129399BA70FA6DDDE7E1C3A7F9F05F8F"
         "OwnerKey" = "8:_87B70932A03149D99C653B662E6A7D4D"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -40,7 +40,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_800C3B8390806BABFDEE385FF031DEF2"
+        "OwnerKey" = "8:_129399BA70FA6DDDE7E1C3A7F9F05F8F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -138,14 +138,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_800C3B8390806BABFDEE385FF031DEF2"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_129399BA70FA6DDDE7E1C3A7F9F05F8F"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:SimpleIO-M-dotNet4, Version=1.1.1.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_800C3B8390806BABFDEE385FF031DEF2"
+                    "_129399BA70FA6DDDE7E1C3A7F9F05F8F"
                     {
                     "Name" = "8:SimpleIO-M-dotNet4.dll"
                     "Attributes" = "3:512"
@@ -268,7 +268,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Parking Solution Configurator"
         "ProductCode" = "8:{C1C4C16D-62C0-4891-9768-CAA3FB32141C}"
-        "PackageCode" = "8:{F27B6C0F-5410-4EB4-B290-F709F49C5005}"
+        "PackageCode" = "8:{2612DA30-E319-4EE6-A7B9-54F7286A4468}"
         "UpgradeCode" = "8:{C577B38D-57CA-41AF-B709-75D031FD6154}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
